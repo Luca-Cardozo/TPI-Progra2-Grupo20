@@ -1,0 +1,58 @@
+#include "TipoSuscripcion.h"
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+TipoSuscripcion::TipoSuscripcion()
+{
+    _idTipoSuscripcion = 0;
+    strcpy(_descripcion, "");
+    _eliminado = false;
+}
+
+void TipoSuscripcion::cargar()
+{
+    int id;
+    char d[20];
+    cout << "ID del genero: ";
+    cin >> id;
+    setIdTipoSuscripcion(id);
+    cout << "Descripcion del genero: ";
+    cin >> d;
+    setDescripcion(d);
+    _eliminado = false;
+}
+
+void TipoSuscripcion::mostrar()
+{
+    cout << "ID Clasificacion: " << _idTipoSuscripcion << endl;
+    cout << "Descripcion: " << _descripcion << endl;
+    cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
+}
+
+int TipoSuscripcion::getIdTipoSuscripcion()
+{
+    return _idTipoSuscripcion;
+}
+const char* TipoSuscripcion::getDescripcion()
+{
+    return _descripcion;
+}
+bool TipoSuscripcion::getEliminado()
+{
+    return _eliminado;
+}
+
+void TipoSuscripcion::setIdTipoSuscripcion(int id)
+{
+    _idTipoSuscripcion = id;
+}
+void TipoSuscripcion::setDescripcion(const char* d)
+{
+    strcpy(_descripcion, d);
+}
+void TipoSuscripcion::setEliminado(bool e)
+{
+    _eliminado = e;
+}

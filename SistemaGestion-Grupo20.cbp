@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="SistemaGestion-Grupo20" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/SistemaGestion-Grupo20" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/SistemaGestion-Grupo20" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Clasificacion.cpp" />
+		<Unit filename="Clasificacion.h" />
+		<Unit filename="Consumo.cpp" />
+		<Unit filename="Consumo.h" />
+		<Unit filename="Contenido.cpp" />
+		<Unit filename="Contenido.h" />
+		<Unit filename="Director.cpp" />
+		<Unit filename="Director.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
+		<Unit filename="Genero.cpp" />
+		<Unit filename="Genero.h" />
+		<Unit filename="Pelicula.cpp" />
+		<Unit filename="Pelicula.h" />
+		<Unit filename="Persona.cpp" />
+		<Unit filename="Persona.h" />
+		<Unit filename="Serie.cpp" />
+		<Unit filename="Serie.h" />
+		<Unit filename="Suscriptor.cpp" />
+		<Unit filename="Suscriptor.h" />
+		<Unit filename="TipoContenido.cpp" />
+		<Unit filename="TipoContenido.h" />
+		<Unit filename="TipoSuscripcion.cpp" />
+		<Unit filename="TipoSuscripcion.h" />
+		<Unit filename="main.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

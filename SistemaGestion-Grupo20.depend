@@ -1,0 +1,92 @@
+# depslib dependency file v1.0
+1584205420 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\main.cpp
+	<iostream>
+
+1760390030 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\fecha.cpp
+	"Fecha.h"
+	<iostream>
+
+1760389963 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\fecha.h
+	<string>
+
+1760389743 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\clasificacion.cpp
+	"Clasificacion.h"
+	<iostream>
+	<cstring>
+
+1760389136 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\clasificacion.h
+
+1760389771 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\genero.cpp
+	"Genero.h"
+	<iostream>
+	<cstring>
+
+1760386748 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\genero.h
+
+1760389778 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tipocontenido.cpp
+	"TipoContenido.h"
+	<iostream>
+	<cstring>
+
+1760389450 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tipocontenido.h
+
+1760389761 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tiposuscripcion.cpp
+	"TipoSuscripcion.h"
+	<iostream>
+	<cstring>
+
+1760389296 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tiposuscripcion.h
+
+1760389996 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\consumo.cpp
+	"Consumo.h"
+	<iostream>
+
+1760386646 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\consumo.h
+	"Fecha.h"
+
+1760390065 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\contenido.cpp
+	"Contenido.h"
+	<iostream>
+	<cstring>
+
+1760383889 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\contenido.h
+	"Fecha.h"
+
+1760390124 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\director.cpp
+	"Director.h"
+	<iostream>
+	<cstring>
+
+1760384907 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\director.h
+	"Persona.h"
+
+1760383399 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\persona.h
+	"Fecha.h"
+
+1760390139 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\pelicula.cpp
+	"Pelicula.h"
+	<iostream>
+
+1760384900 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\pelicula.h
+	"Contenido.h"
+
+1760390148 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\persona.cpp
+	"Persona.h"
+	<iostream>
+	<cstring>
+
+1760390163 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\serie.cpp
+	"Serie.h"
+	<iostream>
+
+1760385147 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\serie.h
+	"Contenido.h"
+
+1760390199 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\suscriptor.cpp
+	"Suscriptor.h"
+	<iostream>
+	<cstring>
+
+1760382194 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\suscriptor.h
+	"Persona.h"
+
