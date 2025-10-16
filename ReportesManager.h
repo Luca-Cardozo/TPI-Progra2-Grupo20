@@ -1,0 +1,9 @@
+#ifndef REPORTESMANAGER_H_INCLUDED
+#define REPORTESMANAGER_H_INCLUDED
+
+class ReportesManager
+{
+
+};
+
+#endif // REPORTESMANAGER_H_INCLUDED

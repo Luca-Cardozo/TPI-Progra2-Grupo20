@@ -9,6 +9,7 @@ Persona::Persona()
     strcpy(_nombre, "");
     strcpy(_apellido, "");
     strcpy(_nacionalidad, "");
+    _eliminado = false;
 }
 
 void Persona::cargar()
@@ -55,6 +56,10 @@ Fecha Persona::getFechaNacimiento()
 {
     return _fechaNacimiento;
 }
+bool Persona::getEliminado()
+{
+    return _eliminado;
+}
 
 void Persona::setNombre(const char* n)
 {
@@ -71,4 +76,8 @@ void Persona::setNacionalidad(const char* nac)
 void Persona::setFechaNacimiento(Fecha f)
 {
     _fechaNacimiento = f;
+}
+void Persona::setEliminado(bool e)
+{
+    _eliminado = e;
 }

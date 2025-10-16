@@ -6,7 +6,7 @@ using namespace std;
 
 Contenido::Contenido()
 {
-    _idContenido = 0;
+    _idTipoContenido = 0;
     strcpy(_titulo, "");
     _idDirector = 0;
     _genero = 0;
@@ -19,9 +19,9 @@ void Contenido::cargar()
     int idC, g, c, idD;
     char t[50];
     Fecha f;
-    cout << "ID del contenido: ";
+    cout << "ID del tipo de contenido: ";
     cin >> idC;
-    setIdContenido(idC);
+    setIdTipoContenido(idC);
     cin.ignore();
     cout << "Titulo: ";
     cin.getline(t, 50);
@@ -46,7 +46,7 @@ void Contenido::cargar()
 
 void Contenido::mostrar()
 {
-    cout << "ID Contenido: " << _idContenido << endl;
+    cout << "ID del tipo de contenido: " << _idTipoContenido << endl;
     cout << "Titulo: " << _titulo << endl;
     cout << "ID Director: " << _idDirector << endl;
     cout << "ID Genero: " << _genero << endl;
@@ -58,9 +58,9 @@ void Contenido::mostrar()
     cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
 }
 
-int Contenido::getIdContenido()
+int Contenido::getIdTipoContenido()
 {
-    return _idContenido;
+    return _idTipoContenido;
 }
 const char* Contenido::getTitulo()
 {
@@ -91,9 +91,9 @@ bool Contenido::getEliminado()
     return _eliminado;
 }
 
-void Contenido::setIdContenido(int id)
+void Contenido::setIdTipoContenido(int id)
 {
-    _idContenido = id;
+    _idTipoContenido = id;
 }
 void Contenido::setTitulo(const char* t)
 {

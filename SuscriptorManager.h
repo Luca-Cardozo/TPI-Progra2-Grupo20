@@ -1,0 +1,9 @@
+#ifndef SUSCRIPTORMANAGER_H_INCLUDED
+#define SUSCRIPTORMANAGER_H_INCLUDED
+
+class SuscriptorManager
+{
+
+};
+
+#endif // SUSCRIPTORMANAGER_H_INCLUDED

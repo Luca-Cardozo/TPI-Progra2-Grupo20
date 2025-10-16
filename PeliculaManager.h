@@ -1,0 +1,9 @@
+#ifndef PELICULAMANAGER_H_INCLUDED
+#define PELICULAMANAGER_H_INCLUDED
+
+class PeliculaManager
+{
+
+};
+
+#endif // PELICULAMANAGER_H_INCLUDED

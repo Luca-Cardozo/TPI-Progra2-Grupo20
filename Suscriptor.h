@@ -9,7 +9,6 @@ private:
     char _telefono[20];
     Fecha _fechaAlta;
     int _tipoSuscripcion;
-    bool _eliminado;
 public:
     Suscriptor();
 
@@ -21,12 +20,10 @@ public:
     const char* getTelefono();
     Fecha getFechaAlta();
     int getTipoSuscripcion();
-    bool getEliminado();
 
     void setIdSuscriptor(int id);
     void setEmail(const char* e);
     void setTelefono(const char* t);
     void setFechaAlta(Fecha f);
     void setTipoSuscripcion(int ts);
-    void setEliminado(bool e);
 };

@@ -8,6 +8,7 @@ protected:
     char _apellido[20];
     char _nacionalidad[20];
     Fecha _fechaNacimiento;
+    bool _eliminado;
 public:
     Persona();
 
@@ -18,9 +19,11 @@ public:
     const char* getApellido();
     const char* getNacionalidad();
     Fecha getFechaNacimiento();
+    bool getEliminado();
 
     void setNombre(const char* n);
     void setApellido(const char* a);
     void setNacionalidad(const char* nac);
     void setFechaNacimiento(Fecha f);
+    void setEliminado(bool e);
 };

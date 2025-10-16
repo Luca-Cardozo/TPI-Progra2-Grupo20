@@ -1,0 +1,9 @@
+#ifndef SERIEMANAGER_H_INCLUDED
+#define SERIEMANAGER_H_INCLUDED
+
+class SerieManager
+{
+
+};
+
+#endif // SERIEMANAGER_H_INCLUDED

@@ -1,0 +1,9 @@
+#ifndef DIRECTORMANAGER_H_INCLUDED
+#define DIRECTORMANAGER_H_INCLUDED
+
+class DirectorManager
+{
+
+};
+
+#endif // DIRECTORMANAGER_H_INCLUDED

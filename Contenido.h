@@ -4,7 +4,7 @@
 class Contenido
 {
 protected:
-    int _idContenido;
+    int _idTipoContenido;
     char _titulo[50];
     int _idDirector;
     int _genero;
@@ -18,7 +18,7 @@ public:
     void cargar();
     void mostrar();
 
-    int getIdContenido();
+    int getIdTipoContenido();
     const char* getTitulo();
     int getIdDirector();
     int getGenero();
@@ -27,7 +27,7 @@ public:
     Fecha getFechaAlta();
     bool getEliminado();
 
-    void setIdContenido(int id);
+    void setIdTipoContenido(int id);
     void setTitulo(const char* t);
     void setIdDirector(int id);
     void setGenero(int g);

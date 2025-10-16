@@ -6,7 +6,6 @@ class Director: public Persona
 {
 private:
     int _idDirector;
-    bool _eliminado;
 public:
     Director();
 
@@ -14,9 +13,7 @@ public:
     void mostrar();
 
     int getIdDirector();
-    bool getEliminado();
 
     void setIdDirector(int id);
-    void setEliminado(bool e);
 };
 

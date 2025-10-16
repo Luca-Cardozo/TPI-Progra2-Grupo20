@@ -5,6 +5,7 @@ using namespace std;
 
 Serie::Serie()
 {
+    _idSerie = 0;
     _temporadas = 0;
     _capitulos = 0;
 }
@@ -12,7 +13,10 @@ Serie::Serie()
 void Serie::cargar()
 {
     Contenido::cargar();
-    int t, c;
+    int id, t, c;
+    cout << "ID de la serie: " << endl;
+    cin >> id;
+    setIdSerie(id);
     cout << "Cantidad de temporadas: ";
     cin >> t;
     setTemporadas(t);
@@ -24,10 +28,15 @@ void Serie::cargar()
 void Serie::mostrar()
 {
     Contenido::mostrar();
+    cout << "ID de la serie: " << _idSerie << endl;
     cout << "Temporadas: " << _temporadas << endl;
     cout << "Capitulos: " << _capitulos << endl;
 }
 
+int Serie::getIdSerie()
+{
+    return _idSerie;
+}
 int Serie::getTemporadas()
 {
     return _temporadas;
@@ -37,6 +46,10 @@ int Serie::getCapitulos()
     return _capitulos;
 }
 
+void Serie::setIdSerie(int id)
+{
+    _idSerie = id;
+}
 void Serie::setTemporadas(int t)
 {
     _temporadas = t;

@@ -1,0 +1,9 @@
+#ifndef GENEROMANAGER_H_INCLUDED
+#define GENEROMANAGER_H_INCLUDED
+
+class GeneroManager
+{
+
+};
+
+#endif // GENEROMANAGER_H_INCLUDED

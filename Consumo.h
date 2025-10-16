@@ -4,6 +4,7 @@
 class Consumo
 {
 private:
+    int _idAcceso;
     int _idSuscriptor;
     int _idContenido;
     int _tipoContenido;
@@ -17,6 +18,7 @@ public:
     void cargar();
     void mostrar();
 
+    int getIdAcceso();
     int getIdSuscriptor();
     int getIdContenido();
     int getTipoContenido();
@@ -25,6 +27,7 @@ public:
     int getDuracionVista();
     bool getEliminado();
 
+    void setIdAcceso(int id);
     void setIdSuscriptor(int id);
     void setIdContenido(int id);
     void setTipoContenido(int tc);

@@ -10,7 +10,6 @@ Suscriptor::Suscriptor()
     strcpy(_email, "");
     strcpy(_telefono, "");
     _tipoSuscripcion = 0;
-    _eliminado = false;
 }
 
 void Suscriptor::cargar()
@@ -34,7 +33,6 @@ void Suscriptor::cargar()
     cout << "ID de tipo de suscripcion: " << endl;
     cin >> ts;
     setTipoSuscripcion(ts);
-    _eliminado = false;
 }
 
 void Suscriptor::mostrar()
@@ -69,10 +67,6 @@ int Suscriptor::getTipoSuscripcion()
 {
     return _tipoSuscripcion;
 }
-bool Suscriptor::getEliminado()
-{
-    return _eliminado;
-}
 
 void Suscriptor::setIdSuscriptor(int id)
 {
@@ -93,8 +87,4 @@ void Suscriptor::setFechaAlta(Fecha f)
 void Suscriptor::setTipoSuscripcion(int ts)
 {
     _tipoSuscripcion = ts;
-}
-void Suscriptor::setEliminado(bool e)
-{
-    _eliminado = e;
 }

@@ -7,7 +7,6 @@ using namespace std;
 Director::Director()
 {
     _idDirector = 0;
-    _eliminado = false;
 }
 
 void Director::cargar()
@@ -17,7 +16,6 @@ void Director::cargar()
     cout << "ID Suscriptor: " << endl;
     cin >> id;
     setIdDirector(id);
-    _eliminado = false;
 }
 
 void Director::mostrar()
@@ -31,16 +29,8 @@ int Director::getIdDirector()
 {
     return _idDirector;
 }
-bool Director::getEliminado()
-{
-    return _eliminado;
-}
 
 void Director::setIdDirector(int id)
 {
     _idDirector = id;
-}
-void Director::setEliminado(bool e)
-{
-    _eliminado = e;
 }

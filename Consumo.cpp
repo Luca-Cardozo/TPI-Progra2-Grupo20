@@ -5,6 +5,7 @@ using namespace std;
 
 Consumo::Consumo()
 {
+    _idAcceso = 0;
     _idSuscriptor = 0;
     _idContenido = 0;
     _tipoContenido = 0;
@@ -15,8 +16,11 @@ Consumo::Consumo()
 
 void Consumo::cargar()
 {
-    int idS, idC, tc, ha, dv;
+    int idA, idS, idC, tc, ha, dv;
     Fecha f;
+    cout << "ID Acceso: ";
+    cin >> idA;
+    setIdAcceso(idA);
     cout << "ID Suscriptor: ";
     cin >> idS;
     setIdSuscriptor(idS);
@@ -40,6 +44,7 @@ void Consumo::cargar()
 
 void Consumo::mostrar()
 {
+    cout << "ID Acceso: " << _idAcceso << endl;
     cout << "ID Suscriptor: " << _idSuscriptor << endl;
     cout << "ID Contenido: " << _idContenido << endl;
     cout << "Tipo Contenido: " << _tipoContenido << endl;
@@ -50,6 +55,10 @@ void Consumo::mostrar()
     cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
 }
 
+int Consumo::getIdAcceso()
+{
+    return _idAcceso;
+}
 int Consumo::getIdSuscriptor()
 {
     return _idSuscriptor;
@@ -79,6 +88,10 @@ bool Consumo::getEliminado()
     return _eliminado;
 }
 
+void Consumo::setIdAcceso(int id)
+{
+    _idAcceso = id;
+}
 void Consumo::setIdSuscriptor(int id)
 {
     _idSuscriptor = id;
