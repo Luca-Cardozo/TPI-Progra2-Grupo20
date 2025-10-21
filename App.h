@@ -8,6 +8,7 @@
 #include "TipoContenidoMenu.h"
 #include "DirectorMenu.h"
 #include "ReportesMenu.h"
+#include "ConsumoMenu.h"
 
 class App
 {
@@ -22,6 +23,7 @@ private:
     TipoContenidoMenu _tipoContenidoMenu;
     DirectorMenu _directorMenu;
     ReportesMenu _reportesMenu;
+    ConsumoMenu _consumoMenu;
     void mostrarOpciones();
     int seleccionOpcion();
     void ejecutarOpcion(int opcion);

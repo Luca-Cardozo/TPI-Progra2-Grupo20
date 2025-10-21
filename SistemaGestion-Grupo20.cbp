@@ -5,6 +5,7 @@
 		<Option title="SistemaGestion-Grupo20" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="Suscriptores/;Series/;Peliculas/;Directores/;Auxiliares/;Consumos/;Reportes/" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/SistemaGestion-Grupo20" prefix_auto="1" extension_auto="1" />
@@ -34,68 +35,238 @@
 		</Compiler>
 		<Unit filename="App.cpp" />
 		<Unit filename="App.h" />
-		<Unit filename="Clasificacion.cpp" />
-		<Unit filename="Clasificacion.h" />
-		<Unit filename="ClasificacionManager.cpp" />
-		<Unit filename="ClasificacionManager.h" />
-		<Unit filename="ClasificacionMenu.cpp" />
-		<Unit filename="ClasificacionMenu.h" />
-		<Unit filename="Consumo.cpp" />
-		<Unit filename="Consumo.h" />
+		<Unit filename="Clasificacion.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="Clasificacion.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="ClasificacionArchivo.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="ClasificacionArchivo.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="ClasificacionManager.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="ClasificacionManager.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="ClasificacionMenu.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="ClasificacionMenu.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="Consumo.cpp">
+			<Option virtualFolder="Consumos/" />
+		</Unit>
+		<Unit filename="Consumo.h">
+			<Option virtualFolder="Consumos/" />
+		</Unit>
+		<Unit filename="ConsumoArchivo.cpp">
+			<Option virtualFolder="Consumos/" />
+		</Unit>
+		<Unit filename="ConsumoArchivo.h">
+			<Option virtualFolder="Consumos/" />
+		</Unit>
+		<Unit filename="ConsumoManager.h">
+			<Option virtualFolder="Consumos/" />
+		</Unit>
+		<Unit filename="ConsumoMenu.cpp">
+			<Option virtualFolder="Consumos/" />
+		</Unit>
+		<Unit filename="ConsumoMenu.h">
+			<Option virtualFolder="Consumos/" />
+		</Unit>
 		<Unit filename="Contenido.cpp" />
 		<Unit filename="Contenido.h" />
-		<Unit filename="Director.cpp" />
-		<Unit filename="Director.h" />
-		<Unit filename="DirectorManager.cpp" />
-		<Unit filename="DirectorManager.h" />
-		<Unit filename="DirectorMenu.cpp" />
-		<Unit filename="DirectorMenu.h" />
+		<Unit filename="Director.cpp">
+			<Option virtualFolder="Directores/" />
+		</Unit>
+		<Unit filename="Director.h">
+			<Option virtualFolder="Directores/" />
+		</Unit>
+		<Unit filename="DirectorArchivo.cpp">
+			<Option virtualFolder="Directores/" />
+		</Unit>
+		<Unit filename="DirectorArchivo.h">
+			<Option virtualFolder="Directores/" />
+		</Unit>
+		<Unit filename="DirectorManager.cpp">
+			<Option virtualFolder="Directores/" />
+		</Unit>
+		<Unit filename="DirectorManager.h">
+			<Option virtualFolder="Directores/" />
+		</Unit>
+		<Unit filename="DirectorMenu.cpp">
+			<Option virtualFolder="Directores/" />
+		</Unit>
+		<Unit filename="DirectorMenu.h">
+			<Option virtualFolder="Directores/" />
+		</Unit>
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
-		<Unit filename="Genero.cpp" />
-		<Unit filename="Genero.h" />
-		<Unit filename="GeneroManager.cpp" />
-		<Unit filename="GeneroManager.h" />
-		<Unit filename="GeneroMenu.cpp" />
-		<Unit filename="GeneroMenu.h" />
-		<Unit filename="Pelicula.cpp" />
-		<Unit filename="Pelicula.h" />
-		<Unit filename="PeliculaManager.cpp" />
-		<Unit filename="PeliculaManager.h" />
-		<Unit filename="PeliculaMenu.cpp" />
-		<Unit filename="PeliculaMenu.h" />
+		<Unit filename="Genero.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="Genero.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="GeneroArchivo.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="GeneroArchivo.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="GeneroManager.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="GeneroManager.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="GeneroMenu.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="GeneroMenu.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="Pelicula.cpp">
+			<Option virtualFolder="Peliculas/" />
+		</Unit>
+		<Unit filename="Pelicula.h">
+			<Option virtualFolder="Peliculas/" />
+		</Unit>
+		<Unit filename="PeliculaArchivo.cpp">
+			<Option virtualFolder="Peliculas/" />
+		</Unit>
+		<Unit filename="PeliculaArchivo.h">
+			<Option virtualFolder="Peliculas/" />
+		</Unit>
+		<Unit filename="PeliculaManager.cpp">
+			<Option virtualFolder="Peliculas/" />
+		</Unit>
+		<Unit filename="PeliculaManager.h">
+			<Option virtualFolder="Peliculas/" />
+		</Unit>
+		<Unit filename="PeliculaMenu.cpp">
+			<Option virtualFolder="Peliculas/" />
+		</Unit>
+		<Unit filename="PeliculaMenu.h">
+			<Option virtualFolder="Peliculas/" />
+		</Unit>
 		<Unit filename="Persona.cpp" />
 		<Unit filename="Persona.h" />
-		<Unit filename="ReportesManager.cpp" />
-		<Unit filename="ReportesManager.h" />
-		<Unit filename="ReportesMenu.cpp" />
+		<Unit filename="ReportesManager.cpp">
+			<Option virtualFolder="Reportes/" />
+		</Unit>
+		<Unit filename="ReportesManager.h">
+			<Option virtualFolder="Reportes/" />
+		</Unit>
+		<Unit filename="ReportesMenu.cpp">
+			<Option virtualFolder="Reportes/" />
+		</Unit>
 		<Unit filename="ReportesMenu.h">
+			<Option virtualFolder="Reportes/" />
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="Serie.cpp" />
-		<Unit filename="Serie.h" />
-		<Unit filename="SerieManager.cpp" />
-		<Unit filename="SerieManager.h" />
-		<Unit filename="SerieMenu.cpp" />
-		<Unit filename="SerieMenu.h" />
-		<Unit filename="Suscriptor.cpp" />
-		<Unit filename="Suscriptor.h" />
-		<Unit filename="SuscriptorManager.cpp" />
-		<Unit filename="SuscriptorManager.h" />
-		<Unit filename="SuscriptorMenu.cpp" />
-		<Unit filename="SuscriptorMenu.h" />
-		<Unit filename="TipoContenido.cpp" />
-		<Unit filename="TipoContenido.h" />
-		<Unit filename="TipoContenidoManager.cpp" />
-		<Unit filename="TipoContenidoManager.h" />
-		<Unit filename="TipoContenidoMenu.cpp" />
-		<Unit filename="TipoContenidoMenu.h" />
-		<Unit filename="TipoSuscripcion.cpp" />
-		<Unit filename="TipoSuscripcion.h" />
-		<Unit filename="TipoSuscripcionManager.cpp" />
-		<Unit filename="TipoSuscripcionManager.h" />
-		<Unit filename="TipoSuscripcionMenu.cpp" />
-		<Unit filename="TipoSuscripcionMenu.h" />
+		<Unit filename="Serie.cpp">
+			<Option virtualFolder="Series/" />
+		</Unit>
+		<Unit filename="Serie.h">
+			<Option virtualFolder="Series/" />
+		</Unit>
+		<Unit filename="SerieArchivo.cpp">
+			<Option virtualFolder="Series/" />
+		</Unit>
+		<Unit filename="SerieArchivo.h">
+			<Option virtualFolder="Series/" />
+		</Unit>
+		<Unit filename="SerieManager.cpp">
+			<Option virtualFolder="Series/" />
+		</Unit>
+		<Unit filename="SerieManager.h">
+			<Option virtualFolder="Series/" />
+		</Unit>
+		<Unit filename="SerieMenu.cpp">
+			<Option virtualFolder="Series/" />
+		</Unit>
+		<Unit filename="SerieMenu.h">
+			<Option virtualFolder="Series/" />
+		</Unit>
+		<Unit filename="Suscriptor.cpp">
+			<Option virtualFolder="Suscriptores/" />
+		</Unit>
+		<Unit filename="Suscriptor.h">
+			<Option virtualFolder="Suscriptores/" />
+		</Unit>
+		<Unit filename="SuscriptorArchivo.cpp">
+			<Option virtualFolder="Suscriptores/" />
+		</Unit>
+		<Unit filename="SuscriptorArchivo.h">
+			<Option virtualFolder="Suscriptores/" />
+		</Unit>
+		<Unit filename="SuscriptorManager.cpp">
+			<Option virtualFolder="Suscriptores/" />
+		</Unit>
+		<Unit filename="SuscriptorManager.h">
+			<Option virtualFolder="Suscriptores/" />
+		</Unit>
+		<Unit filename="SuscriptorMenu.cpp">
+			<Option virtualFolder="Suscriptores/" />
+		</Unit>
+		<Unit filename="SuscriptorMenu.h">
+			<Option virtualFolder="Suscriptores/" />
+		</Unit>
+		<Unit filename="TipoContenido.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoContenido.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoContenidoArchivo.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoContenidoArchivo.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoContenidoManager.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoContenidoManager.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoContenidoMenu.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoContenidoMenu.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoSuscripcion.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoSuscripcion.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoSuscripcionArchivo.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoSuscripcionArchivo.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoSuscripcionManager.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoSuscripcionManager.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoSuscripcionMenu.cpp">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="TipoSuscripcionMenu.h">
+			<Option virtualFolder="Auxiliares/" />
+		</Unit>
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

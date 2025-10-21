@@ -5,7 +5,7 @@ using namespace std;
 
 App::App()
 {
-    _cantidadOpciones = 9;
+    _cantidadOpciones = 10;
 }
 void App::run()
 {
@@ -32,7 +32,8 @@ void App::mostrarOpciones()
     cout << "6- TIPOS DE SUSCRIPCION" << endl;
     cout << "7- TIPOS DE CONTENIDO" << endl;
     cout << "8- DIRECTORES" << endl;
-    cout << "9- REPORTES" << endl;
+    cout << "9- CONSUMOS" << endl;
+    cout << "10- REPORTES" << endl;
     cout << "-----------------" << endl;
     cout << "0- SALIR" << endl;
 }
@@ -84,6 +85,9 @@ void App::ejecutarOpcion(int opcion)
         _directorMenu.mostrar();
         break;
     case 9:
+        _consumoMenu.mostrar();
+        break;
+    case 10:
         _reportesMenu.mostrar();
         break;
     case 0:

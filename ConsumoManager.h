@@ -1,0 +1,9 @@
+#ifndef CONSUMOMANAGER_H_INCLUDED
+#define CONSUMOMANAGER_H_INCLUDED
+
+class ConsumoManager
+{
+
+};
+
+#endif // CONSUMOMANAGER_H_INCLUDED
