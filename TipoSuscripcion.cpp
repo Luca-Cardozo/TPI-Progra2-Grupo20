@@ -13,12 +13,8 @@ TipoSuscripcion::TipoSuscripcion()
 
 void TipoSuscripcion::cargar()
 {
-    int id;
     char d[20];
-    cout << "ID del genero: ";
-    cin >> id;
-    setIdTipoSuscripcion(id);
-    cout << "Descripcion del genero: ";
+    cout << "Descripcion del del tipo de suscripcion: ";
     cin >> d;
     setDescripcion(d);
     _eliminado = false;
@@ -26,7 +22,7 @@ void TipoSuscripcion::cargar()
 
 void TipoSuscripcion::mostrar()
 {
-    cout << "ID Clasificacion: " << _idTipoSuscripcion << endl;
+    cout << "ID tipo de suscripcion: " << _idTipoSuscripcion << endl;
     cout << "Descripcion: " << _descripcion << endl;
     cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
 }

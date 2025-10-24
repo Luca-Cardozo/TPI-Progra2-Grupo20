@@ -1,9 +1,13 @@
-#ifndef CLASIFICACIONMANAGER_H_INCLUDED
-#define CLASIFICACIONMANAGER_H_INCLUDED
+#pragma once
+#include "ClasificacionArchivo.h"
 
 class ClasificacionManager
 {
-
+private:
+    ClasificacionArchivo _repoClasificacion;
+public:
+    bool cargarClasificacion();
+    bool modificarClasificacion();
+    bool eliminarClasificacion();
 };
 
-#endif // CLASIFICACIONMANAGER_H_INCLUDED

@@ -13,12 +13,8 @@ TipoContenido::TipoContenido()
 
 void TipoContenido::cargar()
 {
-    int id;
     char d[20];
-    cout << "ID del genero: ";
-    cin >> id;
-    setIdTipoContenido(id);
-    cout << "Descripcion del genero: ";
+    cout << "Descripcion del tipo de contenido: ";
     cin >> d;
     setDescripcion(d);
     _eliminado = false;
@@ -26,7 +22,7 @@ void TipoContenido::cargar()
 
 void TipoContenido::mostrar()
 {
-    cout << "ID Clasificacion: " << _idTipoContenido << endl;
+    cout << "ID Tipo de contenido: " << _idTipoContenido << endl;
     cout << "Descripcion: " << _descripcion << endl;
     cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
 }

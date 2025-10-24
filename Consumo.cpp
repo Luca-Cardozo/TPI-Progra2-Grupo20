@@ -16,11 +16,8 @@ Consumo::Consumo()
 
 void Consumo::cargar()
 {
-    int idA, idS, idC, tc, ha, dv;
+    int idS, idC, tc, ha, dv;
     Fecha f;
-    cout << "ID Acceso: ";
-    cin >> idA;
-    setIdAcceso(idA);
     cout << "ID Suscriptor: ";
     cin >> idS;
     setIdSuscriptor(idS);
@@ -33,8 +30,16 @@ void Consumo::cargar()
     cout << "Fecha de acceso:" << endl;
     f.cargar();
     setFechaAcceso(f);
-    cout << "Hora de acceso (0-23): ";
-    cin >> ha;
+    do
+    {
+        cout << "Hora de acceso (0-23): ";
+        cin >> ha;
+        if(ha < 0 || ha > 23)
+        {
+            cout << "Ingrese una hora valida por favor..." << endl;
+        }
+    }
+    while(ha < 0 || ha > 23);
     setHoraAcceso(ha);
     cout << "Duracion vista (en minutos): ";
     cin >> dv;

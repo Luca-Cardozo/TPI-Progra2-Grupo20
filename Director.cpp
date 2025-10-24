@@ -12,10 +12,6 @@ Director::Director()
 void Director::cargar()
 {
     Persona::cargar();
-    int id;
-    cout << "ID Suscriptor: " << endl;
-    cin >> id;
-    setIdDirector(id);
 }
 
 void Director::mostrar()

@@ -13,12 +13,8 @@ Clasificacion::Clasificacion()
 
 void Clasificacion::cargar()
 {
-    int id;
     char d[20];
-    cout << "ID del genero: ";
-    cin >> id;
-    setIdClasificacion(id);
-    cout << "Descripcion del genero: ";
+    cout << "Descripcion de la clasificacion: ";
     cin >> d;
     setDescripcion(d);
     _eliminado = false;

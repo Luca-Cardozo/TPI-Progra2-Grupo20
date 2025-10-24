@@ -15,12 +15,9 @@ Suscriptor::Suscriptor()
 void Suscriptor::cargar()
 {
     Persona::cargar();
-    int id, ts;
+    int ts;
     char e[40], t[20];
     Fecha f;
-    cout << "ID Suscriptor: ";
-    cin >> id;
-    setIdSuscriptor(id);
     cout << "Email: " << endl;
     cin >> e;
     setEmail(e);

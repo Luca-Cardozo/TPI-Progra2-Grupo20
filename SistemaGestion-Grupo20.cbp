@@ -71,6 +71,9 @@
 		<Unit filename="ConsumoArchivo.h">
 			<Option virtualFolder="Consumos/" />
 		</Unit>
+		<Unit filename="ConsumoManager.cpp">
+			<Option virtualFolder="Consumos/" />
+		</Unit>
 		<Unit filename="ConsumoManager.h">
 			<Option virtualFolder="Consumos/" />
 		</Unit>
@@ -268,6 +271,8 @@
 			<Option virtualFolder="Auxiliares/" />
 		</Unit>
 		<Unit filename="main.cpp" />
+		<Unit filename="utils.cpp" />
+		<Unit filename="utils.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

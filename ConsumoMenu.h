@@ -5,7 +5,7 @@ class ConsumoMenu
 {
 private:
     int _cantidadOpciones;
-    ConsumoManager _peliculaManager;
+    ConsumoManager _consumoManager;
     void mostrarOpciones();
     int seleccionOpcion();
     void ejecutarOpcion(int opcion);

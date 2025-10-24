@@ -38,16 +38,47 @@ void SuscriptorMenu::mostrarOpciones()
 
 void SuscriptorMenu::ejecutarOpcion(int opcion)
 {
+    bool resultado;
     switch(opcion)
     {
     case 1:
-
+        system("cls");
+        resultado = _suscriptorManager.cargarSuscriptor();
+        if(resultado)
+        {
+            cout << "Alta exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar el alta..." << endl;
+        }
+        system("pause");
         break;
     case 2:
-
+        system("cls");
+        resultado = _suscriptorManager.modificarSuscriptor();
+        if(resultado)
+        {
+            cout << "Modificacion exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar la modificacion..." << endl;
+        }
+        system("pause");
         break;
     case 3:
-
+        system("cls");
+        resultado = _suscriptorManager.eliminarSuscriptor();
+        if(resultado)
+        {
+            cout << "Baja exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar la baja..." << endl;
+        }
+        system("pause");
         break;
     case 4:
 

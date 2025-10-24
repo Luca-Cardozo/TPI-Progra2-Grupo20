@@ -13,11 +13,7 @@ Genero::Genero()
 
 void Genero::cargar()
 {
-    int id;
     char d[20];
-    cout << "ID del genero: ";
-    cin >> id;
-    setIdGenero(id);
     cout << "Descripcion del genero: ";
     cin >> d;
     setDescripcion(d);

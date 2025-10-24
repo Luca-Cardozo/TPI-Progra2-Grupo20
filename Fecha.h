@@ -6,6 +6,15 @@ class Fecha
 private:
     int _dia, _mes, _anio;
 
+    bool esAnioBisiesto(int anio);
+    bool validarFecha(int d, int m, int a);
+
+    bool operator==(const Fecha &otra) const;
+    bool operator<(const Fecha &otra) const;
+    bool operator>(const Fecha &otra) const;
+    bool operator<=(const Fecha &otra) const;
+    bool operator>=(const Fecha &otra) const;
+
 public:
     Fecha();
     Fecha(int dia, int mes, int anio);

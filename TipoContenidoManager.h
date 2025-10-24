@@ -1,9 +1,13 @@
-#ifndef TIPOCONTENIDOMANAGER_H_INCLUDED
-#define TIPOCONTENIDOMANAGER_H_INCLUDED
+#pragma once
+#include "TipoContenidoArchivo.h"
 
 class TipoContenidoManager
 {
-
+private:
+    TipoContenidoArchivo _repoTipoContenido;
+public:
+    bool cargarTipoContenido();
+    bool modificarTipoContenido();
+    bool eliminarTipoContenido();
 };
 
-#endif // TIPOCONTENIDOMANAGER_H_INCLUDED

@@ -1,9 +1,13 @@
-#ifndef DIRECTORMANAGER_H_INCLUDED
-#define DIRECTORMANAGER_H_INCLUDED
+#pragma once
+#include "DirectorArchivo.h"
 
 class DirectorManager
 {
-
+private:
+    DirectorArchivo _repoDirector;
+public:
+    bool cargarDirector();
+    bool modificarDirector();
+    bool eliminarDirector();
 };
 
-#endif // DIRECTORMANAGER_H_INCLUDED

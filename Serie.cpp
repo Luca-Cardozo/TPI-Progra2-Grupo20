@@ -13,10 +13,7 @@ Serie::Serie()
 void Serie::cargar()
 {
     Contenido::cargar();
-    int id, t, c;
-    cout << "ID de la serie: " << endl;
-    cin >> id;
-    setIdSerie(id);
+    int t, c;
     cout << "Cantidad de temporadas: ";
     cin >> t;
     setTemporadas(t);

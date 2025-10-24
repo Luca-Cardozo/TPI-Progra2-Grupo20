@@ -1,4 +1,5 @@
 #include "Contenido.h"
+#include "utils.h"
 #include <iostream>
 #include <cstring>
 
@@ -16,16 +17,12 @@ Contenido::Contenido()
 
 void Contenido::cargar()
 {
-    int idC, g, c, idD;
-    char t[50];
+    int g, c, idD;
     Fecha f;
-    cout << "ID del tipo de contenido: ";
-    cin >> idC;
-    setIdTipoContenido(idC);
-    cin.ignore();
     cout << "Titulo: ";
-    cin.getline(t, 50);
-    setTitulo(t);
+    string texto = cargarCadena();
+    strncpy(_titulo, texto.c_str(), sizeof(_titulo) - 1);
+    _titulo[sizeof(_titulo) - 1] = '\0';
     cout << "ID del director: ";
     cin >> idD;
     setIdDirector(idD);

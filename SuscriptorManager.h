@@ -1,9 +1,15 @@
-#ifndef SUSCRIPTORMANAGER_H_INCLUDED
-#define SUSCRIPTORMANAGER_H_INCLUDED
+#pragma once
+#include "SuscriptorArchivo.h"
+#include "TipoSuscripcionArchivo.h"
 
 class SuscriptorManager
 {
-
+private:
+    SuscriptorArchivo _repoSuscriptor;
+    TipoSuscripcionArchivo _repoTipoSuscripcion;
+public:
+    bool cargarSuscriptor();
+    bool modificarSuscriptor();
+    bool eliminarSuscriptor();
 };
 
-#endif // SUSCRIPTORMANAGER_H_INCLUDED

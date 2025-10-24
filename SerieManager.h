@@ -1,9 +1,19 @@
-#ifndef SERIEMANAGER_H_INCLUDED
-#define SERIEMANAGER_H_INCLUDED
+#pragma once
+#include "SerieArchivo.h"
+#include "DirectorArchivo.h"
+#include "GeneroArchivo.h"
+#include "ClasificacionArchivo.h"
 
 class SerieManager
 {
-
+private:
+    SerieArchivo _repoSerie;
+    DirectorArchivo _repoDirector;
+    GeneroArchivo _repoGenero;
+    ClasificacionArchivo _repoClasificacion;
+public:
+    bool cargarSerie();
+    bool modificarSerie();
+    bool eliminarSerie();
 };
 
-#endif // SERIEMANAGER_H_INCLUDED

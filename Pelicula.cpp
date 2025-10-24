@@ -12,10 +12,7 @@ Pelicula::Pelicula()
 void Pelicula::cargar()
 {
     Contenido::cargar();
-    int id, d;
-    cout << "ID de la pelicula: " << endl;
-    cin >> id;
-    setIdPelicula(id);
+    int d;
     cout << "Duracion (en minutos): ";
     cin >> d;
     setDuracion(d);

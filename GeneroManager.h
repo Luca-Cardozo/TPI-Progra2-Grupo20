@@ -1,9 +1,13 @@
-#ifndef GENEROMANAGER_H_INCLUDED
-#define GENEROMANAGER_H_INCLUDED
+#pragma once
+#include "GeneroArchivo.h"
 
 class GeneroManager
 {
-
+private:
+    GeneroArchivo _repoGenero;
+public:
+    bool cargarGenero();
+    bool modificarGenero();
+    bool eliminarGenero();
 };
 
-#endif // GENEROMANAGER_H_INCLUDED

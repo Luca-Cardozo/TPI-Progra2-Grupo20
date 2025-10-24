@@ -1,9 +1,13 @@
-#ifndef TIPOSUSCRIPCIONMANAGER_H_INCLUDED
-#define TIPOSUSCRIPCIONMANAGER_H_INCLUDED
+#pragma once
+#include "TipoSuscripcionArchivo.h"
 
 class TipoSuscripcionManager
 {
-
+private:
+    TipoSuscripcionArchivo _repoTipoSuscripcion;
+public:
+    bool cargarTipoSuscripcion();
+    bool modificarTipoSuscripcion();
+    bool eliminarTipoSuscripcion();
 };
 
-#endif // TIPOSUSCRIPCIONMANAGER_H_INCLUDED
