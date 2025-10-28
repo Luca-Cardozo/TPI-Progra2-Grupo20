@@ -20,9 +20,10 @@ void Pelicula::cargar()
 
 void Pelicula::mostrar()
 {
-    Contenido::mostrar();
     cout << "ID de la pelicula: " << _idPelicula << endl;
+    Contenido::mostrar();
     cout << "Duracion: " << _duracion << " minutos" << endl;
+    cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
 }
 
 int Pelicula::getIdPelicula()

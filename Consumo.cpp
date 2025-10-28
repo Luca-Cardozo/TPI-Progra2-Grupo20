@@ -1,4 +1,5 @@
 #include "Consumo.h"
+#include "utils.h"
 #include <iostream>
 
 using namespace std;
@@ -24,7 +25,7 @@ void Consumo::cargar()
     cout << "ID Contenido: ";
     cin >> idC;
     setIdContenido(idC);
-    cout << "Tipo de contenido (1 = Pelicula, 2 = Serie): ";
+    cout << "Tipo de contenido (1 = PELICULA, 2 = SERIE): ";
     cin >> tc;
     setTipoContenido(tc);
     cout << "Fecha de acceso:" << endl;

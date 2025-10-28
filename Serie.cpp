@@ -24,10 +24,11 @@ void Serie::cargar()
 
 void Serie::mostrar()
 {
-    Contenido::mostrar();
     cout << "ID de la serie: " << _idSerie << endl;
+    Contenido::mostrar();
     cout << "Temporadas: " << _temporadas << endl;
     cout << "Capitulos: " << _capitulos << endl;
+    cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
 }
 
 int Serie::getIdSerie()

@@ -1,4 +1,5 @@
 #include "Persona.h"
+#include "utils.h"
 #include <iostream>
 #include <cstring>
 
@@ -14,18 +15,20 @@ Persona::Persona()
 
 void Persona::cargar()
 {
-    char n[20], a[20], nac[20];
+    string texto;
     Fecha f;
     cout << "Nombre: " << endl;
-    cin >> n;
-    setNombre(n);
+    texto = cargarCadena();
+    strncpy(_nombre, texto.c_str(), sizeof(_nombre) - 1);
+    _nombre[sizeof(_nombre) - 1] = '\0';
     cout << "Apellido: " << endl;
-    cin >> a;
-    setApellido(a);
-    cin.ignore();
+    texto = cargarCadena();
+    strncpy(_apellido, texto.c_str(), sizeof(_apellido) - 1);
+    _apellido[sizeof(_apellido) - 1] = '\0';
     cout << "Nacionalidad: " << endl;
-    cin.getline(nac, 20);
-    setNacionalidad(nac);
+    texto = cargarCadena();
+    strncpy(_nacionalidad, texto.c_str(), sizeof(_nacionalidad) - 1);
+    _nacionalidad[sizeof(_nacionalidad) - 1] = '\0';
     cout << "Fecha de nacimiento: " << endl;
     f.cargar();
     setFechaNacimiento(f);

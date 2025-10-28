@@ -1,4 +1,5 @@
 #include "TipoContenido.h"
+#include "utils.h"
 #include <iostream>
 #include <cstring>
 
@@ -13,10 +14,10 @@ TipoContenido::TipoContenido()
 
 void TipoContenido::cargar()
 {
-    char d[20];
     cout << "Descripcion del tipo de contenido: ";
-    cin >> d;
-    setDescripcion(d);
+    string texto = cargarCadena();
+    strncpy(_descripcion, texto.c_str(), sizeof(_descripcion) - 1);
+    _descripcion[sizeof(_descripcion) - 1] = '\0';
     _eliminado = false;
 }
 

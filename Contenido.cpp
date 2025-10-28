@@ -52,7 +52,6 @@ void Contenido::mostrar()
     _fechaEstreno.mostrar();
     cout << "Fecha Alta: ";
     _fechaAlta.mostrar();
-    cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
 }
 
 int Contenido::getIdTipoContenido()
