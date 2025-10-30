@@ -7,6 +7,7 @@ using namespace std;
 
 Contenido::Contenido()
 {
+    _id = 0;
     _idTipoContenido = 0;
     strcpy(_titulo, "");
     _idDirector = 0;
@@ -54,6 +55,10 @@ void Contenido::mostrar()
     _fechaAlta.mostrar();
 }
 
+int Contenido::getId()
+{
+    return _id;
+}
 int Contenido::getIdTipoContenido()
 {
     return _idTipoContenido;
@@ -87,6 +92,10 @@ bool Contenido::getEliminado()
     return _eliminado;
 }
 
+void Contenido::setId(int id)
+{
+    _id = id;
+}
 void Contenido::setIdTipoContenido(int id)
 {
     _idTipoContenido = id;

@@ -5,7 +5,7 @@ using namespace std;
 
 ConsumoMenu::ConsumoMenu()
 {
-    _cantidadOpciones = 5;
+    _cantidadOpciones = 4;
 }
 
 void ConsumoMenu::mostrar()
@@ -26,11 +26,10 @@ void ConsumoMenu::mostrar()
 void ConsumoMenu::mostrarOpciones()
 {
     cout << "--- MENU CONSUMOS ---" << endl;
-    cout << "1 - ALTA CONSUMO" << endl;
+    cout << "1 - NUEVO CONSUMO" << endl;
     cout << "2 - MODIFICAR CONSUMO" << endl;
     cout << "3 - ELIMINAR CONSUMO" << endl;
-    cout << "4 - CONSULTAR CONSUMOS" << endl;
-    cout << "5 - LISTAR CONSUMOS" << endl;
+    cout << "4 - ALTA CONSUMO" << endl;
     cout << "---------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
@@ -46,11 +45,11 @@ void ConsumoMenu::ejecutarOpcion(int opcion)
         resultado = _consumoManager.cargarConsumo();
         if(resultado)
         {
-            cout << "Alta exitosa!" << endl;
+            cout << "Carga exitosa!" << endl;
         }
         else
         {
-            cout << "No se pudo realizar el alta..." << endl;
+            cout << "No se pudo realizar la carga..." << endl;
         }
         system("pause");
         break;
@@ -81,10 +80,17 @@ void ConsumoMenu::ejecutarOpcion(int opcion)
         system("pause");
         break;
     case 4:
-
-        break;
-    case 5:
-
+        system("cls");
+        resultado = _consumoManager.altaConsumo();
+        if(resultado)
+        {
+            cout << "Alta exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar el alta..." << endl;
+        }
+        system("pause");
         break;
     }
 }

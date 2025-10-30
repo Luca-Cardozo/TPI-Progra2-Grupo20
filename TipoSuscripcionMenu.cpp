@@ -5,7 +5,7 @@ using namespace std;
 
 TipoSuscripcionMenu::TipoSuscripcionMenu()
 {
-    _cantidadOpciones = 5;
+    _cantidadOpciones = 4;
 }
 
 void TipoSuscripcionMenu::mostrar()
@@ -26,11 +26,10 @@ void TipoSuscripcionMenu::mostrar()
 void TipoSuscripcionMenu::mostrarOpciones()
 {
     cout << "--- MENU TIPOS DE SUSCRIPCION ---" << endl;
-    cout << "1 - ALTA TIPO DE SUSCRIPCION" << endl;
+    cout << "1 - CARGAR TIPO DE SUSCRIPCION" << endl;
     cout << "2 - MODIFICAR TIPO DE SUSCRIPCION" << endl;
     cout << "3 - ELIMINAR TIPO DE SUSCRIPCION" << endl;
-    cout << "4 - CONSULTAR TIPOS DE SUSCRIPCION" << endl;
-    cout << "5 - LISTAR TIPOS DE SUSCRIPCION" << endl;
+    cout << "4 - ALTA TIPO DE SUSCRIPCION" << endl;
     cout << "---------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
@@ -46,11 +45,11 @@ void TipoSuscripcionMenu::ejecutarOpcion(int opcion)
         resultado = _tipoSuscripcionManager.cargarTipoSuscripcion();
         if(resultado)
         {
-            cout << "Alta exitosa!" << endl;
+            cout << "Carga exitosa!" << endl;
         }
         else
         {
-            cout << "No se pudo realizar el alta..." << endl;
+            cout << "No se pudo realizar la carga..." << endl;
         }
         system("pause");
         break;
@@ -81,10 +80,17 @@ void TipoSuscripcionMenu::ejecutarOpcion(int opcion)
         system("pause");
         break;
     case 4:
-
-        break;
-    case 5:
-
+        system("cls");
+        resultado = _tipoSuscripcionManager.altaTipoSuscripcion();
+        if(resultado)
+        {
+            cout << "Alta exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar el alta..." << endl;
+        }
+        system("pause");
         break;
     }
 }

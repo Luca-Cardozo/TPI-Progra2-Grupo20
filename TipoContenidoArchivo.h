@@ -16,5 +16,6 @@ public:
     bool guardar(TipoContenido reg);
     bool guardar(int pos, TipoContenido reg);
     bool eliminar(int pos);
+    bool alta(int pos);
 };
 

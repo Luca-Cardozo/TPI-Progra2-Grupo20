@@ -5,7 +5,7 @@
 		<Option title="SistemaGestion-Grupo20" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Suscriptores/;Series/;Peliculas/;Directores/;Auxiliares/;Consumos/;Reportes/" />
+		<Option virtualFolders="Suscriptores/;Series/;Peliculas/;Directores/;Auxiliares/;Consumos/;Reportes/;Consultas/;Listados/" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/SistemaGestion-Grupo20" prefix_auto="1" extension_auto="1" />
@@ -58,6 +58,18 @@
 		</Unit>
 		<Unit filename="ClasificacionMenu.h">
 			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="ConsultasManager.cpp">
+			<Option virtualFolder="Consultas/" />
+		</Unit>
+		<Unit filename="ConsultasManager.h">
+			<Option virtualFolder="Consultas/" />
+		</Unit>
+		<Unit filename="ConsultasMenu.cpp">
+			<Option virtualFolder="Consultas/" />
+		</Unit>
+		<Unit filename="ConsultasMenu.h">
+			<Option virtualFolder="Consultas/" />
 		</Unit>
 		<Unit filename="Consumo.cpp">
 			<Option virtualFolder="Consumos/" />
@@ -134,6 +146,18 @@
 		</Unit>
 		<Unit filename="GeneroMenu.h">
 			<Option virtualFolder="Auxiliares/" />
+		</Unit>
+		<Unit filename="ListadosManager.cpp">
+			<Option virtualFolder="Listados/" />
+		</Unit>
+		<Unit filename="ListadosManager.h">
+			<Option virtualFolder="Listados/" />
+		</Unit>
+		<Unit filename="ListadosMenu.cpp">
+			<Option virtualFolder="Listados/" />
+		</Unit>
+		<Unit filename="ListadosMenu.h">
+			<Option virtualFolder="Listados/" />
 		</Unit>
 		<Unit filename="Pelicula.cpp">
 			<Option virtualFolder="Peliculas/" />

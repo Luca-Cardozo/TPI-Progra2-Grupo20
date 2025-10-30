@@ -43,6 +43,10 @@ void Persona::mostrar()
     _fechaNacimiento.mostrar();
 }
 
+int Persona::getId()
+{
+    return _id;
+}
 const char* Persona::getNombre()
 {
     return _nombre;
@@ -64,6 +68,10 @@ bool Persona::getEliminado()
     return _eliminado;
 }
 
+void Persona::setId(int id)
+{
+    _id = id;
+}
 void Persona::setNombre(const char* n)
 {
     strcpy(_nombre, n);

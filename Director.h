@@ -5,15 +5,15 @@
 class Director: public Persona
 {
 private:
-    int _idDirector;
+    char _paisResidencia[20];
 public:
     Director();
 
     void cargar();
     void mostrar();
 
-    int getIdDirector();
+    const char* getPaisResidencia();
 
-    void setIdDirector(int id);
+    void setPaisResidencia(const char* pais);
 };
 

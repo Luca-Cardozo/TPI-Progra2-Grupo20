@@ -21,7 +21,7 @@ int SerieArchivo::getCantidadRegistros()
 
 int SerieArchivo::getNuevoID()
 {
-    return getCantidadRegistros() + 1;
+    return getCantidadRegistros() + 2001;
 }
 
 int SerieArchivo::buscar(int id)
@@ -32,7 +32,7 @@ int SerieArchivo::buscar(int id)
     int pos = 0;
     while(fread(&reg, sizeof(Serie), 1, pArchivo))
     {
-        if(reg.getIdSerie() == id)
+        if(reg.getId() == id)
         {
             fclose(pArchivo);
             return pos;
@@ -49,7 +49,7 @@ Serie SerieArchivo::leer(int pos)
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
     if(pArchivo == nullptr)
     {
-        reg.setIdSerie(-1);
+        reg.setId(-1);
         return reg;
     }
     fseek(pArchivo, sizeof(Serie) * pos, SEEK_SET);
@@ -89,9 +89,20 @@ bool SerieArchivo::guardar(int pos, Serie reg)
 bool SerieArchivo::eliminar(int pos)
 {
     Serie reg = leer(pos);
-    if(reg.getIdSerie() != -1)
+    if(reg.getId() != -1)
     {
         reg.setEliminado(true);
+        return guardar(pos, reg);
+    }
+    return false;
+}
+
+bool SerieArchivo::alta(int pos)
+{
+    Serie reg = leer(pos);
+    if(reg.getId() != -1)
+    {
+        reg.setEliminado(false);
         return guardar(pos, reg);
     }
     return false;

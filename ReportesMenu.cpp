@@ -25,20 +25,20 @@ void ReportesMenu::mostrar()
 
 void ReportesMenu::mostrarOpciones()
 {
-    cout << "--- MENU REPORTES ---" << endl;
-    cout << "1 - REPORTE 1" << endl;
-    cout << "2 - REPORTE 2" << endl;
-    cout << "3 - REPORTE 3" << endl;
-    cout << "4 - REPORTE 4" << endl;
-    cout << "5 - REPORTE 5" << endl;
-    cout << "6 - REPORTE 6" << endl;
-    cout << "7 - REPORTE 7" << endl;
-    cout << "8 - REPORTE 8" << endl;
-    cout << "9 - REPORTE 9" << endl;
-    cout << "10 - REPORTE 10" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "------------------------------------- MENU REPORTES -------------------------------------" << endl;
+    cout << "1 - CANTIDAD DE CONSUMOS POR SUSCRIPTOR EN UN RANGO DE FECHAS" << endl;
+    cout << "2 - CANTIDAD DE CONSUMOS POR TITULO EN UN RANGO DE FECHAS" << endl;
+    cout << "3 - CANTIDAD DE CONSUMOS TOTALES POR TIPO DE CONTENIDO EN UN RANGO HORARIO" << endl;
+    cout << "4 - TOP 5 SUSCRIPTORES CON MAYOR TIEMPO DE VISUALIZACION EN UN ANIO DETERMINADO" << endl;
+    cout << "5 - TOP 10 DE SERIES Y PELICULAS MAS CONSUMIDAS EN UN ANIO DETERMINADO" << endl;
+    cout << "6 - CANTIDAD Y PORCENTAJE DE CONSUMOS POR GENERO EN UN ANIO DETERMINADO" << endl;
+    cout << "7 - TOTAL DE MINUTOS CONSUMIDOS POR TIPO DE CONTENIDO POR MES EN UN ANIO DETERMINADO" << endl;
+    cout << "8 - PROMEDIO MENSUAL DE MINUTOS CONSUMIDOS POR TIPO DE SUSCRIPCION EN UN ANIO DETERMINADO" << endl;
+    cout << "9 - PROMEDIO DIARIO DE MINUTOS CONSUMIDOS POR SUSCRIPTOR EN UN DETERMINADO MES Y ANIO" << endl;
+    cout << "10 - PORCENTAJE MENSUAL DE TIEMPO CONSUMIDO POR TIPO DE CONTENIDO EN UN ANIO DETERMINADO" << endl;
+    cout << "-----------------------------------------------------------------------------------------" << endl;
     cout << "0 - SALIR" << endl;
-    cout << "--------------------" << endl;
+    cout << "-----------------------------------------------------------------------------------------" << endl;
 }
 
 void ReportesMenu::ejecutarOpcion(int opcion)

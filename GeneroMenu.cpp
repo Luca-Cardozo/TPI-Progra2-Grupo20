@@ -5,7 +5,7 @@ using namespace std;
 
 GeneroMenu::GeneroMenu()
 {
-    _cantidadOpciones = 5;
+    _cantidadOpciones = 4;
 }
 
 void GeneroMenu::mostrar()
@@ -26,11 +26,10 @@ void GeneroMenu::mostrar()
 void GeneroMenu::mostrarOpciones()
 {
     cout << "--- MENU GENEROS ---" << endl;
-    cout << "1 - ALTA GENERO" << endl;
+    cout << "1 - CARGAR GENERO" << endl;
     cout << "2 - MODIFICAR GENERO" << endl;
     cout << "3 - ELIMINAR GENERO" << endl;
-    cout << "4 - CONSULTAR GENEROS" << endl;
-    cout << "5 - LISTAR GENEROS" << endl;
+    cout << "4 - ALTA GENERO" << endl;
     cout << "---------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
@@ -46,11 +45,11 @@ void GeneroMenu::ejecutarOpcion(int opcion)
         resultado = _generoManager.cargarGenero();
         if(resultado)
         {
-            cout << "Alta exitosa!" << endl;
+            cout << "Carga exitosa!" << endl;
         }
         else
         {
-            cout << "No se pudo realizar el alta..." << endl;
+            cout << "No se pudo realizar la carga..." << endl;
         }
         system("pause");
         break;
@@ -81,10 +80,17 @@ void GeneroMenu::ejecutarOpcion(int opcion)
         system("pause");
         break;
     case 4:
-
-        break;
-    case 5:
-
+        system("cls");
+        resultado = _generoManager.altaGenero();
+        if(resultado)
+        {
+            cout << "Alta exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar el alta..." << endl;
+        }
+        system("pause");
         break;
     }
 }

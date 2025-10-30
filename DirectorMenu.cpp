@@ -5,7 +5,7 @@ using namespace std;
 
 DirectorMenu::DirectorMenu()
 {
-    _cantidadOpciones = 5;
+    _cantidadOpciones = 4;
 }
 
 void DirectorMenu::mostrar()
@@ -26,11 +26,10 @@ void DirectorMenu::mostrar()
 void DirectorMenu::mostrarOpciones()
 {
     cout << "--- MENU DIRECTORES ---" << endl;
-    cout << "1 - ALTA DIRECTOR" << endl;
+    cout << "1 - CARGAR DIRECTOR" << endl;
     cout << "2 - MODIFICAR DIRECTOR" << endl;
     cout << "3 - ELIMINAR DIRECTOR" << endl;
-    cout << "4 - CONSULTAR DIRECTORES" << endl;
-    cout << "5 - LISTAR DIRECTORES" << endl;
+    cout << "4 - ALTA DIRECTOR" << endl;
     cout << "---------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
@@ -81,10 +80,17 @@ void DirectorMenu::ejecutarOpcion(int opcion)
         system("pause");
         break;
     case 4:
-
-        break;
-    case 5:
-
+        system("cls");
+        resultado = _directorManager.altaDirector();
+        if(resultado)
+        {
+            cout << "Alta exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar el alta..." << endl;
+        }
+        system("pause");
         break;
     }
 }

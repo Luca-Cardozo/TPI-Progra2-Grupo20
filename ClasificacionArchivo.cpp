@@ -96,3 +96,14 @@ bool ClasificacionArchivo::eliminar(int pos)
     }
     return false;
 }
+
+bool ClasificacionArchivo::alta(int pos)
+{
+    Clasificacion reg = leer(pos);
+    if(reg.getIdClasificacion() != -1)
+    {
+        reg.setEliminado(false);
+        return guardar(pos, reg);
+    }
+    return false;
+}

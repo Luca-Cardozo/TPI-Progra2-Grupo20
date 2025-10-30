@@ -16,4 +16,5 @@ public:
     bool guardar(Suscriptor reg);
     bool guardar(int pos, Suscriptor reg);
     bool eliminar(int pos);
+    bool alta(int pos);
 };

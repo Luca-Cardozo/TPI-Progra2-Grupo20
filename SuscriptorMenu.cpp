@@ -5,7 +5,7 @@ using namespace std;
 
 SuscriptorMenu::SuscriptorMenu()
 {
-    _cantidadOpciones = 5;
+    _cantidadOpciones = 4;
 }
 
 void SuscriptorMenu::mostrar()
@@ -26,11 +26,10 @@ void SuscriptorMenu::mostrar()
 void SuscriptorMenu::mostrarOpciones()
 {
     cout << "--- MENU SUSCRIPTORES ---" << endl;
-    cout << "1 - ALTA SUSCRIPTOR" << endl;
+    cout << "1 - NUEVO SUSCRIPTOR" << endl;
     cout << "2 - MODIFICAR SUSCRIPTOR" << endl;
     cout << "3 - ELIMINAR SUSCRIPTOR" << endl;
-    cout << "4 - CONSULTAR SUSCRIPTORES" << endl;
-    cout << "5 - LISTAR SUSCRIPTORES" << endl;
+    cout << "4 - ALTA SUSCRIPTOR" << endl;
     cout << "---------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
@@ -46,11 +45,11 @@ void SuscriptorMenu::ejecutarOpcion(int opcion)
         resultado = _suscriptorManager.cargarSuscriptor();
         if(resultado)
         {
-            cout << "Alta exitosa!" << endl;
+            cout << "Carga exitosa!" << endl;
         }
         else
         {
-            cout << "No se pudo realizar el alta..." << endl;
+            cout << "No se pudo realizar la carga..." << endl;
         }
         system("pause");
         break;
@@ -81,10 +80,17 @@ void SuscriptorMenu::ejecutarOpcion(int opcion)
         system("pause");
         break;
     case 4:
-
-        break;
-    case 5:
-
+        system("cls");
+        resultado = _suscriptorManager.altaSuscriptor();
+        if(resultado)
+        {
+            cout << "Alta exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar el alta..." << endl;
+        }
+        system("pause");
         break;
     }
 }

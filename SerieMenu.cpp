@@ -5,7 +5,7 @@ using namespace std;
 
 SerieMenu::SerieMenu()
 {
-    _cantidadOpciones = 5;
+    _cantidadOpciones = 4;
 }
 
 void SerieMenu::mostrar()
@@ -26,11 +26,10 @@ void SerieMenu::mostrar()
 void SerieMenu::mostrarOpciones()
 {
     cout << "--- MENU SERIES ---" << endl;
-    cout << "1 - ALTA SERIE" << endl;
+    cout << "1 - CARGAR SERIE" << endl;
     cout << "2 - MODIFICAR SERIE" << endl;
     cout << "3 - ELIMINAR SERIE" << endl;
-    cout << "4 - CONSULTAR SERIES" << endl;
-    cout << "5 - LISTAR SERIES" << endl;
+    cout << "4 - ALTA SERIE" << endl;
     cout << "---------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
@@ -81,10 +80,17 @@ void SerieMenu::ejecutarOpcion(int opcion)
         system("pause");
         break;
     case 4:
-
-        break;
-    case 5:
-
+        system("cls");
+        resultado = _serieManager.altaSerie();
+        if(resultado)
+        {
+            cout << "Alta exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar el alta..." << endl;
+        }
+        system("pause");
         break;
     }
 }

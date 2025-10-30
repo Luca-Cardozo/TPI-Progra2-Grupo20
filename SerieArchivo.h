@@ -16,4 +16,5 @@ public:
     bool guardar(Serie reg);
     bool guardar(int pos, Serie reg);
     bool eliminar(int pos);
+    bool alta(int pos);
 };

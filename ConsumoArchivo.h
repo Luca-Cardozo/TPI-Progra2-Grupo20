@@ -16,4 +16,5 @@ public:
     bool guardar(Consumo reg);
     bool guardar(int pos, Consumo reg);
     bool eliminar(int pos);
+    bool alta(int pos);
 };

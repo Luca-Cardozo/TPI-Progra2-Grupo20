@@ -5,7 +5,6 @@ using namespace std;
 
 Pelicula::Pelicula()
 {
-    _idPelicula = 0;
     _duracion = 0;
 }
 
@@ -20,25 +19,17 @@ void Pelicula::cargar()
 
 void Pelicula::mostrar()
 {
-    cout << "ID de la pelicula: " << _idPelicula << endl;
+    cout << "ID de la pelicula: " << _id << endl;
     Contenido::mostrar();
     cout << "Duracion: " << _duracion << " minutos" << endl;
     cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
 }
 
-int Pelicula::getIdPelicula()
-{
-    return _idPelicula;
-}
 int Pelicula::getDuracion()
 {
     return _duracion;
 }
 
-void Pelicula::setIdPelicula(int id)
-{
-    _idPelicula = id;
-}
 void Pelicula::setDuracion(int d)
 {
     _duracion = d;

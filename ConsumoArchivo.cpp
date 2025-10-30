@@ -96,3 +96,14 @@ bool ConsumoArchivo::eliminar(int pos)
     }
     return false;
 }
+
+bool ConsumoArchivo::alta(int pos)
+{
+    Consumo reg = leer(pos);
+    if(reg.getIdAcceso() != -1)
+    {
+        reg.setEliminado(false);
+        return guardar(pos, reg);
+    }
+    return false;
+}

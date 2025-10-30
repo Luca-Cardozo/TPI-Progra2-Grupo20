@@ -16,4 +16,5 @@ public:
     bool guardar(Director reg);
     bool guardar(int pos, Director reg);
     bool eliminar(int pos);
+    bool alta(int pos);
 };

@@ -5,7 +5,7 @@ using namespace std;
 
 App::App()
 {
-    _cantidadOpciones = 10;
+    _cantidadOpciones = 12;
 }
 void App::run()
 {
@@ -26,15 +26,17 @@ void App::mostrarOpciones()
 {
     cout << "--- MENU PRINCIPAL ---" << endl;
     cout << "1- SUSCRIPTORES" << endl;
-    cout << "2- SERIES" << endl;
-    cout << "3- PELICULAS" << endl;
+    cout << "2- PELICULAS" << endl;
+    cout << "3- SERIES" << endl;
     cout << "4- GENEROS" << endl;
     cout << "5- CLASIFICACIONES" << endl;
     cout << "6- TIPOS DE SUSCRIPCION" << endl;
     cout << "7- TIPOS DE CONTENIDO" << endl;
     cout << "8- DIRECTORES" << endl;
     cout << "9- CONSUMOS" << endl;
-    cout << "10- REPORTES" << endl;
+    cout << "10- LISTADOS" << endl;
+    cout << "11- CONSULTAS" << endl;
+    cout << "12- REPORTES" << endl;
     cout << "-----------------" << endl;
     cout << "0- SALIR" << endl;
 }
@@ -65,10 +67,10 @@ void App::ejecutarOpcion(int opcion)
         _suscriptorMenu.mostrar();
         break;
     case 2:
-        _serieMenu.mostrar();
+        _peliculaMenu.mostrar();
         break;
     case 3:
-        _peliculaMenu.mostrar();
+        _serieMenu.mostrar();
         break;
     case 4:
         _generoMenu.mostrar();
@@ -89,6 +91,12 @@ void App::ejecutarOpcion(int opcion)
         _consumoMenu.mostrar();
         break;
     case 10:
+        _listadosMenu.mostrar();
+        break;
+    case 11:
+        _consultasMenu.mostrar();
+        break;
+    case 12:
         _reportesMenu.mostrar();
         break;
     case 0:

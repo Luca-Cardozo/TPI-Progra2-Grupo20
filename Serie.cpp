@@ -5,7 +5,6 @@ using namespace std;
 
 Serie::Serie()
 {
-    _idSerie = 0;
     _temporadas = 0;
     _capitulos = 0;
 }
@@ -24,17 +23,13 @@ void Serie::cargar()
 
 void Serie::mostrar()
 {
-    cout << "ID de la serie: " << _idSerie << endl;
+    cout << "ID de la serie: " << _id << endl;
     Contenido::mostrar();
     cout << "Temporadas: " << _temporadas << endl;
     cout << "Capitulos: " << _capitulos << endl;
     cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
 }
 
-int Serie::getIdSerie()
-{
-    return _idSerie;
-}
 int Serie::getTemporadas()
 {
     return _temporadas;
@@ -44,10 +39,6 @@ int Serie::getCapitulos()
     return _capitulos;
 }
 
-void Serie::setIdSerie(int id)
-{
-    _idSerie = id;
-}
 void Serie::setTemporadas(int t)
 {
     _temporadas = t;

@@ -1,0 +1,9 @@
+#ifndef LISTADOSMANAGER_H_INCLUDED
+#define LISTADOSMANAGER_H_INCLUDED
+
+class ListadosManager
+{
+
+};
+
+#endif // LISTADOSMANAGER_H_INCLUDED

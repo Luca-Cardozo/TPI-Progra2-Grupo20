@@ -96,3 +96,14 @@ bool GeneroArchivo::eliminar(int pos)
     }
     return false;
 }
+
+bool GeneroArchivo::alta(int pos)
+{
+    Genero reg = leer(pos);
+    if(reg.getIdGenero() != -1)
+    {
+        reg.setEliminado(false);
+        return guardar(pos, reg);
+    }
+    return false;
+}

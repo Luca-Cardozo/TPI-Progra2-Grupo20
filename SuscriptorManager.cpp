@@ -1,5 +1,6 @@
 #include "SuscriptorManager.h"
 #include "Suscriptor.h"
+#include "utils.h"
 #include <iostream>
 #include <cstring>
 
@@ -7,57 +8,42 @@ using namespace std;
 
 bool SuscriptorManager::cargarSuscriptor()
 {
-    cout << "-------- ALTA DE NUEVO SUSCRIPTOR --------" << endl;
+    cout << "-------- CARGA DE NUEVO SUSCRIPTOR --------" << endl;
+    int carga;
+    cout << "Ingrese 0 si desea anular la carga o cualquier numero para continuar" << endl;
+    cin >> carga;
+    if(carga == 0)
+    {
+        cout << "Carga anulada..." << endl;
+        return false;
+    }
     int id = _repoSuscriptor.getNuevoID();
-    bool cargaExitosa;
     Suscriptor reg;
     Suscriptor *pSuscriptores;
-    do
+    cout << "ID: #" << id << endl;
+    reg.cargar();
+    reg.setTipoSuscripcion(validarTipoSuscripcion(reg.getTipoSuscripcion()));
+    int cantRegistros = _repoSuscriptor.getCantidadRegistros();
+    pSuscriptores = new Suscriptor[cantRegistros];
+    if(pSuscriptores == nullptr)
     {
-        cargaExitosa = true;
-        cout << "ID: #" << id << endl;
-        reg.cargar();
-        if(_repoTipoSuscripcion.buscar(reg.getTipoSuscripcion()) == -1)
-        {
-            cout << "El ID ingresado para el tipo de suscripcion no existe... Intente cargar la informacion nuevamente..." << endl;
-            cargaExitosa = false;
-            system("pause");
-            system("cls");
-            continue;
-        }
-        int cantRegistros = _repoSuscriptor.getCantidadRegistros();
-        pSuscriptores = new Suscriptor[cantRegistros];
-        if(pSuscriptores == nullptr)
-        {
-            cout << "Error en la asignacion de memoria dinamica... No se pudo guardar el registro..." << endl;
-            system("pause");
-            system("cls");
-            return false;
-        }
-        _repoSuscriptor.leer(pSuscriptores, cantRegistros);
-        for(int i = 0; i < cantRegistros; i++)
-        {
-            if(strcmp(reg.getEmail(),pSuscriptores[i].getEmail()) == 0)
-            {
-                cout << "El email ingresado ya existe... Intente cargar la informacion nuevamente..." << endl;
-                system("pause");
-                system("cls");
-                cargaExitosa = false;
-                break;
-            }
-            if(strcmp(reg.getTelefono(),pSuscriptores[i].getTelefono()) == 0)
-            {
-                cout << "El telefono ingresado ya existe... Intente cargar la informacion nuevamente..." << endl;
-                system("pause");
-                system("cls");
-                cargaExitosa = false;
-                break;
-            }
-        }
+        cout << "Error en la asignacion de memoria dinamica... No se pudo guardar el registro..." << endl;
+        system("pause");
+        system("cls");
+        return false;
     }
-    while(!cargaExitosa);
+    _repoSuscriptor.leer(pSuscriptores, cantRegistros);
+    reg.setEmail(validarEmail(pSuscriptores, cantRegistros, reg.getEmail()).c_str());
+    reg.setTelefono(validarTelefono(pSuscriptores, cantRegistros, reg.getTelefono()).c_str());
     delete [] pSuscriptores;
-    reg.setIdSuscriptor(id);
+    reg.setId(id);
+    cout << "Ingrese 0 si desea anular la carga o cualquier numero para continuar" << endl;
+    cin >> carga;
+    if(carga == 0)
+    {
+        cout << "Carga anulada..." << endl;
+        return false;
+    }
     return _repoSuscriptor.guardar(reg);
 }
 
@@ -69,10 +55,15 @@ bool SuscriptorManager::modificarSuscriptor()
     char respuesta;
     do
     {
-        cout << "Ingrese ID del registro a actualizar: " << endl;
+        cout << "Ingrese ID del registro a actualizar (0 para anular la actualizacion): " << endl;
         cin >> id;
+        if(id == 0)
+        {
+            cout << "Modificacion anulada..." << endl;
+            return false;
+        }
         reg = _repoSuscriptor.leer(id - 1);
-        if(reg.getIdSuscriptor() == -1)
+        if(reg.getId() == -1)
         {
             cout << "No existe usuario registrado con ese ID... Vuelva a intentarlo..." << endl;
             system("pause");
@@ -95,51 +86,21 @@ bool SuscriptorManager::modificarSuscriptor()
     system("cls");
     cout << "----- CARGUE LOS NUEVOS DATOS DEL REGISTRO -----" << endl;
     Suscriptor *pSuscriptores;
-    bool cargaExitosa;
-    do
+    cout << "ID: #" << id << endl;
+    reg.cargar();
+    reg.setTipoSuscripcion(validarTipoSuscripcion(reg.getTipoSuscripcion()));
+    int cantRegistros = _repoSuscriptor.getCantidadRegistros();
+    pSuscriptores = new Suscriptor[cantRegistros];
+    if(pSuscriptores == nullptr)
     {
-        cargaExitosa = true;
-        cout << "ID: #" << id << endl;
-        reg.cargar();
-        if(_repoTipoSuscripcion.buscar(reg.getTipoSuscripcion()) == -1)
-        {
-            cout << "El ID ingresado para el tipo de suscripcion no existe... Intente cargar la informacion nuevamente..." << endl;
-            cargaExitosa = false;
-            system("pause");
-            system("cls");
-            continue;
-        }
-        int cantRegistros = _repoSuscriptor.getCantidadRegistros();
-        pSuscriptores = new Suscriptor[cantRegistros];
-        if(pSuscriptores == nullptr)
-        {
-            cout << "Error en la asignacion de memoria dinamica... No se pudo guardar el registro..." << endl;
-            system("pause");
-            system("cls");
-            return false;
-        }
-        _repoSuscriptor.leer(pSuscriptores, cantRegistros);
-        for(int i = 0; i < cantRegistros; i++)
-        {
-            if(strcmp(reg.getEmail(),pSuscriptores[i].getEmail()) == 0)
-            {
-                cout << "El email ingresado ya existe... Intente cargar la informacion nuevamente..." << endl;
-                cargaExitosa = false;
-                system("pause");
-                system("cls");
-                break;
-            }
-            if(strcmp(reg.getTelefono(),pSuscriptores[i].getTelefono()) == 0)
-            {
-                cout << "El telefono ingresado ya existe... Intente cargar la informacion nuevamente..." << endl;
-                cargaExitosa = false;
-                system("pause");
-                system("cls");
-                break;
-            }
-        }
+        cout << "Error en la asignacion de memoria dinamica... No se pudo guardar el registro..." << endl;
+        system("pause");
+        system("cls");
+        return false;
     }
-    while(!cargaExitosa);
+    _repoSuscriptor.leer(pSuscriptores, cantRegistros);
+    reg.setEmail(validarEmail(pSuscriptores, cantRegistros, reg.getEmail()).c_str());
+    reg.setTelefono(validarTelefono(pSuscriptores, cantRegistros, reg.getTelefono()).c_str());
     delete [] pSuscriptores;
     return _repoSuscriptor.guardar(id-1, reg);
 }
@@ -152,19 +113,33 @@ bool SuscriptorManager::eliminarSuscriptor()
     char respuesta;
     do
     {
-        cout << "Ingrese ID del registro a eliminar: " << endl;
+        cout << "Ingrese ID del registro a eliminar (0 para cancelar la baja): " << endl;
         cin >> id;
-        reg = _repoSuscriptor.leer(id - 1);
-        if(reg.getIdSuscriptor() == -1)
+        if(id == 0)
         {
-            cout << "No existe usuario registrado con ese ID... Vuelva a intentarlo..." << endl;
-            system("pause");
-            system("cls");
-            continue;
+            cout << "Baja cancelada..." << endl;
+            return false;
         }
-        system("pause");
+        reg = _repoSuscriptor.leer(id - 1);
+        while(reg.getId() == -1)
+        {
+            cout << "No existe el suscriptor registrado con ese ID... Vuelva a intentarlo..." << endl;
+            cout << "Ingrese ID del registro a eliminar (0 para cancelar la baja): " << endl;
+            cin >> id;
+            if(id == 0)
+            {
+                cout << "Baja cancelada..." << endl;
+                return false;
+            }
+            reg = _repoSuscriptor.leer(id - 1);
+        }
         cout << "----- DATOS DEL REGISTRO A DAR DE BAJA -----" << endl;
         reg.mostrar();
+        if(reg.getEliminado())
+        {
+            cout << "El registro ya se encuentra dado de baja..." << endl;
+            return false;
+        }
         cout << "Este es el registro a eliminar? (S/N)" << endl;
         cin >> respuesta;
         while(respuesta != 's' && respuesta != 'S' && respuesta != 'n' && respuesta != 'N')
@@ -177,4 +152,110 @@ bool SuscriptorManager::eliminarSuscriptor()
     }
     while(respuesta != 's' || respuesta != 'S');
     return _repoSuscriptor.eliminar(id - 1);
+}
+
+bool SuscriptorManager::altaSuscriptor()
+{
+    cout << "-------- ALTA DE SUSCRIPTOR --------" << endl;
+    int id;
+    Suscriptor reg;
+    char respuesta;
+    do
+    {
+        cout << "Ingrese ID del registro a dar de alta (0 para cancelar el alta): " << endl;
+        cin >> id;
+        if(id == 0)
+        {
+            cout << "Alta cancelada..." << endl;
+            return false;
+        }
+        reg = _repoSuscriptor.leer(id - 1);
+        while(reg.getId() == -1)
+        {
+            cout << "No existe el suscriptor registrado con ese ID... Vuelva a intentarlo..." << endl;
+            cout << "Ingrese ID del registro a dar de alta (0 para cancelar el alta): " << endl;
+            cin >> id;
+            if(id == 0)
+            {
+                cout << "Alta cancelada..." << endl;
+                return false;
+            }
+            reg = _repoSuscriptor.leer(id - 1);
+        }
+        cout << "----- DATOS DEL REGISTRO A DAR DE ALTA -----" << endl;
+        reg.mostrar();
+        if(!reg.getEliminado())
+        {
+            cout << "El registro ya se encuentra dado de alta..." << endl;
+            return false;
+        }
+        cout << "Este es el registro a dar de alta? (S/N)" << endl;
+        cin >> respuesta;
+        while(respuesta != 's' && respuesta != 'S' && respuesta != 'n' && respuesta != 'N')
+        {
+            cout << "Respuesta incorrecta, vuelva a intentarlo..." << endl;
+            cout << "Este es el registro a dar de alta? (S/N)" << endl;
+            cin >> respuesta;
+        }
+        if(respuesta == 'N' || respuesta == 'n') continue;
+    }
+    while(respuesta != 's' || respuesta != 'S');
+    return _repoSuscriptor.alta(id - 1);
+}
+
+int SuscriptorManager::validarTipoSuscripcion(int id)
+{
+    while(_repoTipoSuscripcion.buscar(id) == -1)
+    {
+        cout << "El ID ingresado para el tipo de suscripcion no existe... Intente cargar la informacion nuevamente..." << endl;
+        cout << "ID Tipo de Suscripcion: ";
+        cin >> id;
+    }
+    return id;
+}
+
+string SuscriptorManager::validarEmail(Suscriptor* pSuscriptores,  int cant, const char* e)
+{
+    string email;
+    bool mailValido;
+    do
+    {
+        mailValido = true;
+        for(int i = 0; i < cant; i++)
+        {
+            if(strcmp(email.c_str(), pSuscriptores[i].getEmail()) == 0)
+            {
+                cout << "El email ingresado ya existe... Intente cargar la informacion nuevamente..." << endl;
+                cout << "Ingrese otro email: " << endl;
+                email = cargarCadena();
+                mailValido = false;
+                break;
+            }
+        }
+    }
+    while(!mailValido);
+    return email;
+}
+
+string SuscriptorManager::validarTelefono(Suscriptor* pSuscriptores,  int cant, const char* t)
+{
+    string tel;
+    bool telValido;
+    do
+    {
+        telValido = true;
+        for(int i = 0; i < cant; i++)
+        {
+            if(strcmp(tel.c_str(), pSuscriptores[i].getTelefono()) == 0)
+            {
+                cout << "El telefono ingresado ya existe... Intente cargar la informacion nuevamente..." << endl;
+                cout << "Ingrese otro telefono: " << endl;
+                tel = cargarCadena();
+                telValido = false;
+                break;
+            }
+        }
+    }
+    while(!telValido);
+    return tel;
 }

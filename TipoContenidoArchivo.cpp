@@ -96,3 +96,14 @@ bool TipoContenidoArchivo::eliminar(int pos)
     }
     return false;
 }
+
+bool TipoContenidoArchivo::alta(int pos)
+{
+    TipoContenido reg = leer(pos);
+    if(reg.getIdTipoContenido() != -1)
+    {
+        reg.setEliminado(false);
+        return guardar(pos, reg);
+    }
+    return false;
+}

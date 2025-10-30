@@ -5,7 +5,7 @@ using namespace std;
 
 TipoContenidoMenu::TipoContenidoMenu()
 {
-    _cantidadOpciones = 5;
+    _cantidadOpciones = 4;
 }
 
 void TipoContenidoMenu::mostrar()
@@ -26,11 +26,10 @@ void TipoContenidoMenu::mostrar()
 void TipoContenidoMenu::mostrarOpciones()
 {
     cout << "--- MENU TIPOS DE CONTENIDO ---" << endl;
-    cout << "1 - ALTA TIPO DE CONTENIDO" << endl;
+    cout << "1 - CARGAR TIPO DE CONTENIDO" << endl;
     cout << "2 - MODIFICAR TIPO DE CONTENIDO" << endl;
     cout << "3 - ELIMINAR TIPO DE CONTENIDO" << endl;
-    cout << "4 - CONSULTAR TIPOS DE CONTENIDO" << endl;
-    cout << "5 - LISTAR TIPOS DE CONTENIDO" << endl;
+    cout << "4 - ALTA TIPO DE CONTENIDO" << endl;
     cout << "---------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
@@ -46,11 +45,11 @@ void TipoContenidoMenu::ejecutarOpcion(int opcion)
         resultado = _tipoContenidoManager.cargarTipoContenido();
         if(resultado)
         {
-            cout << "Alta exitosa!" << endl;
+            cout << "Carga exitosa!" << endl;
         }
         else
         {
-            cout << "No se pudo realizar el alta..." << endl;
+            cout << "No se pudo realizar la carga..." << endl;
         }
         system("pause");
         break;
@@ -81,10 +80,17 @@ void TipoContenidoMenu::ejecutarOpcion(int opcion)
         system("pause");
         break;
     case 4:
-
-        break;
-    case 5:
-
+        system("cls");
+        resultado = _tipoContenidoManager.altaTipoContenido();
+        if(resultado)
+        {
+            cout << "Alta exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar el alta..." << endl;
+        }
+        system("pause");
         break;
     }
 }

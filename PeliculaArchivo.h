@@ -16,4 +16,5 @@ public:
     bool guardar(Pelicula reg);
     bool guardar(int pos, Pelicula reg);
     bool eliminar(int pos);
+    bool alta(int pos);
 };

@@ -6,7 +6,7 @@ using namespace std;
 
 Suscriptor::Suscriptor()
 {
-    _idSuscriptor = 0;
+    _id = 0;
     strcpy(_email, "");
     strcpy(_telefono, "");
     _tipoSuscripcion = 0;
@@ -34,7 +34,7 @@ void Suscriptor::cargar()
 
 void Suscriptor::mostrar()
 {
-    cout << "ID Suscriptor: " << _idSuscriptor << endl;
+    cout << "ID Suscriptor: " << _id << endl;
     Persona::mostrar();
     cout << "Email: " << _email << endl;
     cout << "Telefono: " << _telefono << endl;
@@ -44,10 +44,6 @@ void Suscriptor::mostrar()
     cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
 }
 
-int Suscriptor::getIdSuscriptor()
-{
-    return _idSuscriptor;
-}
 const char* Suscriptor::getEmail()
 {
     return _email;
@@ -65,10 +61,6 @@ int Suscriptor::getTipoSuscripcion()
     return _tipoSuscripcion;
 }
 
-void Suscriptor::setIdSuscriptor(int id)
-{
-    _idSuscriptor = id;
-}
 void Suscriptor::setEmail(const char* e)
 {
     strcpy(_email, e);

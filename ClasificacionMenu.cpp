@@ -5,7 +5,7 @@ using namespace std;
 
 ClasificacionMenu::ClasificacionMenu()
 {
-    _cantidadOpciones = 5;
+    _cantidadOpciones = 4;
 }
 
 void ClasificacionMenu::mostrar()
@@ -26,11 +26,10 @@ void ClasificacionMenu::mostrar()
 void ClasificacionMenu::mostrarOpciones()
 {
     cout << "--- MENU CLASIFICACIONES ---" << endl;
-    cout << "1 - ALTA CLASIFICACION" << endl;
+    cout << "1 - CARGAR CLASIFICACION" << endl;
     cout << "2 - MODIFICAR CLASIFICACION" << endl;
     cout << "3 - ELIMINAR CLASIFICACION" << endl;
-    cout << "4 - CONSULTAR CLASIFICACIONES" << endl;
-    cout << "5 - LISTAR CLASIFICACIONES" << endl;
+    cout << "4 - ALTA CLASIFICACION" << endl;
     cout << "---------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
@@ -46,11 +45,11 @@ void ClasificacionMenu::ejecutarOpcion(int opcion)
         resultado = _clasificacionManager.cargarClasificacion();
         if(resultado)
         {
-            cout << "Alta exitosa!" << endl;
+            cout << "Carga exitosa!" << endl;
         }
         else
         {
-            cout << "No se pudo realizar el alta..." << endl;
+            cout << "No se pudo realizar la carga..." << endl;
         }
         system("pause");
         break;
@@ -81,10 +80,17 @@ void ClasificacionMenu::ejecutarOpcion(int opcion)
         system("pause");
         break;
     case 4:
-
-        break;
-    case 5:
-
+        system("cls");
+        resultado = _clasificacionManager.altaClasificacion();
+        if(resultado)
+        {
+            cout << "Alta exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar el alta..." << endl;
+        }
+        system("pause");
         break;
     }
 }

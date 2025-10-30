@@ -5,7 +5,7 @@ using namespace std;
 
 PeliculaMenu::PeliculaMenu()
 {
-    _cantidadOpciones = 5;
+    _cantidadOpciones = 4;
 }
 
 void PeliculaMenu::mostrar()
@@ -26,11 +26,10 @@ void PeliculaMenu::mostrar()
 void PeliculaMenu::mostrarOpciones()
 {
     cout << "--- MENU PELICULAS ---" << endl;
-    cout << "1 - ALTA PELICULA" << endl;
+    cout << "1 - CARGAR PELICULA" << endl;
     cout << "2 - MODIFICAR PELICULA" << endl;
     cout << "3 - ELIMINAR PELICULA" << endl;
-    cout << "4 - CONSULTAR PELICULAS" << endl;
-    cout << "5 - LISTAR PELICULAS" << endl;
+    cout << "4 - ALTA PELICULA" << endl;
     cout << "---------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
@@ -46,11 +45,11 @@ void PeliculaMenu::ejecutarOpcion(int opcion)
         resultado = _peliculaManager.cargarPelicula();
         if(resultado)
         {
-            cout << "Alta exitosa!" << endl;
+            cout << "Carga exitosa!" << endl;
         }
         else
         {
-            cout << "No se pudo realizar el alta..." << endl;
+            cout << "No se pudo realizar la carga..." << endl;
         }
         system("pause");
         break;
@@ -81,10 +80,17 @@ void PeliculaMenu::ejecutarOpcion(int opcion)
         system("pause");
         break;
     case 4:
-
-        break;
-    case 5:
-
+        system("cls");
+        resultado = _peliculaManager.altaPelicula();
+        if(resultado)
+        {
+            cout << "Alta exitosa!" << endl;
+        }
+        else
+        {
+            cout << "No se pudo realizar el alta..." << endl;
+        }
+        system("pause");
         break;
     }
 }

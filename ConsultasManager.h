@@ -1,0 +1,9 @@
+#ifndef CONSULTASMANAGER_H_INCLUDED
+#define CONSULTASMANAGER_H_INCLUDED
+
+class ConsultasManager
+{
+
+};
+
+#endif // CONSULTASMANAGER_H_INCLUDED

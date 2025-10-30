@@ -21,7 +21,7 @@ int PeliculaArchivo::getCantidadRegistros()
 
 int PeliculaArchivo::getNuevoID()
 {
-    return getCantidadRegistros() + 1;
+    return getCantidadRegistros() + 1001;
 }
 
 int PeliculaArchivo::buscar(int id)
@@ -32,7 +32,7 @@ int PeliculaArchivo::buscar(int id)
     int pos = 0;
     while(fread(&reg, sizeof(Pelicula), 1, pArchivo))
     {
-        if(reg.getIdPelicula() == id)
+        if(reg.getId() == id)
         {
             fclose(pArchivo);
             return pos;
@@ -49,7 +49,7 @@ Pelicula PeliculaArchivo::leer(int pos)
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
     if(pArchivo == nullptr)
     {
-        reg.setIdPelicula(-1);
+        reg.setId(-1);
         return reg;
     }
     fseek(pArchivo, sizeof(Pelicula) * pos, SEEK_SET);
@@ -89,9 +89,20 @@ bool PeliculaArchivo::guardar(int pos, Pelicula reg)
 bool PeliculaArchivo::eliminar(int pos)
 {
     Pelicula reg = leer(pos);
-    if(reg.getIdPelicula() != -1)
+    if(reg.getId() != -1)
     {
         reg.setEliminado(true);
+        return guardar(pos, reg);
+    }
+    return false;
+}
+
+bool PeliculaArchivo::alta(int pos)
+{
+    Pelicula reg = leer(pos);
+    if(reg.getId() != -1)
+    {
+        reg.setEliminado(false);
         return guardar(pos, reg);
     }
     return false;

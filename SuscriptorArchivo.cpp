@@ -32,7 +32,7 @@ int SuscriptorArchivo::buscar(int id)
     int pos = 0;
     while(fread(&reg, sizeof(Suscriptor), 1, pArchivo))
     {
-        if(reg.getIdSuscriptor() == id)
+        if(reg.getId() == id)
         {
             fclose(pArchivo);
             return pos;
@@ -49,7 +49,7 @@ Suscriptor SuscriptorArchivo::leer(int pos)
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
     if(pArchivo == nullptr)
     {
-        reg.setIdSuscriptor(-1);
+        reg.setId(-1);
         return reg;
     }
     fseek(pArchivo, sizeof(Suscriptor) * pos, SEEK_SET);
@@ -89,9 +89,20 @@ bool SuscriptorArchivo::guardar(int pos, Suscriptor reg)
 bool SuscriptorArchivo::eliminar(int pos)
 {
     Suscriptor reg = leer(pos);
-    if(reg.getIdSuscriptor() != -1)
+    if(reg.getId() != -1)
     {
         reg.setEliminado(true);
+        return guardar(pos, reg);
+    }
+    return false;
+}
+
+bool SuscriptorArchivo::alta(int pos)
+{
+    Suscriptor reg = leer(pos);
+    if(reg.getId() != -1)
+    {
+        reg.setEliminado(false);
         return guardar(pos, reg);
     }
     return false;

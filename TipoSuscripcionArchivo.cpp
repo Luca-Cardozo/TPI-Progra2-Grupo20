@@ -96,3 +96,14 @@ bool TipoSuscripcionArchivo::eliminar(int pos)
     }
     return false;
 }
+
+bool TipoSuscripcionArchivo::alta(int pos)
+{
+    TipoSuscripcion reg = leer(pos);
+    if(reg.getIdTipoSuscripcion() != -1)
+    {
+        reg.setEliminado(false);
+        return guardar(pos, reg);
+    }
+    return false;
+}
