@@ -80,7 +80,7 @@ bool TipoSuscripcionManager::modificarTipoSuscripcion()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     system("cls");
     cout << "----- CARGUE LOS NUEVOS DATOS DEL REGISTRO -----" << endl;
     TipoSuscripcion *pTiposSuscripciones;
@@ -142,7 +142,7 @@ bool TipoSuscripcionManager::eliminarTipoSuscripcion()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoTipoSuscripcion.eliminar(id - 1);
 }
 
@@ -191,7 +191,7 @@ bool TipoSuscripcionManager::altaTipoSuscripcion()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoTipoSuscripcion.alta(id - 1);
 }
 
@@ -209,6 +209,7 @@ string TipoSuscripcionManager::validarDescripcion(TipoSuscripcion* pTiposSuscrip
                 cout << "La descripcion ingresada ya existe... Intente cargar la informacion nuevamente..." << endl;
                 cout << "Ingrese otra descripcion: " << endl;
                 desc = cargarCadena();
+                descValida = false;
                 break;
             }
         }

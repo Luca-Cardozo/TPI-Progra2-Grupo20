@@ -30,7 +30,7 @@ void PeliculaMenu::mostrarOpciones()
     cout << "2 - MODIFICAR PELICULA" << endl;
     cout << "3 - ELIMINAR PELICULA" << endl;
     cout << "4 - ALTA PELICULA" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "--------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
 }
@@ -100,7 +100,7 @@ int PeliculaMenu::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
-    cout << "---------------" << endl;
+    cout << "--------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)

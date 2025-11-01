@@ -12,6 +12,7 @@ private:
     SerieArchivo _repoSerie;
     PeliculaArchivo _repoPelicula;
     int validarSuscriptor(int id);
+    int validarContenido(int id);
     int validarPelicula(int id);
     int validarSerie(int id);
     int validarDuracion(int id, int dv);

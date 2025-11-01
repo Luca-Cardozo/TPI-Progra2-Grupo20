@@ -81,8 +81,6 @@ void Fecha::cargar()
         else
         {
             cout << "Fecha invalida... Intentelo nuevamente..." << endl;
-            system("pause");
-            system("cls");
         }
     }
     while(!fechaValida);

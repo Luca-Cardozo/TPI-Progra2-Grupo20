@@ -30,7 +30,7 @@ void SerieMenu::mostrarOpciones()
     cout << "2 - MODIFICAR SERIE" << endl;
     cout << "3 - ELIMINAR SERIE" << endl;
     cout << "4 - ALTA SERIE" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "--------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
 }
@@ -45,11 +45,11 @@ void SerieMenu::ejecutarOpcion(int opcion)
         resultado = _serieManager.cargarSerie();
         if(resultado)
         {
-            cout << "Alta exitosa!" << endl;
+            cout << "Carga exitosa!" << endl;
         }
         else
         {
-            cout << "No se pudo realizar el alta..." << endl;
+            cout << "No se pudo realizar la carga..." << endl;
         }
         system("pause");
         break;
@@ -100,7 +100,7 @@ int SerieMenu::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
-    cout << "---------------" << endl;
+    cout << "--------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)

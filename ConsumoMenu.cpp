@@ -30,7 +30,7 @@ void ConsumoMenu::mostrarOpciones()
     cout << "2 - MODIFICAR CONSUMO" << endl;
     cout << "3 - ELIMINAR CONSUMO" << endl;
     cout << "4 - ALTA CONSUMO" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "--------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
 }
@@ -100,7 +100,7 @@ int ConsumoMenu::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
-    cout << "---------------" << endl;
+    cout << "--------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)

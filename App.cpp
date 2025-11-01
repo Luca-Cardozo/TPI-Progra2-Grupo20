@@ -12,7 +12,6 @@ void App::run()
     int opcion;
     do
     {
-        //system("pause");
         system("cls");
         opcion = seleccionOpcion();
         system("cls");

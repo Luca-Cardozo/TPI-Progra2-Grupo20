@@ -82,7 +82,7 @@ bool SerieManager::modificarSerie()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     system("cls");
     cout << "----- CARGUE LOS NUEVOS DATOS DEL REGISTRO -----" << endl;
     Serie *pSeries;
@@ -151,7 +151,7 @@ bool SerieManager::eliminarSerie()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoSerie.eliminar(id - 2001);
 }
 
@@ -200,7 +200,7 @@ bool SerieManager::altaSerie()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoSerie.alta(id - 2001);
 }
 

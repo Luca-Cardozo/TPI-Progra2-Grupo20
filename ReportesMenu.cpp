@@ -83,7 +83,7 @@ int ReportesMenu::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
-    cout << "---------------" << endl;
+    cout << "-----------------------------------------------------------------------------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)

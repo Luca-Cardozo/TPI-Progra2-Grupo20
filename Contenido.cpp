@@ -33,10 +33,10 @@ void Contenido::cargar()
     cout << "ID de la clasificacion: ";
     cin >> c;
     setClasificacion(c);
-    cout << "Fecha de estreno:" << endl;
+    cout << "Fecha de estreno: " << endl;
     f.cargar();
     setFechaEstreno(f);
-    cout << "Fecha de alta en el sistema:" << endl;
+    cout << "Fecha de alta en el sistema: " << endl;
     f.cargar();
     setFechaAlta(f);
     _eliminado = false;

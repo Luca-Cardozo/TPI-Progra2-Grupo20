@@ -21,6 +21,7 @@ bool DirectorManager::cargarDirector()
     Director reg;
     Director *pDirectores;
     cout << "ID: #" << id << endl;
+    reg.cargar();
     int cantRegistros = _repoDirector.getCantidadRegistros();
     pDirectores = new Director[cantRegistros];
     if(pDirectores == nullptr)
@@ -84,7 +85,7 @@ bool DirectorManager::modificarDirector()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     system("cls");
     cout << "----- CARGUE LOS NUEVOS DATOS DEL REGISTRO -----" << endl;
     Director *pDirectores;
@@ -156,7 +157,7 @@ bool DirectorManager::eliminarDirector()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoDirector.eliminar(id - 1);
 }
 
@@ -178,7 +179,7 @@ bool DirectorManager::altaDirector()
         reg = _repoDirector.leer(id - 1);
         while(reg.getId() == -1)
         {
-            cout << "No existe director registrada con ese ID... Vuelva a intentarlo..." << endl;
+            cout << "No existe director registrado con ese ID... Vuelva a intentarlo..." << endl;
             cout << "Ingrese ID del registro a dar de alta (0 para cancelar el alta): " << endl;
             cin >> id;
             if(id == 0)
@@ -205,7 +206,7 @@ bool DirectorManager::altaDirector()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoDirector.alta(id - 1);
 }
 

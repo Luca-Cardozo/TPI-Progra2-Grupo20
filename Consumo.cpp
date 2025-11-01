@@ -9,15 +9,15 @@ Consumo::Consumo()
     _idAcceso = 0;
     _idSuscriptor = 0;
     _idContenido = 0;
-    _horaAcceso = 0;
     _duracionVista = 0;
     _eliminado = false;
 }
 
 void Consumo::cargar()
 {
-    int idS, idC, tc, ha, dv;
+    int idS, idC, dv;
     Fecha f;
+    Hora ha;
     cout << "ID Suscriptor: ";
     cin >> idS;
     setIdSuscriptor(idS);
@@ -27,19 +27,12 @@ void Consumo::cargar()
     cout << "Fecha de acceso:" << endl;
     f.cargar();
     setFechaAcceso(f);
-    do
-    {
-        cout << "Hora de acceso (0-23): ";
-        cin >> ha;
-        if(ha < 0 || ha > 23)
-        {
-            cout << "Ingrese una hora valida por favor..." << endl;
-        }
-    }
-    while(ha < 0 || ha > 23);
+    cout << "Hora de acceso:" << endl;
+    ha.cargar();
     setHoraAcceso(ha);
     cout << "Duracion vista (en minutos): ";
     cin >> dv;
+    dv = validarPositivo(dv);
     setDuracionVista(dv);
     _eliminado = false;
 }
@@ -51,7 +44,8 @@ void Consumo::mostrar()
     cout << "ID Contenido: " << _idContenido << endl;
     cout << "Fecha Acceso: ";
     _fechaAcceso.mostrar();
-    cout << "Hora Acceso: " << _horaAcceso << " hs" << endl;
+    cout << "Hora Acceso: ";
+    _horaAcceso.mostrar();
     cout << "Duracion Vista: " << _duracionVista << " minutos" << endl;
     cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
 }
@@ -72,7 +66,7 @@ Fecha Consumo::getFechaAcceso()
 {
     return _fechaAcceso;
 }
-int Consumo::getHoraAcceso()
+Hora Consumo::getHoraAcceso()
 {
     return _horaAcceso;
 }
@@ -101,7 +95,7 @@ void Consumo::setFechaAcceso(Fecha f)
 {
     _fechaAcceso = f;
 }
-void Consumo::setHoraAcceso(int ha)
+void Consumo::setHoraAcceso(Hora ha)
 {
     _horaAcceso = ha;
 }

@@ -1,4 +1,5 @@
 #include "Pelicula.h"
+#include "utils.h"
 #include <iostream>
 
 using namespace std;
@@ -14,6 +15,7 @@ void Pelicula::cargar()
     int d;
     cout << "Duracion (en minutos): ";
     cin >> d;
+    d = validarPositivo(d);
     setDuracion(d);
 }
 

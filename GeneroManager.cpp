@@ -80,7 +80,7 @@ bool GeneroManager::modificarGenero()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     system("cls");
     cout << "----- CARGUE LOS NUEVOS DATOS DEL REGISTRO -----" << endl;
     Genero *pGeneros;
@@ -142,7 +142,7 @@ bool GeneroManager::eliminarGenero()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoGenero.eliminar(id - 1);
 }
 
@@ -191,7 +191,7 @@ bool GeneroManager::altaGenero()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoGenero.alta(id - 1);
 }
 
@@ -209,6 +209,7 @@ string GeneroManager::validarDescripcion(Genero* pGeneros,  int cant, const char
                 cout << "La descripcion ingresada ya existe... Intente cargar la informacion nuevamente..." << endl;
                 cout << "Ingrese otra descripcion: " << endl;
                 desc = cargarCadena();
+                descValida = false;
                 break;
             }
         }

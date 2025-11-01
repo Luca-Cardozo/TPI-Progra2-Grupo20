@@ -1,5 +1,4 @@
 #pragma once
-#include <string>
 
 class Fecha
 {
@@ -8,12 +7,6 @@ private:
 
     bool esAnioBisiesto(int anio);
     bool validarFecha(int d, int m, int a);
-
-    bool operator==(const Fecha &otra) const;
-    bool operator<(const Fecha &otra) const;
-    bool operator>(const Fecha &otra) const;
-    bool operator<=(const Fecha &otra) const;
-    bool operator>=(const Fecha &otra) const;
 
 public:
     Fecha();
@@ -28,4 +21,10 @@ public:
     void setDia(int dia);
     void setMes(int mes);
     void setAnio(int anio);
+
+    bool operator==(const Fecha &otra) const;
+    bool operator<(const Fecha &otra) const;
+    bool operator>(const Fecha &otra) const;
+    bool operator<=(const Fecha &otra) const;
+    bool operator>=(const Fecha &otra) const;
 };

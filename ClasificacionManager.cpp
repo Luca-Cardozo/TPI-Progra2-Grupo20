@@ -80,7 +80,7 @@ bool ClasificacionManager::modificarClasificacion()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     system("cls");
     cout << "----- CARGUE LOS NUEVOS DATOS DEL REGISTRO -----" << endl;
     Clasificacion *pClasificaciones;
@@ -142,7 +142,7 @@ bool ClasificacionManager::eliminarClasificacion()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoClasificacion.eliminar(id - 1);
 }
 
@@ -191,7 +191,7 @@ bool ClasificacionManager::altaClasificacion()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoClasificacion.alta(id - 1);
 }
 
@@ -209,6 +209,7 @@ string ClasificacionManager::validarDescripcion(Clasificacion* pClasificaciones,
                 cout << "La descripcion ingresada ya existe... Intente cargar la informacion nuevamente..." << endl;
                 cout << "Ingrese otra descripcion: " << endl;
                 desc = cargarCadena();
+                descValida = false;
                 break;
             }
         }

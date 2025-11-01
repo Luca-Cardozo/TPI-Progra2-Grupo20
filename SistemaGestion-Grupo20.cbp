@@ -147,6 +147,8 @@
 		<Unit filename="GeneroMenu.h">
 			<Option virtualFolder="Auxiliares/" />
 		</Unit>
+		<Unit filename="Hora.cpp" />
+		<Unit filename="Hora.h" />
 		<Unit filename="ListadosManager.cpp">
 			<Option virtualFolder="Listados/" />
 		</Unit>
@@ -295,6 +297,7 @@
 			<Option virtualFolder="Auxiliares/" />
 		</Unit>
 		<Unit filename="main.cpp" />
+		<Unit filename="rlutil.h" />
 		<Unit filename="utils.cpp" />
 		<Unit filename="utils.h" />
 		<Extensions />

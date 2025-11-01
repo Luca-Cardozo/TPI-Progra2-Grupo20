@@ -1,5 +1,6 @@
 #pragma once
 #include "Fecha.h"
+#include "Hora.h"
 
 class Consumo
 {
@@ -8,7 +9,7 @@ private:
     int _idSuscriptor;
     int _idContenido;
     Fecha _fechaAcceso;
-    int _horaAcceso;
+    Hora _horaAcceso;
     int _duracionVista;
     bool _eliminado;
 public:
@@ -21,7 +22,7 @@ public:
     int getIdSuscriptor();
     int getIdContenido();
     Fecha getFechaAcceso();
-    int getHoraAcceso();
+    Hora getHoraAcceso();
     int getDuracionVista();
     bool getEliminado();
 
@@ -29,7 +30,7 @@ public:
     void setIdSuscriptor(int id);
     void setIdContenido(int id);
     void setFechaAcceso(Fecha f);
-    void setHoraAcceso(int ha);
+    void setHoraAcceso(Hora ha);
     void setDuracionVista(int dv);
     void setEliminado(bool e);
 };

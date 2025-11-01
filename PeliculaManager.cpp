@@ -83,7 +83,7 @@ bool PeliculaManager::modificarPelicula()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     system("cls");
     cout << "----- CARGUE LOS NUEVOS DATOS DEL REGISTRO -----" << endl;
     Pelicula *pPeliculas;
@@ -152,7 +152,7 @@ bool PeliculaManager::eliminarPelicula()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoPelicula.eliminar(id - 1001);
 }
 
@@ -201,7 +201,7 @@ bool PeliculaManager::altaPelicula()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoPelicula.alta(id - 1001);
 }
 

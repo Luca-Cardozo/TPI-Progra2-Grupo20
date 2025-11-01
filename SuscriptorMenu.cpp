@@ -30,7 +30,7 @@ void SuscriptorMenu::mostrarOpciones()
     cout << "2 - MODIFICAR SUSCRIPTOR" << endl;
     cout << "3 - ELIMINAR SUSCRIPTOR" << endl;
     cout << "4 - ALTA SUSCRIPTOR" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "--------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
 }
@@ -100,7 +100,7 @@ int SuscriptorMenu::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
-    cout << "---------------" << endl;
+    cout << "--------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)

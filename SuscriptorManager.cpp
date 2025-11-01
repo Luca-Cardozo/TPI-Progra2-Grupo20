@@ -82,7 +82,7 @@ bool SuscriptorManager::modificarSuscriptor()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     system("cls");
     cout << "----- CARGUE LOS NUEVOS DATOS DEL REGISTRO -----" << endl;
     Suscriptor *pSuscriptores;
@@ -150,7 +150,7 @@ bool SuscriptorManager::eliminarSuscriptor()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoSuscriptor.eliminar(id - 1);
 }
 
@@ -199,7 +199,7 @@ bool SuscriptorManager::altaSuscriptor()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoSuscriptor.alta(id - 1);
 }
 
@@ -216,7 +216,7 @@ int SuscriptorManager::validarTipoSuscripcion(int id)
 
 string SuscriptorManager::validarEmail(Suscriptor* pSuscriptores,  int cant, const char* e)
 {
-    string email;
+    string email = e;
     bool mailValido;
     do
     {
@@ -239,7 +239,7 @@ string SuscriptorManager::validarEmail(Suscriptor* pSuscriptores,  int cant, con
 
 string SuscriptorManager::validarTelefono(Suscriptor* pSuscriptores,  int cant, const char* t)
 {
-    string tel;
+    string tel = t;
     bool telValido;
     do
     {

@@ -20,14 +20,10 @@ bool ConsumoManager::cargarConsumo()
     cout << "ID: #" << id << endl;
     reg.cargar();
     reg.setIdSuscriptor(validarSuscriptor(reg.getIdSuscriptor()));
+    reg.setIdContenido(validarContenido(reg.getIdContenido()));
     if(reg.getIdContenido() >= 1001 && reg.getIdContenido() <= 2000)
     {
-        reg.setIdContenido(validarPelicula(reg.getIdContenido()));
         reg.setDuracionVista(validarDuracion(reg.getIdContenido(), reg.getDuracionVista()));
-    }
-    else if(reg.getIdContenido() >= 2001 && reg.getIdContenido() <= 3000)
-    {
-        reg.setIdContenido(validarSerie(reg.getIdContenido()));
     }
     reg.setIdAcceso(id);
     cout << "Ingrese 0 si desea anular la carga o cualquier numero para continuar" << endl;
@@ -86,14 +82,10 @@ bool ConsumoManager::modificarConsumo()
     cout << "ID: #" << id << endl;
     reg.cargar();
     reg.setIdSuscriptor(validarSuscriptor(reg.getIdSuscriptor()));
+    reg.setIdContenido(validarContenido(reg.getIdContenido()));
     if(reg.getIdContenido() >= 1001 && reg.getIdContenido() <= 2000)
     {
-        reg.setIdContenido(validarPelicula(reg.getIdContenido()));
         reg.setDuracionVista(validarDuracion(reg.getIdContenido(), reg.getDuracionVista()));
-    }
-    else if(reg.getIdContenido() >= 2001 && reg.getIdContenido() <= 3000)
-    {
-        reg.setIdContenido(validarSerie(reg.getIdContenido()));
     }
     return _repoConsumo.guardar(id-1, reg);
 }
@@ -237,6 +229,24 @@ int ConsumoManager::validarSuscriptor(int id)
     return id;
 }
 
+int ConsumoManager::validarContenido(int id)
+{
+    while(id < 1001 || id > 3000)
+    {
+        cout << "ID de contenido inválido. Debe estar entre 1001 y 3000. Intente nuevamente: ";
+        cin >> id;
+    }
+    if(id >= 1001 && id <= 2000)
+    {
+        id = validarPelicula(id);
+    }
+    else if(id >= 2001 && id <= 3000)
+    {
+        id = validarSerie(id);
+    }
+    return id;
+}
+
 int ConsumoManager::validarPelicula(int id)
 {
     char respuesta;
@@ -262,7 +272,7 @@ int ConsumoManager::validarPelicula(int id)
             if(respuesta == 'S' || respuesta == 's')
             {
                 aux.setEliminado(false);
-                _repoPelicula.guardar(aux.getId() - 1, aux);
+                _repoPelicula.guardar(aux.getId() - 1001, aux);
                 cout << "Pelicula reactivada correctamente" << endl;
                 break;
             }
@@ -302,7 +312,7 @@ int ConsumoManager::validarSerie(int id)
             if(respuesta == 'S' || respuesta == 's')
             {
                 aux.setEliminado(false);
-                _repoSerie.guardar(aux.getId() - 1, aux);
+                _repoSerie.guardar(aux.getId() - 2001, aux);
                 cout << "Serie reactivada correctamente" << endl;
                 break;
             }
@@ -319,11 +329,18 @@ int ConsumoManager::validarSerie(int id)
 
 int ConsumoManager::validarDuracion(int id, int dv)
 {
-    Pelicula reg = _repoPelicula.leer(id - 1);
-    while(dv > reg.getDuracion())
+    Pelicula reg = _repoPelicula.leer(id - 1001);
+    while(dv > reg.getDuracion() || dv < 0)
     {
-        cout << "La duracion vista excede al total de la pelicula... Intente cargar la informacion nuevamente..." << endl;
-        cout << "La duracion total de la pelicula es " << reg.getDuracion() << " minutos" << endl;
+        if(dv > reg.getDuracion())
+        {
+            cout << "La duracion vista excede al total de la pelicula... Intente cargar la informacion nuevamente..." << endl;
+            cout << "La duracion total de la pelicula es " << reg.getDuracion() << " minutos" << endl;
+        }
+        else if(dv < 0)
+        {
+            cout << "La duracion vista debe ser positiva.. Intente cargar la informacion nuevamente..." << endl;
+        }
         cout << "Duracion vista (en minutos): ";
         cin >> dv;
     }

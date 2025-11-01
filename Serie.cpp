@@ -1,4 +1,5 @@
 #include "Serie.h"
+#include "utils.h"
 #include <iostream>
 
 using namespace std;
@@ -15,9 +16,11 @@ void Serie::cargar()
     int t, c;
     cout << "Cantidad de temporadas: ";
     cin >> t;
+    t = validarPositivo(t);
     setTemporadas(t);
     cout << "Cantidad de capitulos: ";
     cin >> c;
+    c = validarPositivo(c);
     setCapitulos(c);
 }
 

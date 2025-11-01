@@ -80,7 +80,7 @@ bool TipoContenidoManager::modificarTipoContenido()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     system("cls");
     cout << "----- CARGUE LOS NUEVOS DATOS DEL REGISTRO -----" << endl;
     TipoContenido *pTiposContenido;
@@ -142,7 +142,7 @@ bool TipoContenidoManager::eliminarTipoContenido()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoTipoContenido.eliminar(id - 1);
 }
 
@@ -191,7 +191,7 @@ bool TipoContenidoManager::altaTipoContenido()
         }
         if(respuesta == 'N' || respuesta == 'n') continue;
     }
-    while(respuesta != 's' || respuesta != 'S');
+    while(respuesta != 's' && respuesta != 'S');
     return _repoTipoContenido.alta(id - 1);
 }
 
@@ -209,6 +209,7 @@ string TipoContenidoManager::validarDescripcion(TipoContenido* pTiposContenido, 
                 cout << "La descripcion ingresada ya existe... Intente cargar la informacion nuevamente..." << endl;
                 cout << "Ingrese otra descripcion: " << endl;
                 desc = cargarCadena();
+                descValida = false;
                 break;
             }
         }
