@@ -23,7 +23,7 @@ void App::run()
 
 void App::mostrarOpciones()
 {
-    cout << "--- MENU PRINCIPAL ---" << endl;
+    cout << "--------- MENU PRINCIPAL ---------" << endl;
     cout << "1- SUSCRIPTORES" << endl;
     cout << "2- PELICULAS" << endl;
     cout << "3- SERIES" << endl;
@@ -36,7 +36,7 @@ void App::mostrarOpciones()
     cout << "10- LISTADOS" << endl;
     cout << "11- CONSULTAS" << endl;
     cout << "12- REPORTES" << endl;
-    cout << "-----------------" << endl;
+    cout << "----------------------------------" << endl;
     cout << "0- SALIR" << endl;
 }
 

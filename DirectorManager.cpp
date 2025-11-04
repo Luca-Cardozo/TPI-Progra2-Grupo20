@@ -40,13 +40,6 @@ bool DirectorManager::cargarDirector()
     }
     delete [] pDirectores;
     reg.setId(id);
-    cout << "Ingrese 0 si desea anular la carga o cualquier numero para continuar" << endl;
-    cin >> carga;
-    if(carga == 0)
-    {
-        cout << "Carga anulada..." << endl;
-        return false;
-    }
     return _repoDirector.guardar(reg);
 }
 
@@ -220,7 +213,7 @@ bool DirectorManager::validarNombreApellido(Director* pDirectores,  int cant, co
         directorValido = true;
         for(int i = 0; i < cant; i++)
         {
-            if(strcmp(nom.c_str(), pDirectores[i].getNombre()) == 0 && strcmp(ape.c_str(), pDirectores[i].getApellido()) == 0)
+            if(strcasecmp(nom.c_str(), pDirectores[i].getNombre()) == 0 && strcmp(ape.c_str(), pDirectores[i].getApellido()) == 0)
             {
                 cout << "El nombre y apellido ingresados ya existen... Intente cargar la informacion nuevamente..." << endl;
                 cout << "Ingrese otro nombre: " << endl;

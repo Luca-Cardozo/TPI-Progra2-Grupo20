@@ -3,7 +3,9 @@
 #include "utils.h"
 #include <iostream>
 #include <cstring>
+
 using namespace std;
+
 bool SerieManager::cargarSerie()
 {
     cout << "-------- CARGA DE NUEVA SERIE --------" << endl;
@@ -37,13 +39,6 @@ bool SerieManager::cargarSerie()
     delete [] pSeries;
     reg.setId(id);
     reg.setIdTipoContenido(2);
-    cout << "Ingrese 0 si desea anular la carga o cualquier numero para continuar" << endl;
-    cin >> carga;
-    if(carga == 0)
-    {
-        cout << "Carga anulada..." << endl;
-        return false;
-    }
     return _repoSerie.guardar(reg);
 }
 
@@ -209,7 +204,11 @@ int SerieManager::validarDirector(int id)
     char respuesta;
     while(_repoDirector.buscar(id) == -1)
     {
+        system("cls");
+        _listados.listarDirectoresApellido();
+        cout << endl;
         cout << "El ID ingresado para el director no existe... Intente cargar la informacion nuevamente..." << endl;
+        cout << "Elija un director disponible por favor..." << endl;
         cout << "ID Director: ";
         cin >> id;
     }
@@ -249,7 +248,11 @@ int SerieManager::validarGenero(int id)
     char respuesta;
     while(_repoGenero.buscar(id) == -1)
     {
+        system("cls");
+        _listados.listarGeneros();
+        cout << endl;
         cout << "El ID ingresado para el genero no existe... Intente cargar la informacion nuevamente..." << endl;
+        cout << "Elija un genero disponible por favor..." << endl;
         cout << "ID Genero: ";
         cin >> id;
     }
@@ -289,7 +292,11 @@ int SerieManager::validarClasificacion(int id)
     char respuesta;
     while(_repoClasificacion.buscar(id) == -1)
     {
+        system("cls");
+        _listados.listarClasificaciones();
+        cout << endl;
         cout << "El ID ingresado para la clasificacion no existe... Intente cargar la informacion nuevamente..." << endl;
+        cout << "Elija una clasificacion disponible por favor..." << endl;
         cout << "ID Clasificacion: ";
         cin >> id;
     }
@@ -333,7 +340,7 @@ string SerieManager::validarTitulo(Serie* pSeries,  int cant, const char* t)
         titValido = true;
         for(int i = 0; i < cant; i++)
         {
-            if(strcmp(tit.c_str(), pSeries[i].getTitulo()) == 0)
+            if(strcasecmp(tit.c_str(), pSeries[i].getTitulo()) == 0)
             {
                 cout << "El titulo ingresado ya existe... Intente cargar la informacion nuevamente..." << endl;
                 cout << "Ingrese otro titulo: " << endl;
@@ -346,4 +353,3 @@ string SerieManager::validarTitulo(Serie* pSeries,  int cant, const char* t)
     while(!titValido);
     return tit;
 }
-

@@ -26,13 +26,6 @@ bool ConsumoManager::cargarConsumo()
         reg.setDuracionVista(validarDuracion(reg.getIdContenido(), reg.getDuracionVista()));
     }
     reg.setIdAcceso(id);
-    cout << "Ingrese 0 si desea anular la carga o cualquier numero para continuar" << endl;
-    cin >> carga;
-    if(carga == 0)
-    {
-        cout << "Carga anulada..." << endl;
-        return false;
-    }
     return _repoConsumo.guardar(reg);
 }
 
@@ -194,7 +187,11 @@ int ConsumoManager::validarSuscriptor(int id)
     char respuesta;
     while(_repoSuscriptor.buscar(id) == -1)
     {
+        system("cls");
+        _listados.listarSuscriptoresApellido();
+        cout << endl;
         cout << "El ID ingresado para el suscriptor no existe... Intente cargar la informacion nuevamente..." << endl;
+        cout << "Elija un suscriptor disponible por favor..." << endl;
         cout << "ID Suscriptor: ";
         cin >> id;
     }
@@ -252,8 +249,12 @@ int ConsumoManager::validarPelicula(int id)
     char respuesta;
     while(_repoPelicula.buscar(id) == -1)
     {
+        system("cls");
+        _listados.listarPeliculasTitulo();
+        cout << endl;
         cout << "El ID ingresado para la pelicula no existe... Intente cargar la informacion nuevamente..." << endl;
-        cout << "ID Contenido: ";
+        cout << "Elija una pelicula disponible por favor..." << endl;
+        cout << "ID Pelicula: ";
         cin >> id;
     }
     while(true)
@@ -292,8 +293,12 @@ int ConsumoManager::validarSerie(int id)
     char respuesta;
     while(_repoSerie.buscar(id) == -1)
     {
+        system("cls");
+        _listados.listarSeriesTitulo();
+        cout << endl;
         cout << "El ID ingresado para la serie no existe... Intente cargar la informacion nuevamente..." << endl;
-        cout << "ID Contenido: ";
+        cout << "Elija una serie disponible por favor..." << endl;
+        cout << "ID Serie: ";
         cin >> id;
     }
     while(true)

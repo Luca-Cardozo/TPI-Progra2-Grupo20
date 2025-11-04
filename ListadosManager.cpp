@@ -28,7 +28,7 @@ void ListadosManager::listarSuscriptoresApellido()
     {
         for(int j = i + 1; j < cantRegistros; j++)
         {
-            if (strcmp(pSuscriptores[i].getApellido(), pSuscriptores[j].getApellido()) > 0)
+            if (strcasecmp(pSuscriptores[i].getApellido(), pSuscriptores[j].getApellido()) > 0)
             {
                 Suscriptor aux = pSuscriptores[i];
                 pSuscriptores[i] = pSuscriptores[j];
@@ -198,7 +198,7 @@ void ListadosManager::listarPeliculasTitulo()
     {
         for(int j = i + 1; j < cantRegistros; j++)
         {
-            if (strcmp(pPeliculas[i].getTitulo(), pPeliculas[j].getTitulo()) > 0)
+            if (strcasecmp(pPeliculas[i].getTitulo(), pPeliculas[j].getTitulo()) > 0)
             {
                 Pelicula aux = pPeliculas[i];
                 pPeliculas[i] = pPeliculas[j];
@@ -411,7 +411,7 @@ void ListadosManager::listarSeriesTitulo()
     {
         for(int j = i + 1; j < cantRegistros; j++)
         {
-            if (strcmp(pSeries[i].getTitulo(), pSeries[j].getTitulo()) > 0)
+            if (strcasecmp(pSeries[i].getTitulo(), pSeries[j].getTitulo()) > 0)
             {
                 Serie aux = pSeries[i];
                 pSeries[i] = pSeries[j];
@@ -636,7 +636,7 @@ void ListadosManager::listarDirectoresApellido()
     {
         for(int j = i + 1; j < cantRegistros; j++)
         {
-            if (strcmp(pDirectores[i].getApellido(), pDirectores[j].getApellido()) > 0)
+            if (strcasecmp(pDirectores[i].getApellido(), pDirectores[j].getApellido()) > 0)
             {
                 Director aux = pDirectores[i];
                 pDirectores[i] = pDirectores[j];

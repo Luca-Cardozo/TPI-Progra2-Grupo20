@@ -3,6 +3,7 @@
 #include "DirectorArchivo.h"
 #include "GeneroArchivo.h"
 #include "ClasificacionArchivo.h"
+#include "ListadosManager.h"
 
 class PeliculaManager
 {
@@ -11,6 +12,8 @@ private:
     DirectorArchivo _repoDirector;
     GeneroArchivo _repoGenero;
     ClasificacionArchivo _repoClasificacion;
+    ListadosManager _listados;
+
     int validarDirector(int id);
     int validarGenero(int id);
     int validarClasificacion(int id);

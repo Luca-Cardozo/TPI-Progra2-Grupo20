@@ -35,13 +35,6 @@ bool TipoSuscripcionManager::cargarTipoSuscripcion()
     reg.setDescripcion(validarDescripcion(pTiposSuscripciones, cantRegistros, reg.getDescripcion()).c_str());
     delete [] pTiposSuscripciones;
     reg.setIdTipoSuscripcion(id);
-    cout << "Ingrese 0 si desea anular la carga o cualquier numero para continuar" << endl;
-    cin >> carga;
-    if(carga == 0)
-    {
-        cout << "Carga anulada..." << endl;
-        return false;
-    }
     return _repoTipoSuscripcion.guardar(reg);
 }
 
@@ -204,7 +197,7 @@ string TipoSuscripcionManager::validarDescripcion(TipoSuscripcion* pTiposSuscrip
         descValida = true;
         for(int i = 0; i < cant; i++)
         {
-            if(strcmp(desc.c_str(), pTiposSuscripcion[i].getDescripcion()) == 0)
+            if(strcasecmp(desc.c_str(), pTiposSuscripcion[i].getDescripcion()) == 0)
             {
                 cout << "La descripcion ingresada ya existe... Intente cargar la informacion nuevamente..." << endl;
                 cout << "Ingrese otra descripcion: " << endl;

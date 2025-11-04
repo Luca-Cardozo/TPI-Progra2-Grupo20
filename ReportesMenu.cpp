@@ -25,7 +25,7 @@ void ReportesMenu::mostrar()
 
 void ReportesMenu::mostrarOpciones()
 {
-    cout << "------------------------------------- MENU REPORTES -------------------------------------" << endl;
+    cout << "-------------------------------------- MENU REPORTES --------------------------------------" << endl;
     cout << "1 - CANTIDAD DE CONSUMOS POR SUSCRIPTOR EN UN RANGO DE FECHAS" << endl;
     cout << "2 - CANTIDAD DE CONSUMOS POR TITULO EN UN RANGO DE FECHAS" << endl;
     cout << "3 - CANTIDAD DE CONSUMOS TOTALES POR TIPO DE CONTENIDO EN UN RANGO HORARIO" << endl;
@@ -36,9 +36,9 @@ void ReportesMenu::mostrarOpciones()
     cout << "8 - PROMEDIO MENSUAL DE MINUTOS CONSUMIDOS POR TIPO DE SUSCRIPCION EN UN ANIO DETERMINADO" << endl;
     cout << "9 - PROMEDIO DIARIO DE MINUTOS CONSUMIDOS POR SUSCRIPTOR EN UN DETERMINADO MES Y ANIO" << endl;
     cout << "10 - PORCENTAJE MENSUAL DE TIEMPO CONSUMIDO POR TIPO DE CONTENIDO EN UN ANIO DETERMINADO" << endl;
-    cout << "-----------------------------------------------------------------------------------------" << endl;
+    cout << "-------------------------------------------------------------------------------------------" << endl;
     cout << "0 - SALIR" << endl;
-    cout << "-----------------------------------------------------------------------------------------" << endl;
+    cout << "-------------------------------------------------------------------------------------------" << endl;
 }
 
 void ReportesMenu::ejecutarOpcion(int opcion)

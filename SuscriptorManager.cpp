@@ -3,6 +3,7 @@
 #include "utils.h"
 #include <iostream>
 #include <cstring>
+#include <cctype>
 
 using namespace std;
 
@@ -37,13 +38,6 @@ bool SuscriptorManager::cargarSuscriptor()
     reg.setTelefono(validarTelefono(pSuscriptores, cantRegistros, reg.getTelefono()).c_str());
     delete [] pSuscriptores;
     reg.setId(id);
-    cout << "Ingrese 0 si desea anular la carga o cualquier numero para continuar" << endl;
-    cin >> carga;
-    if(carga == 0)
-    {
-        cout << "Carga anulada..." << endl;
-        return false;
-    }
     return _repoSuscriptor.guardar(reg);
 }
 
@@ -207,7 +201,11 @@ int SuscriptorManager::validarTipoSuscripcion(int id)
 {
     while(_repoTipoSuscripcion.buscar(id) == -1)
     {
+        system("cls");
+        _listados.listarTiposSuscripcion();
+        cout << endl;
         cout << "El ID ingresado para el tipo de suscripcion no existe... Intente cargar la informacion nuevamente..." << endl;
+        cout << "Ingrese alguno de los tipos de suscripcion disponibles por favor..." << endl;
         cout << "ID Tipo de Suscripcion: ";
         cin >> id;
     }
@@ -223,7 +221,7 @@ string SuscriptorManager::validarEmail(Suscriptor* pSuscriptores,  int cant, con
         mailValido = true;
         for(int i = 0; i < cant; i++)
         {
-            if(strcmp(email.c_str(), pSuscriptores[i].getEmail()) == 0)
+            if(strcasecmp(email.c_str(), pSuscriptores[i].getEmail()) == 0)
             {
                 cout << "El email ingresado ya existe... Intente cargar la informacion nuevamente..." << endl;
                 cout << "Ingrese otro email: " << endl;
@@ -244,6 +242,17 @@ string SuscriptorManager::validarTelefono(Suscriptor* pSuscriptores,  int cant, 
     do
     {
         telValido = true;
+        for(int i = 0; i < (int)tel.length(); i++)
+        {
+            if(!isdigit(tel[i]))
+            {
+                cout << "El telefono solo puede contener numeros... Intente cargar la informacion nuevamente..." << endl;
+                cout << "Ingrese otro telefono: " << endl;
+                tel = cargarCadena();
+                telValido = false;
+                break;
+            }
+        }
         for(int i = 0; i < cant; i++)
         {
             if(strcmp(tel.c_str(), pSuscriptores[i].getTelefono()) == 0)

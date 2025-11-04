@@ -19,7 +19,7 @@ Contenido::Contenido()
 void Contenido::cargar()
 {
     int g, c, idD;
-    Fecha f;
+    Fecha fe, fa;
     cout << "Titulo: ";
     string texto = cargarCadena();
     strncpy(_titulo, texto.c_str(), sizeof(_titulo) - 1);
@@ -34,11 +34,12 @@ void Contenido::cargar()
     cin >> c;
     setClasificacion(c);
     cout << "Fecha de estreno: " << endl;
-    f.cargar();
-    setFechaEstreno(f);
+    fe.cargar();
     cout << "Fecha de alta en el sistema: " << endl;
-    f.cargar();
-    setFechaAlta(f);
+    fa.cargar();
+    validarFechas(fe, fa);
+    setFechaEstreno(fe);
+    setFechaAlta(fa);
     _eliminado = false;
 }
 
@@ -127,4 +128,17 @@ void Contenido::setFechaAlta(Fecha f)
 void Contenido::setEliminado(bool e)
 {
     _eliminado = e;
+}
+
+void Contenido::validarFechas(Fecha &fechaEstreno, Fecha &fechaAlta)
+{
+    while(fechaAlta < fechaEstreno)
+    {
+        cout << endl;
+        cout << "La fecha de alta no puede ser anterior a la fecha de estreno... Intente cargar la informacion nuevamente..." << endl;
+        cout << "Ingrese nuevamente la fecha de estreno:" << endl;
+        fechaEstreno.cargar();
+        cout << "Ingrese nuevamente la fecha de alta:" << endl;
+        fechaAlta.cargar();
+    }
 }

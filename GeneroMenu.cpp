@@ -30,7 +30,7 @@ void GeneroMenu::mostrarOpciones()
     cout << "2 - MODIFICAR GENERO" << endl;
     cout << "3 - ELIMINAR GENERO" << endl;
     cout << "4 - ALTA GENERO" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "--------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
 }
@@ -51,7 +51,6 @@ void GeneroMenu::ejecutarOpcion(int opcion)
         {
             cout << "No se pudo realizar la carga..." << endl;
         }
-        system("pause");
         break;
     case 2:
         system("cls");
@@ -64,7 +63,6 @@ void GeneroMenu::ejecutarOpcion(int opcion)
         {
             cout << "No se pudo realizar la modificacion..." << endl;
         }
-        system("pause");
         break;
     case 3:
         system("cls");
@@ -77,7 +75,6 @@ void GeneroMenu::ejecutarOpcion(int opcion)
         {
             cout << "No se pudo realizar la baja..." << endl;
         }
-        system("pause");
         break;
     case 4:
         system("cls");
@@ -90,7 +87,6 @@ void GeneroMenu::ejecutarOpcion(int opcion)
         {
             cout << "No se pudo realizar el alta..." << endl;
         }
-        system("pause");
         break;
     }
 }

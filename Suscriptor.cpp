@@ -17,7 +17,8 @@ void Suscriptor::cargar()
     Persona::cargar();
     int ts;
     char e[40], t[20];
-    Fecha f;
+    Fecha fn = this->getFechaNacimiento();
+    Fecha fa;
     cout << "Email: " << endl;
     cin >> e;
     setEmail(e);
@@ -25,8 +26,10 @@ void Suscriptor::cargar()
     cin >> t;
     setTelefono(t);
     cout << "Fecha de alta: " << endl;
-    f.cargar();
-    setFechaAlta(f);
+    fa.cargar();
+    validarFechas(fn, fa);
+    setFechaNacimiento(fn);
+    setFechaAlta(fa);
     cout << "ID de tipo de suscripcion: " << endl;
     cin >> ts;
     setTipoSuscripcion(ts);
@@ -76,4 +79,17 @@ void Suscriptor::setFechaAlta(Fecha f)
 void Suscriptor::setTipoSuscripcion(int ts)
 {
     _tipoSuscripcion = ts;
+}
+
+void Suscriptor::validarFechas(Fecha &fechaNacimiento, Fecha &fechaAlta)
+{
+    while(fechaAlta <= fechaNacimiento)
+    {
+        cout << endl;
+        cout << "La fecha de alta no puede ser anterior o igual a la fecha de nacimiento... Intente cargar la informacion nuevamente..." << endl;
+        cout << "Ingrese nuevamente la fecha de nacimiento:" << endl;
+        fechaNacimiento.cargar();
+        cout << "Ingrese nuevamente la fecha de alta:" << endl;
+        fechaAlta.cargar();
+    }
 }

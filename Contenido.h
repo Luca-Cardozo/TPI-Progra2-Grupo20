@@ -38,6 +38,8 @@ public:
     void setFechaEstreno(Fecha f);
     void setFechaAlta(Fecha f);
     void setEliminado(bool e);
+
+    void validarFechas(Fecha &fechaEstreno, Fecha &fechaAlta);
 };
 
 

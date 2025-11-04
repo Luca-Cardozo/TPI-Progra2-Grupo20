@@ -31,7 +31,7 @@ void ConsultasManager::consultarSuscriptorEmail(const char* email)
     cout << endl;
     for(int i = 0; i < cantRegistros; i++)
     {
-        if (strcmp(pSuscriptores[i].getEmail(), email) == 0)
+        if (strcasecmp(pSuscriptores[i].getEmail(), email) == 0)
         {
             rlutil::setColor(rlutil::BROWN);
             cout << "=========================================" << endl;
@@ -184,6 +184,18 @@ void ConsultasManager::consultarSuscriptorTipoSuscripcion(int id)
     }
     system("cls");
     _repoSuscriptor.leer(pSuscriptores, cantRegistros);
+    for(int i = 0; i < cantRegistros - 1; i++)
+    {
+        for(int j = i + 1; j < cantRegistros; j++)
+        {
+            if (strcasecmp(pSuscriptores[i].getApellido(), pSuscriptores[j].getApellido()) > 0)
+            {
+                Suscriptor aux = pSuscriptores[i];
+                pSuscriptores[i] = pSuscriptores[j];
+                pSuscriptores[j] = aux;
+            }
+        }
+    }
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "========================= SUSCRIPTORES POR TIPO DE SUSCRIPCION =========================" << endl;
@@ -276,7 +288,7 @@ void ConsultasManager::consultarPeliculaTitulo(const char* titulo)
     cout << endl;
     for(int i = 0; i < cantRegistros; i++)
     {
-        if (strcmp(pPeliculas[i].getTitulo(), titulo) == 0)
+        if (strcasecmp(pPeliculas[i].getTitulo(), titulo) == 0)
         {
             rlutil::setColor(rlutil::BROWN);
             cout << "=========================================" << endl;
@@ -346,6 +358,18 @@ void ConsultasManager::consultarPeliculaDirector(int id)
     }
     system("cls");
     _repoPelicula.leer(pPeliculas, cantRegistros);
+    for(int i = 0; i < cantRegistros - 1; i++)
+    {
+        for(int j = i + 1; j < cantRegistros; j++)
+        {
+            if (strcasecmp(pPeliculas[i].getTitulo(), pPeliculas[j].getTitulo()) > 0)
+            {
+                Pelicula aux = pPeliculas[i];
+                pPeliculas[i] = pPeliculas[j];
+                pPeliculas[j] = aux;
+            }
+        }
+    }
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== PELICULAS POR DIRECTOR ==============================" << endl;
@@ -419,6 +443,18 @@ void ConsultasManager::consultarPeliculaGenero(int id)
     }
     system("cls");
     _repoPelicula.leer(pPeliculas, cantRegistros);
+    for(int i = 0; i < cantRegistros - 1; i++)
+    {
+        for(int j = i + 1; j < cantRegistros; j++)
+        {
+            if (strcasecmp(pPeliculas[i].getTitulo(), pPeliculas[j].getTitulo()) > 0)
+            {
+                Pelicula aux = pPeliculas[i];
+                pPeliculas[i] = pPeliculas[j];
+                pPeliculas[j] = aux;
+            }
+        }
+    }
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== PELICULAS POR GENERO ==============================" << endl;
@@ -492,6 +528,18 @@ void ConsultasManager::consultarPeliculaClasificacion(int id)
     }
     system("cls");
     _repoPelicula.leer(pPeliculas, cantRegistros);
+    for(int i = 0; i < cantRegistros - 1; i++)
+    {
+        for(int j = i + 1; j < cantRegistros; j++)
+        {
+            if (strcasecmp(pPeliculas[i].getTitulo(), pPeliculas[j].getTitulo()) > 0)
+            {
+                Pelicula aux = pPeliculas[i];
+                pPeliculas[i] = pPeliculas[j];
+                pPeliculas[j] = aux;
+            }
+        }
+    }
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== PELICULAS POR CLASIFICACION ==============================" << endl;
@@ -570,7 +618,7 @@ void ConsultasManager::consultarSerieTitulo(const char* titulo)
     cout << endl;
     for(int i = 0; i < cantRegistros; i++)
     {
-        if (strcmp(pSeries[i].getTitulo(), titulo) == 0)
+        if (strcasecmp(pSeries[i].getTitulo(), titulo) == 0)
         {
             rlutil::setColor(rlutil::BROWN);
             cout << "=========================================" << endl;
@@ -641,6 +689,18 @@ void ConsultasManager::consultarSerieDirector(int id)
     }
     system("cls");
     _repoSerie.leer(pSeries, cantRegistros);
+    for(int i = 0; i < cantRegistros - 1; i++)
+    {
+        for(int j = i + 1; j < cantRegistros; j++)
+        {
+            if (strcasecmp(pSeries[i].getTitulo(), pSeries[j].getTitulo()) > 0)
+            {
+                Serie aux = pSeries[i];
+                pSeries[i] = pSeries[j];
+                pSeries[j] = aux;
+            }
+        }
+    }
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== SERIES POR DIRECTOR ==============================" << endl;
@@ -718,6 +778,18 @@ void ConsultasManager::consultarSerieGenero(int id)
     }
     system("cls");
     _repoSerie.leer(pSeries, cantRegistros);
+    for(int i = 0; i < cantRegistros - 1; i++)
+    {
+        for(int j = i + 1; j < cantRegistros; j++)
+        {
+            if (strcasecmp(pSeries[i].getTitulo(), pSeries[j].getTitulo()) > 0)
+            {
+                Serie aux = pSeries[i];
+                pSeries[i] = pSeries[j];
+                pSeries[j] = aux;
+            }
+        }
+    }
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== SERIES POR GENERO ==============================" << endl;
@@ -795,6 +867,18 @@ void ConsultasManager::consultarSerieClasificacion(int id)
     }
     system("cls");
     _repoSerie.leer(pSeries, cantRegistros);
+    for(int i = 0; i < cantRegistros - 1; i++)
+    {
+        for(int j = i + 1; j < cantRegistros; j++)
+        {
+            if (strcasecmp(pSeries[i].getTitulo(), pSeries[j].getTitulo()) > 0)
+            {
+                Serie aux = pSeries[i];
+                pSeries[i] = pSeries[j];
+                pSeries[j] = aux;
+            }
+        }
+    }
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== SERIES POR CLASIFICACION ==============================" << endl;
@@ -877,7 +961,7 @@ void ConsultasManager::consultarDirectorNombreApellido(const char* nom, const ch
     cout << endl;
     for(int i = 0; i < cantRegistros; i++)
     {
-        if (strcmp(pDirectores[i].getNombre(), nom) == 0 && strcmp(pDirectores[i].getApellido(), ape) == 0)
+        if (strcasecmp(pDirectores[i].getNombre(), nom) == 0 && strcasecmp(pDirectores[i].getApellido(), ape) == 0)
         {
             rlutil::setColor(rlutil::BROWN);
             cout << "=========================================" << endl;

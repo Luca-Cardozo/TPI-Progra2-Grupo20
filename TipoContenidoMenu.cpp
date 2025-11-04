@@ -32,7 +32,7 @@ void TipoContenidoMenu::mostrarOpciones()
     cout << "4 - ALTA TIPO DE CONTENIDO" << endl;
     cout << "---------------------------------" << endl;
     cout << "0 - SALIR" << endl;
-    cout << "--------------------" << endl;
+    cout << "---------------------------------" << endl;
 }
 
 void TipoContenidoMenu::ejecutarOpcion(int opcion)
@@ -51,7 +51,6 @@ void TipoContenidoMenu::ejecutarOpcion(int opcion)
         {
             cout << "No se pudo realizar la carga..." << endl;
         }
-        system("pause");
         break;
     case 2:
         system("cls");
@@ -64,7 +63,6 @@ void TipoContenidoMenu::ejecutarOpcion(int opcion)
         {
             cout << "No se pudo realizar la modificacion..." << endl;
         }
-        system("pause");
         break;
     case 3:
         system("cls");
@@ -77,7 +75,6 @@ void TipoContenidoMenu::ejecutarOpcion(int opcion)
         {
             cout << "No se pudo realizar la baja..." << endl;
         }
-        system("pause");
         break;
     case 4:
         system("cls");
@@ -90,7 +87,6 @@ void TipoContenidoMenu::ejecutarOpcion(int opcion)
         {
             cout << "No se pudo realizar el alta..." << endl;
         }
-        system("pause");
         break;
     }
 }

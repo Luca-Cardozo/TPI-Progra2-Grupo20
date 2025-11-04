@@ -3,6 +3,7 @@
 #include "SuscriptorArchivo.h"
 #include "SerieArchivo.h"
 #include "PeliculaArchivo.h"
+#include "ListadosManager.h"
 
 class ConsumoManager
 {
@@ -11,6 +12,8 @@ private:
     SuscriptorArchivo _repoSuscriptor;
     SerieArchivo _repoSerie;
     PeliculaArchivo _repoPelicula;
+    ListadosManager _listados;
+
     int validarSuscriptor(int id);
     int validarContenido(int id);
     int validarPelicula(int id);

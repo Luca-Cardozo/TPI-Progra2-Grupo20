@@ -23,4 +23,6 @@ public:
     void setTelefono(const char* t);
     void setFechaAlta(Fecha f);
     void setTipoSuscripcion(int ts);
+
+    void validarFechas(Fecha &fechaNacimiento, Fecha &fechaAlta);
 };
