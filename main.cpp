@@ -1,12 +1,16 @@
 #include <iostream>
 #include "App.h"
-#include "rlutil.h"
+#include "CargaDeDatos.h"
 
 using namespace std;
 
 int main()
 {
-    rlutil::setColor(rlutil::WHITE);
+    //cargarSuscriptores();
+    //cargarDirectores();
+    //cargarPeliculas();
+    //cargarSeries();
+    //cargarConsumos();
     App app;
     app.run();
     return 0;

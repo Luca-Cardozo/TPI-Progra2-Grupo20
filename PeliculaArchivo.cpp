@@ -21,15 +21,15 @@ int PeliculaArchivo::getCantidadRegistros()
 
 int PeliculaArchivo::getNuevoID()
 {
-    return getCantidadRegistros() + 1001;
+    return getCantidadRegistros() + 1;
 }
 
 int PeliculaArchivo::buscar(int id)
 {
-    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr) return -1;
     Pelicula reg;
     int pos = 0;
+    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+    if(pArchivo == nullptr) return -1;
     while(fread(&reg, sizeof(Pelicula), 1, pArchivo))
     {
         if(reg.getId() == id)

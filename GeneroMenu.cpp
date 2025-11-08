@@ -1,5 +1,7 @@
 #include <iostream>
 #include "GeneroMenu.h"
+#include "rlutil.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -25,6 +27,7 @@ void GeneroMenu::mostrar()
 
 void GeneroMenu::mostrarOpciones()
 {
+    rlutil::setColor(rlutil::LIGHTCYAN);
     cout << "--- MENU GENEROS ---" << endl;
     cout << "1 - CARGAR GENERO" << endl;
     cout << "2 - MODIFICAR GENERO" << endl;
@@ -33,6 +36,7 @@ void GeneroMenu::mostrarOpciones()
     cout << "--------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "--------------------" << endl;
+    rlutil::setColor(rlutil::WHITE);
 }
 
 void GeneroMenu::ejecutarOpcion(int opcion)
@@ -43,50 +47,22 @@ void GeneroMenu::ejecutarOpcion(int opcion)
     case 1:
         system("cls");
         resultado = _generoManager.cargarGenero();
-        if(resultado)
-        {
-            cout << "Carga exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar la carga..." << endl;
-        }
+        validarCarga(resultado);
         break;
     case 2:
         system("cls");
         resultado = _generoManager.modificarGenero();
-        if(resultado)
-        {
-            cout << "Modificacion exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar la modificacion..." << endl;
-        }
+        validarModificacion(resultado);
         break;
     case 3:
         system("cls");
         resultado = _generoManager.eliminarGenero();
-        if(resultado)
-        {
-            cout << "Baja exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar la baja..." << endl;
-        }
+        validarBaja(resultado);
         break;
     case 4:
         system("cls");
         resultado = _generoManager.altaGenero();
-        if(resultado)
-        {
-            cout << "Alta exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar el alta..." << endl;
-        }
+        validarAlta(resultado);
         break;
     }
 }
@@ -96,15 +72,20 @@ int GeneroMenu::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
-    cout << "---------------" << endl;
+    rlutil::setColor(rlutil::YELLOW);
+    cout << "--------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)
     {
+        rlutil::setColor(rlutil::RED);
         cout << "---------------" << endl;
         cout << "Opcion incorrecta... Vuelva a intentarlo por favor..." << endl;
         cout << "---------------" << endl;
+        rlutil::setColor(rlutil::YELLOW);
         cout << "SELECCIONE UNA OPCION: ";
+        rlutil::setColor(rlutil::WHITE);
         cin >> opcion;
     }
     return opcion;

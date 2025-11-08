@@ -1,5 +1,7 @@
 #include <iostream>
 #include "DirectorMenu.h"
+#include "rlutil.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -25,6 +27,7 @@ void DirectorMenu::mostrar()
 
 void DirectorMenu::mostrarOpciones()
 {
+    rlutil::setColor(rlutil::LIGHTCYAN);
     cout << "--- MENU DIRECTORES ---" << endl;
     cout << "1 - CARGAR DIRECTOR" << endl;
     cout << "2 - MODIFICAR DIRECTOR" << endl;
@@ -33,6 +36,7 @@ void DirectorMenu::mostrarOpciones()
     cout << "-----------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "-----------------------" << endl;
+    rlutil::setColor(rlutil::WHITE);
 }
 
 void DirectorMenu::ejecutarOpcion(int opcion)
@@ -43,50 +47,22 @@ void DirectorMenu::ejecutarOpcion(int opcion)
     case 1:
         system("cls");
         resultado = _directorManager.cargarDirector();
-        if(resultado)
-        {
-            cout << "Carga exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar la carga..." << endl;
-        }
+        validarCarga(resultado);
         break;
     case 2:
         system("cls");
         resultado = _directorManager.modificarDirector();
-        if(resultado)
-        {
-            cout << "Modificacion exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar la modificacion..." << endl;
-        }
+        validarModificacion(resultado);
         break;
     case 3:
         system("cls");
         resultado = _directorManager.eliminarDirector();
-        if(resultado)
-        {
-            cout << "Baja exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar la baja..." << endl;
-        }
+        validarBaja(resultado);
         break;
     case 4:
         system("cls");
         resultado = _directorManager.altaDirector();
-        if(resultado)
-        {
-            cout << "Alta exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar el alta..." << endl;
-        }
+        validarAlta(resultado);
         break;
     }
 }
@@ -96,15 +72,20 @@ int DirectorMenu::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
+    rlutil::setColor(rlutil::YELLOW);
     cout << "--------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)
     {
+        rlutil::setColor(rlutil::RED);
         cout << "---------------" << endl;
         cout << "Opcion incorrecta... Vuelva a intentarlo por favor..." << endl;
         cout << "---------------" << endl;
+        rlutil::setColor(rlutil::YELLOW);
         cout << "SELECCIONE UNA OPCION: ";
+        rlutil::setColor(rlutil::WHITE);
         cin >> opcion;
     }
     return opcion;

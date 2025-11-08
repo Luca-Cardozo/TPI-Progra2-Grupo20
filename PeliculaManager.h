@@ -17,7 +17,7 @@ private:
     int validarDirector(int id);
     int validarGenero(int id);
     int validarClasificacion(int id);
-    std::string validarTitulo(Pelicula* pPeliculas,  int cant, const char* t);
+    std::string validarTitulo(Pelicula* pPeliculas,  int cant, const char* t, int idActual = -1);
 public:
     bool cargarPelicula();
     bool modificarPelicula();

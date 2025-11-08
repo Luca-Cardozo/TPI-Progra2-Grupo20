@@ -4,31 +4,35 @@
 
 using namespace std;
 
-
 void ConsultasManager::consultarSuscriptorEmail(const char* email)
 {
     int cantRegistros = _repoSuscriptor.getCantidadRegistros();
+    Suscriptor* pSuscriptores = new Suscriptor [cantRegistros];
+    bool sinCoincidencias = true;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay suscriptores para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSuscriptores;
         return;
     }
-    Suscriptor* pSuscriptores;
-    pSuscriptores = new Suscriptor [cantRegistros];
     if(pSuscriptores == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSuscriptores;
         return;
     }
+
     _repoSuscriptor.leer(pSuscriptores, cantRegistros);
-    bool sinCoincidencias = true;
+
     system("cls");
     cout << endl;
     cout << endl;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if (strcasecmp(pSuscriptores[i].getEmail(), email) == 0)
@@ -73,6 +77,7 @@ void ConsultasManager::consultarSuscriptorEmail(const char* email)
             rlutil::setColor(rlutil::WHITE);
         }
     }
+
     if(sinCoincidencias)
     {
         rlutil::setColor(rlutil::RED);
@@ -81,33 +86,39 @@ void ConsultasManager::consultarSuscriptorEmail(const char* email)
         cout << endl;
         rlutil::setColor(rlutil::WHITE);
     }
+
     delete [] pSuscriptores;
 }
 
 void ConsultasManager::consultarSuscriptorTelefono(const char* tel)
 {
     int cantRegistros = _repoSuscriptor.getCantidadRegistros();
+    Suscriptor* pSuscriptores = new Suscriptor [cantRegistros];
+    bool sinCoincidencias = true;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay suscriptores para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSuscriptores;
         return;
     }
-    Suscriptor* pSuscriptores;
-    pSuscriptores = new Suscriptor [cantRegistros];
     if(pSuscriptores == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSuscriptores;
         return;
     }
+
     _repoSuscriptor.leer(pSuscriptores, cantRegistros);
-    bool sinCoincidencias = true;
+
     system("cls");
     cout << endl;
     cout << endl;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if (strcmp(pSuscriptores[i].getTelefono(), tel) == 0)
@@ -152,6 +163,7 @@ void ConsultasManager::consultarSuscriptorTelefono(const char* tel)
             rlutil::setColor(rlutil::WHITE);
         }
     }
+
     if(sinCoincidencias)
     {
         rlutil::setColor(rlutil::RED);
@@ -160,30 +172,35 @@ void ConsultasManager::consultarSuscriptorTelefono(const char* tel)
         cout << endl;
         rlutil::setColor(rlutil::WHITE);
     }
+
     delete [] pSuscriptores;
 }
 
 void ConsultasManager::consultarSuscriptorTipoSuscripcion(int id)
 {
     int cantRegistros = _repoSuscriptor.getCantidadRegistros();
+    Suscriptor* pSuscriptores = new Suscriptor [cantRegistros];
+    int fila;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay suscriptores para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSuscriptores;
         return;
     }
-    Suscriptor* pSuscriptores;
-    pSuscriptores = new Suscriptor [cantRegistros];
     if(pSuscriptores == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSuscriptores;
         return;
     }
-    system("cls");
+
     _repoSuscriptor.leer(pSuscriptores, cantRegistros);
+
     for(int i = 0; i < cantRegistros - 1; i++)
     {
         for(int j = i + 1; j < cantRegistros; j++)
@@ -196,6 +213,8 @@ void ConsultasManager::consultarSuscriptorTipoSuscripcion(int id)
             }
         }
     }
+
+    system("cls");
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "========================= SUSCRIPTORES POR TIPO DE SUSCRIPCION =========================" << endl;
@@ -224,7 +243,8 @@ void ConsultasManager::consultarSuscriptorTipoSuscripcion(int id)
     cout << "--------------------------------------------------------------------------------------------------";
     rlutil::setColor(rlutil::GREEN);
     rlutil::locate(5, 7);
-    int fila = 0;
+    fila = 0;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if(pSuscriptores[i].getTipoSuscripcion() == id)
@@ -251,6 +271,7 @@ void ConsultasManager::consultarSuscriptorTipoSuscripcion(int id)
             fila++;
         }
     }
+
     if(fila == 0)
     {
         rlutil::setColor(rlutil::RED);
@@ -259,33 +280,39 @@ void ConsultasManager::consultarSuscriptorTipoSuscripcion(int id)
     rlutil::setColor(rlutil::WHITE);
     cout << endl;
     cout << endl;
+
     delete [] pSuscriptores;
 }
 
 void ConsultasManager::consultarPeliculaTitulo(const char* titulo)
 {
     int cantRegistros = _repoPelicula.getCantidadRegistros();
+    Pelicula* pPeliculas = new Pelicula [cantRegistros];
+    bool sinCoincidencias = true;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay peliculas para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pPeliculas;
         return;
     }
-    Pelicula* pPeliculas;
-    pPeliculas = new Pelicula [cantRegistros];
     if(pPeliculas == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pPeliculas;
         return;
     }
+
     _repoPelicula.leer(pPeliculas, cantRegistros);
-    bool sinCoincidencias = true;
+
     system("cls");
     cout << endl;
     cout << endl;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if (strcasecmp(pPeliculas[i].getTitulo(), titulo) == 0)
@@ -315,7 +342,7 @@ void ConsultasManager::consultarPeliculaTitulo(const char* titulo)
             cout << "FECHA DE ALTA: ";
             pPeliculas[i].getFechaAlta().mostrar();
             cout << "-----------------------------------------" << endl;
-            cout << "DURACION: " << pPeliculas[i].getDuracion() << endl;
+            cout << "DURACION: " << pPeliculas[i].getDuracion() << " min" << endl;
             cout << "-----------------------------------------" << endl;
             cout << "ELIMINADO: " << (pPeliculas[i].getEliminado() ? "SI" : "NO") << endl;
             cout << endl;
@@ -323,9 +350,9 @@ void ConsultasManager::consultarPeliculaTitulo(const char* titulo)
             cout << endl;
             sinCoincidencias = false;
             rlutil::setColor(rlutil::WHITE);
-
         }
     }
+
     if(sinCoincidencias)
     {
         rlutil::setColor(rlutil::RED);
@@ -334,30 +361,35 @@ void ConsultasManager::consultarPeliculaTitulo(const char* titulo)
         cout << endl;
         rlutil::setColor(rlutil::WHITE);
     }
+
     delete [] pPeliculas;
 }
 
 void ConsultasManager::consultarPeliculaDirector(int id)
 {
     int cantRegistros = _repoPelicula.getCantidadRegistros();
+    Pelicula* pPeliculas = new Pelicula [cantRegistros];
+    int fila;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay peliculas para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pPeliculas;
         return;
     }
-    Pelicula* pPeliculas;
-    pPeliculas = new Pelicula [cantRegistros];
     if(pPeliculas == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pPeliculas;
         return;
     }
-    system("cls");
+
     _repoPelicula.leer(pPeliculas, cantRegistros);
+
     for(int i = 0; i < cantRegistros - 1; i++)
     {
         for(int j = i + 1; j < cantRegistros; j++)
@@ -370,6 +402,8 @@ void ConsultasManager::consultarPeliculaDirector(int id)
             }
         }
     }
+
+    system("cls");
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== PELICULAS POR DIRECTOR ==============================" << endl;
@@ -392,7 +426,8 @@ void ConsultasManager::consultarPeliculaDirector(int id)
     cout << "-------------------------------------------------------------------------------------";
     rlutil::setColor(rlutil::GREEN);
     rlutil::locate(5, 7);
-    int fila = 0;
+    fila = 0;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if(pPeliculas[i].getIdDirector() == id)
@@ -404,45 +439,51 @@ void ConsultasManager::consultarPeliculaDirector(int id)
             rlutil::locate(40, 7 + fila);
             pPeliculas[i].getFechaEstreno().mostrar();
             rlutil::locate(55, 7 + fila);
-            cout << pPeliculas[i].getDuracion();
+            cout << pPeliculas[i].getDuracion() << " min";
             rlutil::locate(70, 7 + fila);
             cout << (pPeliculas[i].getEliminado() ? "SI" : "NO");
             rlutil::locate(80, 7 + fila);
             fila++;
         }
     }
+
     if(fila == 0)
     {
         rlutil::setColor(rlutil::RED);
-        cout << "No se encontraron películas para el director especificado." << endl;
+        cout << "No se encontraron peliculas para el director especificado." << endl;
     }
     rlutil::setColor(rlutil::WHITE);
     cout << endl;
     cout << endl;
+
     delete [] pPeliculas;
 }
 
 void ConsultasManager::consultarPeliculaGenero(int id)
 {
     int cantRegistros = _repoPelicula.getCantidadRegistros();
+    Pelicula* pPeliculas = new Pelicula [cantRegistros];
+    int fila;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay peliculas para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pPeliculas;
         return;
     }
-    Pelicula* pPeliculas;
-    pPeliculas = new Pelicula [cantRegistros];
     if(pPeliculas == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pPeliculas;
         return;
     }
-    system("cls");
+
     _repoPelicula.leer(pPeliculas, cantRegistros);
+
     for(int i = 0; i < cantRegistros - 1; i++)
     {
         for(int j = i + 1; j < cantRegistros; j++)
@@ -455,6 +496,8 @@ void ConsultasManager::consultarPeliculaGenero(int id)
             }
         }
     }
+
+    system("cls");
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== PELICULAS POR GENERO ==============================" << endl;
@@ -477,7 +520,8 @@ void ConsultasManager::consultarPeliculaGenero(int id)
     cout << "-------------------------------------------------------------------------------------";
     rlutil::setColor(rlutil::GREEN);
     rlutil::locate(5, 7);
-    int fila = 0;
+    fila = 0;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if(pPeliculas[i].getGenero() == id)
@@ -489,13 +533,14 @@ void ConsultasManager::consultarPeliculaGenero(int id)
             rlutil::locate(40, 7 + fila);
             pPeliculas[i].getFechaEstreno().mostrar();
             rlutil::locate(55, 7 + fila);
-            cout << pPeliculas[i].getDuracion();
+            cout << pPeliculas[i].getDuracion() << " min";
             rlutil::locate(70, 7 + fila);
             cout << (pPeliculas[i].getEliminado() ? "SI" : "NO");
             rlutil::locate(80, 7 + fila);
             fila++;
         }
     }
+
     if(fila == 0)
     {
         rlutil::setColor(rlutil::RED);
@@ -504,30 +549,35 @@ void ConsultasManager::consultarPeliculaGenero(int id)
     rlutil::setColor(rlutil::WHITE);
     cout << endl;
     cout << endl;
+
     delete [] pPeliculas;
 }
 
 void ConsultasManager::consultarPeliculaClasificacion(int id)
 {
     int cantRegistros = _repoPelicula.getCantidadRegistros();
+    Pelicula* pPeliculas = new Pelicula [cantRegistros];
+    int fila;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay peliculas para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pPeliculas;
         return;
     }
-    Pelicula* pPeliculas;
-    pPeliculas = new Pelicula [cantRegistros];
     if(pPeliculas == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pPeliculas;
         return;
     }
-    system("cls");
+
     _repoPelicula.leer(pPeliculas, cantRegistros);
+
     for(int i = 0; i < cantRegistros - 1; i++)
     {
         for(int j = i + 1; j < cantRegistros; j++)
@@ -540,6 +590,8 @@ void ConsultasManager::consultarPeliculaClasificacion(int id)
             }
         }
     }
+
+    system("cls");
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== PELICULAS POR CLASIFICACION ==============================" << endl;
@@ -562,7 +614,8 @@ void ConsultasManager::consultarPeliculaClasificacion(int id)
     cout << "-------------------------------------------------------------------------------------";
     rlutil::setColor(rlutil::GREEN);
     rlutil::locate(5, 7);
-    int fila = 0;
+    fila = 0;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if(pPeliculas[i].getClasificacion() == id)
@@ -574,13 +627,14 @@ void ConsultasManager::consultarPeliculaClasificacion(int id)
             rlutil::locate(40, 7 + fila);
             pPeliculas[i].getFechaEstreno().mostrar();
             rlutil::locate(55, 7 + fila);
-            cout << pPeliculas[i].getDuracion();
+            cout << pPeliculas[i].getDuracion() << " min";
             rlutil::locate(70, 7 + fila);
             cout << (pPeliculas[i].getEliminado() ? "SI" : "NO");
             rlutil::locate(80, 7 + fila);
             fila++;
         }
     }
+
     if(fila == 0)
     {
         rlutil::setColor(rlutil::RED);
@@ -589,33 +643,39 @@ void ConsultasManager::consultarPeliculaClasificacion(int id)
     rlutil::setColor(rlutil::WHITE);
     cout << endl;
     cout << endl;
+
     delete [] pPeliculas;
 }
 
 void ConsultasManager::consultarSerieTitulo(const char* titulo)
 {
     int cantRegistros = _repoSerie.getCantidadRegistros();
+    Serie* pSeries = new Serie [cantRegistros];
+    bool sinCoincidencias = true;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay series para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSeries;
         return;
     }
-    Serie* pSeries;
-    pSeries = new Serie [cantRegistros];
     if(pSeries == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSeries;
         return;
     }
+
     _repoSerie.leer(pSeries, cantRegistros);
-    bool sinCoincidencias = true;
+
     system("cls");
     cout << endl;
     cout << endl;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if (strcasecmp(pSeries[i].getTitulo(), titulo) == 0)
@@ -657,6 +717,7 @@ void ConsultasManager::consultarSerieTitulo(const char* titulo)
             rlutil::setColor(rlutil::WHITE);
         }
     }
+
     if(sinCoincidencias)
     {
         rlutil::setColor(rlutil::RED);
@@ -665,30 +726,35 @@ void ConsultasManager::consultarSerieTitulo(const char* titulo)
         cout << endl;
         rlutil::setColor(rlutil::WHITE);
     }
+
     delete [] pSeries;
 }
 
 void ConsultasManager::consultarSerieDirector(int id)
 {
     int cantRegistros = _repoSerie.getCantidadRegistros();
+    Serie* pSeries = new Serie [cantRegistros];
+    int fila;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay series para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSeries;
         return;
     }
-    Serie* pSeries;
-    pSeries = new Serie [cantRegistros];
     if(pSeries == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSeries;
         return;
     }
-    system("cls");
+
     _repoSerie.leer(pSeries, cantRegistros);
+
     for(int i = 0; i < cantRegistros - 1; i++)
     {
         for(int j = i + 1; j < cantRegistros; j++)
@@ -701,6 +767,8 @@ void ConsultasManager::consultarSerieDirector(int id)
             }
         }
     }
+
+    system("cls");
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== SERIES POR DIRECTOR ==============================" << endl;
@@ -725,7 +793,8 @@ void ConsultasManager::consultarSerieDirector(int id)
     cout << "-------------------------------------------------------------------------------------";
     rlutil::setColor(rlutil::GREEN);
     rlutil::locate(5, 7);
-    int fila = 0;
+    fila = 0;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if(pSeries[i].getIdDirector() == id)
@@ -746,6 +815,7 @@ void ConsultasManager::consultarSerieDirector(int id)
             fila++;
         }
     }
+
     if(fila == 0)
     {
         rlutil::setColor(rlutil::RED);
@@ -754,30 +824,35 @@ void ConsultasManager::consultarSerieDirector(int id)
     rlutil::setColor(rlutil::WHITE);
     cout << endl;
     cout << endl;
+
     delete [] pSeries;
 }
 
 void ConsultasManager::consultarSerieGenero(int id)
 {
     int cantRegistros = _repoSerie.getCantidadRegistros();
+    Serie* pSeries = new Serie [cantRegistros];
+    int fila;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay series para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSeries;
         return;
     }
-    Serie* pSeries;
-    pSeries = new Serie [cantRegistros];
     if(pSeries == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSeries;
         return;
     }
-    system("cls");
+
     _repoSerie.leer(pSeries, cantRegistros);
+
     for(int i = 0; i < cantRegistros - 1; i++)
     {
         for(int j = i + 1; j < cantRegistros; j++)
@@ -790,6 +865,8 @@ void ConsultasManager::consultarSerieGenero(int id)
             }
         }
     }
+
+    system("cls");
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== SERIES POR GENERO ==============================" << endl;
@@ -814,7 +891,8 @@ void ConsultasManager::consultarSerieGenero(int id)
     cout << "-------------------------------------------------------------------------------------";
     rlutil::setColor(rlutil::GREEN);
     rlutil::locate(5, 7);
-    int fila = 0;
+    fila = 0;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if(pSeries[i].getGenero() == id)
@@ -835,6 +913,7 @@ void ConsultasManager::consultarSerieGenero(int id)
             fila++;
         }
     }
+
     if(fila == 0)
     {
         rlutil::setColor(rlutil::RED);
@@ -843,30 +922,35 @@ void ConsultasManager::consultarSerieGenero(int id)
     rlutil::setColor(rlutil::WHITE);
     cout << endl;
     cout << endl;
+
     delete [] pSeries;
 }
 
 void ConsultasManager::consultarSerieClasificacion(int id)
 {
     int cantRegistros = _repoSerie.getCantidadRegistros();
+    Serie* pSeries = new Serie [cantRegistros];
+    int fila;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay series para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSeries;
         return;
     }
-    Serie* pSeries;
-    pSeries = new Serie [cantRegistros];
     if(pSeries == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pSeries;
         return;
     }
-    system("cls");
+
     _repoSerie.leer(pSeries, cantRegistros);
+
     for(int i = 0; i < cantRegistros - 1; i++)
     {
         for(int j = i + 1; j < cantRegistros; j++)
@@ -879,6 +963,8 @@ void ConsultasManager::consultarSerieClasificacion(int id)
             }
         }
     }
+
+    system("cls");
     rlutil::setColor(rlutil::YELLOW);
     rlutil::locate(5, 2);
     cout << "============================== SERIES POR CLASIFICACION ==============================" << endl;
@@ -903,7 +989,8 @@ void ConsultasManager::consultarSerieClasificacion(int id)
     cout << "-------------------------------------------------------------------------------------";
     rlutil::setColor(rlutil::GREEN);
     rlutil::locate(5, 7);
-    int fila = 0;
+    fila = 0;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if(pSeries[i].getClasificacion() == id)
@@ -924,6 +1011,7 @@ void ConsultasManager::consultarSerieClasificacion(int id)
             fila++;
         }
     }
+
     if(fila == 0)
     {
         rlutil::setColor(rlutil::RED);
@@ -932,33 +1020,39 @@ void ConsultasManager::consultarSerieClasificacion(int id)
     rlutil::setColor(rlutil::WHITE);
     cout << endl;
     cout << endl;
+
     delete [] pSeries;
 }
 
 void ConsultasManager::consultarDirectorNombreApellido(const char* nom, const char* ape)
 {
     int cantRegistros = _repoDirector.getCantidadRegistros();
+    Director* pDirectores = new Director [cantRegistros];
+    bool sinCoincidencias = true;
+
     if(cantRegistros == 0)
     {
         rlutil::setColor(rlutil::RED);
         cout << "No hay directores para mostrar..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pDirectores;
         return;
     }
-    Director* pDirectores;
-    pDirectores = new Director [cantRegistros];
     if(pDirectores == nullptr)
     {
         rlutil::setColor(rlutil::RED);
         cout << "Error al asignar memoria dinamica..." << endl;
         rlutil::setColor(rlutil::WHITE);
+        delete [] pDirectores;
         return;
     }
+
     _repoDirector.leer(pDirectores, cantRegistros);
-    bool sinCoincidencias = true;
+
     system("cls");
     cout << endl;
     cout << endl;
+
     for(int i = 0; i < cantRegistros; i++)
     {
         if (strcasecmp(pDirectores[i].getNombre(), nom) == 0 && strcasecmp(pDirectores[i].getApellido(), ape) == 0)
@@ -993,6 +1087,7 @@ void ConsultasManager::consultarDirectorNombreApellido(const char* nom, const ch
             rlutil::setColor(rlutil::WHITE);
         }
     }
+
     if(sinCoincidencias)
     {
         rlutil::setColor(rlutil::RED);
@@ -1001,5 +1096,313 @@ void ConsultasManager::consultarDirectorNombreApellido(const char* nom, const ch
         cout << endl;
         rlutil::setColor(rlutil::WHITE);
     }
+
     delete [] pDirectores;
+}
+
+void ConsultasManager::consultarConsumosPorSuscriptor(int id)
+{
+    int cantRegistros = _repoConsumo.getCantidadRegistros();
+    Consumo* pConsumos = new Consumo [cantRegistros];
+    int fila;
+
+    if(cantRegistros == 0)
+    {
+        rlutil::setColor(rlutil::RED);
+        cout << "No hay consumos para mostrar..." << endl;
+        rlutil::setColor(rlutil::WHITE);
+        delete [] pConsumos;
+        return;
+    }
+    if(pConsumos == nullptr)
+    {
+        rlutil::setColor(rlutil::RED);
+        cout << "Error al asignar memoria dinamica..." << endl;
+        rlutil::setColor(rlutil::WHITE);
+        delete [] pConsumos;
+        return;
+    }
+
+    _repoConsumo.leer(pConsumos, cantRegistros);
+
+    for(int i = 0; i < cantRegistros - 1; i++)
+    {
+        for(int j = i + 1; j < cantRegistros; j++)
+        {
+            if (pConsumos[j].getFechaAcceso() < pConsumos[i].getFechaAcceso() || (pConsumos[j].getFechaAcceso() == pConsumos[i].getFechaAcceso() && pConsumos[j].getHoraAcceso() < pConsumos[i].getHoraAcceso()))
+            {
+                Consumo aux = pConsumos[i];
+                pConsumos[i] = pConsumos[j];
+                pConsumos[j] = aux;
+            }
+        }
+    }
+
+    system("cls");
+    rlutil::setColor(rlutil::YELLOW);
+    rlutil::locate(5, 2);
+    cout << "==================================== CONSUMOS POR SUSCRIPTOR ====================================" << endl;
+    rlutil::locate(5, 3);
+    rlutil::setColor(rlutil::LIGHTMAGENTA);
+    cout << "+++++ SUSCRIPTOR: " << _repoSuscriptor.leer(id - 1).getEmail() << " +++++" << endl;
+    rlutil::setColor(rlutil::CYAN);
+    rlutil::locate(5, 5);
+    cout << "ID";
+    rlutil::locate(10, 5);
+    cout << "SUSC.";
+    rlutil::locate(20, 5);
+    cout << "CONT.";
+    rlutil::locate(30, 5);
+    cout << "TIPO CONT.";
+    rlutil::locate(50, 5);
+    cout << "FECHA ACCESO";
+    rlutil::locate(65, 5);
+    cout << "HORA ACCESO";
+    rlutil::locate(80, 5);
+    cout << "DUR. VISTA";
+    rlutil::locate(95, 5);
+    cout << "ELIMINADO";
+    rlutil::locate(100, 5);
+    rlutil::locate(5, 6);
+    cout << "--------------------------------------------------------------------------------------------------";
+    rlutil::setColor(rlutil::GREEN);
+    rlutil::locate(5, 7);
+    fila = 0;
+
+    for(int i = 0; i < cantRegistros; i++)
+    {
+        if(pConsumos[i].getIdSuscriptor() == id)
+        {
+            rlutil::locate(5, 7 + fila);
+            cout << pConsumos[i].getIdAcceso();
+            rlutil::locate(12, 7 + fila);
+            cout << pConsumos[i].getIdSuscriptor();
+            rlutil::locate(22, 7 + fila);
+            cout << pConsumos[i].getIdContenido();
+            rlutil::locate(30, 7 + fila);
+            if (pConsumos[i].getIdTipoContenido() == 1) cout << "PELICULA";
+            else if (pConsumos[i].getIdTipoContenido() == 2) cout << "SERIE";
+            rlutil::locate(50, 7 + fila);
+            pConsumos[i].getFechaAcceso().mostrar();
+            rlutil::locate(65, 7 + fila);
+            pConsumos[i].getHoraAcceso().mostrar();
+            rlutil::locate(80, 7 + fila);
+            cout << pConsumos[i].getDuracionVista() << " min";
+            rlutil::locate(95, 7 + fila);
+            cout << (pConsumos[i].getEliminado() ? "SI" : "NO");
+            rlutil::locate(100, 7 + fila);
+            fila++;
+        }
+    }
+
+    rlutil::setColor(rlutil::WHITE);
+    cout << endl;
+    cout << endl;
+
+    delete [] pConsumos;
+}
+
+void ConsultasManager::consultarConsumosPorPelicula(int id)
+{
+    int cantRegistros = _repoConsumo.getCantidadRegistros();
+    Consumo* pConsumos = new Consumo [cantRegistros];
+    int fila;
+
+    if(cantRegistros == 0)
+    {
+        rlutil::setColor(rlutil::RED);
+        cout << "No hay consumos para mostrar..." << endl;
+        rlutil::setColor(rlutil::WHITE);
+        delete [] pConsumos;
+        return;
+    }
+    if(pConsumos == nullptr)
+    {
+        rlutil::setColor(rlutil::RED);
+        cout << "Error al asignar memoria dinamica..." << endl;
+        rlutil::setColor(rlutil::WHITE);
+        delete [] pConsumos;
+        return;
+    }
+
+    _repoConsumo.leer(pConsumos, cantRegistros);
+
+    for(int i = 0; i < cantRegistros - 1; i++)
+    {
+        for(int j = i + 1; j < cantRegistros; j++)
+        {
+            if (pConsumos[j].getFechaAcceso() < pConsumos[i].getFechaAcceso() || (pConsumos[j].getFechaAcceso() == pConsumos[i].getFechaAcceso() && pConsumos[j].getHoraAcceso() < pConsumos[i].getHoraAcceso()))
+            {
+                Consumo aux = pConsumos[i];
+                pConsumos[i] = pConsumos[j];
+                pConsumos[j] = aux;
+            }
+        }
+    }
+
+    system("cls");
+    rlutil::setColor(rlutil::YELLOW);
+    rlutil::locate(5, 2);
+    cout << "==================================== CONSUMOS POR PELICULA ====================================" << endl;
+    rlutil::locate(5, 3);
+    rlutil::setColor(rlutil::LIGHTMAGENTA);
+    cout << "+++++ PELICULA: " << _repoPelicula.leer(id - 1).getTitulo() << " +++++" << endl;
+    rlutil::setColor(rlutil::CYAN);
+    rlutil::locate(5, 5);
+    cout << "ID";
+    rlutil::locate(10, 5);
+    cout << "SUSC.";
+    rlutil::locate(20, 5);
+    cout << "CONT.";
+    rlutil::locate(30, 5);
+    cout << "TIPO CONT.";
+    rlutil::locate(50, 5);
+    cout << "FECHA ACCESO";
+    rlutil::locate(65, 5);
+    cout << "HORA ACCESO";
+    rlutil::locate(80, 5);
+    cout << "DUR. VISTA";
+    rlutil::locate(95, 5);
+    cout << "ELIMINADO";
+    rlutil::locate(100, 5);
+    rlutil::locate(5, 6);
+    cout << "--------------------------------------------------------------------------------------------------";
+    rlutil::setColor(rlutil::GREEN);
+    rlutil::locate(5, 7);
+    fila = 0;
+
+    for(int i = 0; i < cantRegistros; i++)
+    {
+        if(pConsumos[i].getIdTipoContenido() == 1 && pConsumos[i].getIdContenido() == id)
+        {
+            rlutil::locate(5, 7 + fila);
+            cout << pConsumos[i].getIdAcceso();
+            rlutil::locate(12, 7 + fila);
+            cout << pConsumos[i].getIdSuscriptor();
+            rlutil::locate(22, 7 + fila);
+            cout << pConsumos[i].getIdContenido();
+            rlutil::locate(30, 7 + fila);
+            if (pConsumos[i].getIdTipoContenido() == 1) cout << "PELICULA";
+            else if (pConsumos[i].getIdTipoContenido() == 2) cout << "SERIE";
+            rlutil::locate(50, 7 + fila);
+            pConsumos[i].getFechaAcceso().mostrar();
+            rlutil::locate(65, 7 + fila);
+            pConsumos[i].getHoraAcceso().mostrar();
+            rlutil::locate(80, 7 + fila);
+            cout << pConsumos[i].getDuracionVista() << " min";
+            rlutil::locate(95, 7 + fila);
+            cout << (pConsumos[i].getEliminado() ? "SI" : "NO");
+            rlutil::locate(100, 7 + fila);
+            fila++;
+        }
+    }
+
+    rlutil::setColor(rlutil::WHITE);
+    cout << endl;
+    cout << endl;
+
+    delete [] pConsumos;
+}
+
+
+void ConsultasManager::consultarConsumosPorSerie(int id)
+{
+    int cantRegistros = _repoConsumo.getCantidadRegistros();
+    Consumo* pConsumos = new Consumo [cantRegistros];
+    int fila;
+
+    if(cantRegistros == 0)
+    {
+        rlutil::setColor(rlutil::RED);
+        cout << "No hay consumos para mostrar..." << endl;
+        rlutil::setColor(rlutil::WHITE);
+        delete [] pConsumos;
+        return;
+    }
+    if(pConsumos == nullptr)
+    {
+        rlutil::setColor(rlutil::RED);
+        cout << "Error al asignar memoria dinamica..." << endl;
+        rlutil::setColor(rlutil::WHITE);
+        delete [] pConsumos;
+        return;
+    }
+
+    _repoConsumo.leer(pConsumos, cantRegistros);
+
+    for(int i = 0; i < cantRegistros - 1; i++)
+    {
+        for(int j = i + 1; j < cantRegistros; j++)
+        {
+            if (pConsumos[j].getFechaAcceso() < pConsumos[i].getFechaAcceso() || (pConsumos[j].getFechaAcceso() == pConsumos[i].getFechaAcceso() && pConsumos[j].getHoraAcceso() < pConsumos[i].getHoraAcceso()))
+            {
+                Consumo aux = pConsumos[i];
+                pConsumos[i] = pConsumos[j];
+                pConsumos[j] = aux;
+            }
+        }
+    }
+
+    system("cls");
+    rlutil::setColor(rlutil::YELLOW);
+    rlutil::locate(5, 2);
+    cout << "==================================== CONSUMOS POR SERIE ====================================" << endl;
+    rlutil::locate(5, 3);
+    rlutil::setColor(rlutil::LIGHTMAGENTA);
+    cout << "+++++ SERIE: " << _repoSerie.leer(id - 1).getTitulo() << " +++++" << endl;
+    rlutil::setColor(rlutil::CYAN);
+    rlutil::locate(5, 5);
+    cout << "ID";
+    rlutil::locate(10, 5);
+    cout << "SUSC.";
+    rlutil::locate(20, 5);
+    cout << "CONT.";
+    rlutil::locate(30, 5);
+    cout << "TIPO CONT.";
+    rlutil::locate(50, 5);
+    cout << "FECHA ACCESO";
+    rlutil::locate(65, 5);
+    cout << "HORA ACCESO";
+    rlutil::locate(80, 5);
+    cout << "DUR. VISTA";
+    rlutil::locate(95, 5);
+    cout << "ELIMINADO";
+    rlutil::locate(100, 5);
+    rlutil::locate(5, 6);
+    cout << "--------------------------------------------------------------------------------------------------";
+    rlutil::setColor(rlutil::GREEN);
+    rlutil::locate(5, 7);
+    fila = 0;
+
+    for(int i = 0; i < cantRegistros; i++)
+    {
+        if(pConsumos[i].getIdTipoContenido() == 2 && pConsumos[i].getIdContenido() == id)
+        {
+            rlutil::locate(5, 7 + fila);
+            cout << pConsumos[i].getIdAcceso();
+            rlutil::locate(12, 7 + fila);
+            cout << pConsumos[i].getIdSuscriptor();
+            rlutil::locate(22, 7 + fila);
+            cout << pConsumos[i].getIdContenido();
+            rlutil::locate(30, 7 + fila);
+            if (pConsumos[i].getIdTipoContenido() == 1) cout << "PELICULA";
+            else if (pConsumos[i].getIdTipoContenido() == 2) cout << "SERIE";
+            rlutil::locate(50, 7 + fila);
+            pConsumos[i].getFechaAcceso().mostrar();
+            rlutil::locate(65, 7 + fila);
+            pConsumos[i].getHoraAcceso().mostrar();
+            rlutil::locate(80, 7 + fila);
+            cout << pConsumos[i].getDuracionVista() << " min";
+            rlutil::locate(95, 7 + fila);
+            cout << (pConsumos[i].getEliminado() ? "SI" : "NO");
+            rlutil::locate(100, 7 + fila);
+            fila++;
+        }
+    }
+
+    rlutil::setColor(rlutil::WHITE);
+    cout << endl;
+    cout << endl;
+
+    delete [] pConsumos;
 }

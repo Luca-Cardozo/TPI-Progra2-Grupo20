@@ -1,5 +1,6 @@
 #include "TipoSuscripcion.h"
 #include "utils.h"
+#include "rlutil.h"
 #include <iostream>
 #include <cstring>
 
@@ -14,7 +15,10 @@ TipoSuscripcion::TipoSuscripcion()
 
 void TipoSuscripcion::cargar()
 {
+    cout << endl;
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "Descripcion del del tipo de suscripcion: ";
+    rlutil::setColor(rlutil::WHITE);
     string texto = cargarCadena();
     strncpy(_descripcion, texto.c_str(), sizeof(_descripcion) - 1);
     _descripcion[sizeof(_descripcion) - 1] = '\0';
@@ -23,9 +27,12 @@ void TipoSuscripcion::cargar()
 
 void TipoSuscripcion::mostrar()
 {
+    rlutil::setColor(rlutil::LIGHTCYAN);
+    cout << endl;
     cout << "ID tipo de suscripcion: " << _idTipoSuscripcion << endl;
     cout << "Descripcion: " << _descripcion << endl;
     cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
+    rlutil::setColor(rlutil::WHITE);
 }
 
 int TipoSuscripcion::getIdTipoSuscripcion()

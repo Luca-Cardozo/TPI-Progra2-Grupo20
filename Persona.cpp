@@ -1,5 +1,6 @@
 #include "Persona.h"
 #include "utils.h"
+#include "rlutil.h"
 #include <iostream>
 #include <cstring>
 
@@ -17,30 +18,40 @@ void Persona::cargar()
 {
     string texto;
     Fecha f;
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "Nombre: " << endl;
+    rlutil::setColor(rlutil::WHITE);
     texto = cargarCadena();
     strncpy(_nombre, texto.c_str(), sizeof(_nombre) - 1);
     _nombre[sizeof(_nombre) - 1] = '\0';
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "Apellido: " << endl;
+    rlutil::setColor(rlutil::WHITE);
     texto = cargarCadena();
     strncpy(_apellido, texto.c_str(), sizeof(_apellido) - 1);
     _apellido[sizeof(_apellido) - 1] = '\0';
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "Nacionalidad: " << endl;
+    rlutil::setColor(rlutil::WHITE);
     texto = cargarCadena();
     strncpy(_nacionalidad, texto.c_str(), sizeof(_nacionalidad) - 1);
     _nacionalidad[sizeof(_nacionalidad) - 1] = '\0';
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "Fecha de nacimiento: " << endl;
+    rlutil::setColor(rlutil::WHITE);
     f.cargar();
     setFechaNacimiento(f);
 }
 
 void Persona::mostrar()
 {
+    rlutil::setColor(rlutil::LIGHTCYAN);
     cout << "Nombre: " << _nombre << endl;
     cout << "Apellido: " << _apellido << endl;
     cout << "Nacionalidad: " << _nacionalidad << endl;
     cout << "Fecha nacimiento: ";
     _fechaNacimiento.mostrar();
+    rlutil::setColor(rlutil::WHITE);
 }
 
 int Persona::getId()

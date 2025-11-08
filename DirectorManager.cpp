@@ -1,6 +1,7 @@
 #include "DirectorManager.h"
 #include "Director.h"
 #include "utils.h"
+#include "rlutil.h"
 #include <iostream>
 #include <cstring>
 
@@ -8,202 +9,214 @@ using namespace std;
 
 bool DirectorManager::cargarDirector()
 {
-    cout << "-------- CARGA DE NUEVO DIRECTOR --------" << endl;
-    int carga;
-    cout << "Ingrese 0 si desea anular la carga o cualquier numero para continuar" << endl;
-    cin >> carga;
-    if(carga == 0)
-    {
-        cout << "Carga anulada..." << endl;
-        return false;
-    }
-    int id = _repoDirector.getNuevoID();
+    int id, cantRegistros;
     Director reg;
     Director *pDirectores;
+    char nombre[20], apellido[20];
+
+    rlutil::setColor(rlutil::LIGHTRED);
+    cout << "-------- CARGA DE NUEVO DIRECTOR --------" << endl;
+
+    cout << endl;
+    if (deseaCancelar()) return false;
+
+    id = _repoDirector.getNuevoID();
+    rlutil::setColor(rlutil::LIGHTGREEN);
     cout << "ID: #" << id << endl;
+
     reg.cargar();
-    int cantRegistros = _repoDirector.getCantidadRegistros();
+
+    cantRegistros = _repoDirector.getCantidadRegistros();
     pDirectores = new Director[cantRegistros];
     if(pDirectores == nullptr)
     {
+        rlutil::setColor(rlutil::RED);
+        cout << endl;
         cout << "Error en la asignacion de memoria dinamica... No se pudo guardar el registro..." << endl;
-        system("pause");
-        system("cls");
+        cout << endl;
+        rlutil::setColor(rlutil::WHITE);
         return false;
     }
     _repoDirector.leer(pDirectores, cantRegistros);
-    char nombre[20], apellido[20];
+
+    reg.setId(id);
+
     if(validarNombreApellido(pDirectores, cantRegistros, reg.getNombre(), reg.getApellido(), nombre, apellido))
     {
         reg.setNombre(nombre);
         reg.setApellido(apellido);
     }
+
     delete [] pDirectores;
-    reg.setId(id);
     return _repoDirector.guardar(reg);
 }
 
 bool DirectorManager::modificarDirector()
 {
-    cout << "-------- ACTUALIZACION DE DIRECTOR --------" << endl;
-    int id;
+    int id, cantRegistros;
     Director reg;
-    char respuesta;
-    do
+    Director *pDirectores;
+    char nombre[20], apellido[20];
+
+    rlutil::setColor(rlutil::LIGHTRED);
+    cout << "-------- ACTUALIZACION DE DIRECTOR --------" << endl;
+    while(true)
     {
-        cout << "Ingrese ID del registro a actualizar (0 para anular la actualizacion): " << endl;
-        cin >> id;
-        if(id == 0)
-        {
-            cout << "Modificacion anulada..." << endl;
-            return false;
-        }
+        cout << endl;
+        if (pedirIdConCancelacion("Ingrese ID del registro a modificar (0 para anular la modificacion): ", id)) return false;
+        id = validarPositivo(id);
         reg = _repoDirector.leer(id - 1);
-        if(reg.getId() == -1)
+        while(reg.getId() == 0)
         {
-            cout << "No existe director registrado con ese ID... Vuelva a intentarlo..." << endl;
+            rlutil::setColor(rlutil::RED);
+            cout << endl;
+            cout << "No existe un director registrado con ese ID... Vuelva a intentarlo..." << endl;
+            cout << endl;
+            rlutil::setColor(rlutil::WHITE);
             system("pause");
             system("cls");
-            continue;
+            _listados.listarDirectoresApellido();
+            cout << endl;
+            if (pedirIdConCancelacion("Ingrese ID del registro a modificar (0 para anular la modificacion): ", id)) return false;
+            id = validarPositivo(id);
+            reg = _repoDirector.leer(id - 1);
         }
+        system("cls");
+        rlutil::setColor(rlutil::YELLOW);
         cout << "----- DATOS DEL REGISTRO A MODIFICAR -----" << endl;
         reg.mostrar();
-        cout << "Este es el registro a modificar? (S/N)" << endl;
-        cin >> respuesta;
-        while(respuesta != 's' && respuesta != 'S' && respuesta != 'n' && respuesta != 'N')
-        {
-            cout << "Respuesta incorrecta, vuelva a intentarlo..." << endl;
-            cout << "Este es el registro a modificar? (S/N)" << endl;
-            cin >> respuesta;
-        }
-        if(respuesta == 'N' || respuesta == 'n') continue;
+        cout << endl;
+        if (confirmarAccion("Este es el registro a modificar?")) break;
     }
-    while(respuesta != 's' && respuesta != 'S');
+
     system("cls");
+    rlutil::setColor(rlutil::LIGHTRED);
     cout << "----- CARGUE LOS NUEVOS DATOS DEL REGISTRO -----" << endl;
-    Director *pDirectores;
+
+    rlutil::setColor(rlutil::LIGHTGREEN);
+    cout << endl;
     cout << "ID: #" << id << endl;
+
     reg.cargar();
-    int cantRegistros = _repoDirector.getCantidadRegistros();
+
+    cantRegistros = _repoDirector.getCantidadRegistros();
     pDirectores = new Director[cantRegistros];
     if(pDirectores == nullptr)
     {
+        rlutil::setColor(rlutil::RED);
+        cout << endl;
         cout << "Error en la asignacion de memoria dinamica... No se pudo guardar el registro..." << endl;
-        system("pause");
-        system("cls");
+        cout << endl;
+        rlutil::setColor(rlutil::WHITE);
         return false;
     }
     _repoDirector.leer(pDirectores, cantRegistros);
-    char nombre[20], apellido[20];
-    if(validarNombreApellido(pDirectores, cantRegistros, reg.getNombre(), reg.getApellido(), nombre, apellido))
+
+    if(validarNombreApellido(pDirectores, cantRegistros, reg.getNombre(), reg.getApellido(), nombre, apellido, reg.getId()))
     {
         reg.setNombre(nombre);
         reg.setApellido(apellido);
     }
+
     delete [] pDirectores;
     return _repoDirector.guardar(id-1, reg);
 }
 
 bool DirectorManager::eliminarDirector()
 {
-    cout << "-------- BAJA DE DIRECTOR --------" << endl;
     int id;
     Director reg;
-    char respuesta;
-    do
+
+    rlutil::setColor(rlutil::LIGHTRED);
+    cout << "-------- BAJA DE DIRECTOR --------" << endl;
+    while(true)
     {
-        cout << "Ingrese ID del registro a eliminar (0 para cancelar la baja): " << endl;
-        cin >> id;
-        if(id == 0)
-        {
-            cout << "Baja cancelada..." << endl;
-            return false;
-        }
+        cout << endl;
+        if (pedirIdConCancelacion("Ingrese ID del registro a eliminar (0 para anular la baja): ", id)) return false;
+        id = validarPositivo(id);
         reg = _repoDirector.leer(id - 1);
-        while(reg.getId() == -1)
+        while(reg.getId() == 0)
         {
-            cout << "No existe director registrado con ese ID... Vuelva a intentarlo..." << endl;
-            cout << "Ingrese ID del registro a eliminar (0 para cancelar la baja): " << endl;
-            cin >> id;
-            if(id == 0)
-            {
-                cout << "Baja cancelada..." << endl;
-                return false;
-            }
+            rlutil::setColor(rlutil::RED);
+            cout << endl;
+            cout << "No existe un director registrado con ese ID... Vuelva a intentarlo..." << endl;
+            cout << endl;
+            rlutil::setColor(rlutil::WHITE);
+            system("pause");
+            system("cls");
+            _listados.listarDirectoresApellido();
+            cout << endl;
+            if (pedirIdConCancelacion("Ingrese ID del registro a eliminar (0 para anular la baja): ", id)) return false;
+            id = validarPositivo(id);
             reg = _repoDirector.leer(id - 1);
         }
-        system("pause");
+        system("cls");
+        rlutil::setColor(rlutil::YELLOW);
         cout << "----- DATOS DEL REGISTRO A DAR DE BAJA -----" << endl;
         reg.mostrar();
         if(reg.getEliminado())
         {
+            cout << endl;
+            rlutil::setColor(rlutil::RED);
             cout << "El registro ya se encuentra dado de baja..." << endl;
+            rlutil::setColor(rlutil::WHITE);
             return false;
         }
-        cout << "Este es el registro a eliminar? (S/N)" << endl;
-        cin >> respuesta;
-        while(respuesta != 's' && respuesta != 'S' && respuesta != 'n' && respuesta != 'N')
-        {
-            cout << "Respuesta incorrecta, vuelva a intentarlo..." << endl;
-            cout << "Este es el registro a eliminar? (S/N)" << endl;
-            cin >> respuesta;
-        }
-        if(respuesta == 'N' || respuesta == 'n') continue;
+        cout << endl;
+        if (confirmarAccion("Este es el registro a eliminar?")) break;
     }
-    while(respuesta != 's' && respuesta != 'S');
+
     return _repoDirector.eliminar(id - 1);
 }
 
 bool DirectorManager::altaDirector()
 {
-    cout << "-------- ALTA DE DIRECTOR --------" << endl;
     int id;
     Director reg;
-    char respuesta;
-    do
+
+    rlutil::setColor(rlutil::LIGHTRED);
+    cout << "-------- ALTA DE DIRECTOR --------" << endl;
+    while(true)
     {
-        cout << "Ingrese ID del registro a dar de alta (0 para cancelar el alta): " << endl;
-        cin >> id;
-        if(id == 0)
-        {
-            cout << "Alta cancelada..." << endl;
-            return false;
-        }
+        cout << endl;
+        if (pedirIdConCancelacion("Ingrese ID del registro a dar de alta (0 para anular el alta): ", id)) return false;
+        id = validarPositivo(id);
         reg = _repoDirector.leer(id - 1);
-        while(reg.getId() == -1)
+        while(reg.getId() == 0)
         {
+            rlutil::setColor(rlutil::RED);
+            cout << endl;
             cout << "No existe director registrado con ese ID... Vuelva a intentarlo..." << endl;
-            cout << "Ingrese ID del registro a dar de alta (0 para cancelar el alta): " << endl;
-            cin >> id;
-            if(id == 0)
-            {
-                cout << "Alta cancelada..." << endl;
-                return false;
-            }
+            cout << endl;
+            rlutil::setColor(rlutil::WHITE);
+            system("pause");
+            system("cls");
+            _listados.listarDirectoresApellido();
+            cout << endl;
+            if (pedirIdConCancelacion("Ingrese ID del registro a dar de alta (0 para anular el alta): ", id)) return false;
+            id = validarPositivo(id);
             reg = _repoDirector.leer(id - 1);
         }
+        system("cls");
+        rlutil::setColor(rlutil::YELLOW);
         cout << "----- DATOS DEL REGISTRO A DAR DE ALTA -----" << endl;
         reg.mostrar();
         if(!reg.getEliminado())
         {
+            cout << endl;
+            rlutil::setColor(rlutil::RED);
             cout << "El registro ya se encuentra dado de alta..." << endl;
+            rlutil::setColor(rlutil::WHITE);
             return false;
         }
-        cout << "Este es el registro a dar de alta? (S/N)" << endl;
-        cin >> respuesta;
-        while(respuesta != 's' && respuesta != 'S' && respuesta != 'n' && respuesta != 'N')
-        {
-            cout << "Respuesta incorrecta, vuelva a intentarlo..." << endl;
-            cout << "Este es el registro a dar de alta? (S/N)" << endl;
-            cin >> respuesta;
-        }
-        if(respuesta == 'N' || respuesta == 'n') continue;
+        cout << endl;
+        if (confirmarAccion("Este es el registro a dar de alta?")) break;
     }
-    while(respuesta != 's' && respuesta != 'S');
+
     return _repoDirector.alta(id - 1);
 }
 
-bool DirectorManager::validarNombreApellido(Director* pDirectores,  int cant, const char* n, const char* a, char nombre[20], char apellido[20])
+bool DirectorManager::validarNombreApellido(Director* pDirectores,  int cant, const char* n, const char* a, char nombre[20], char apellido[20], int idActual)
 {
     string nom = n;
     string ape = a;
@@ -213,12 +226,23 @@ bool DirectorManager::validarNombreApellido(Director* pDirectores,  int cant, co
         directorValido = true;
         for(int i = 0; i < cant; i++)
         {
+            if (pDirectores[i].getId() == idActual) continue;
+
+
             if(strcasecmp(nom.c_str(), pDirectores[i].getNombre()) == 0 && strcmp(ape.c_str(), pDirectores[i].getApellido()) == 0)
             {
+                cout << endl;
+                rlutil::setColor(rlutil::RED);
                 cout << "El nombre y apellido ingresados ya existen... Intente cargar la informacion nuevamente..." << endl;
+                cout << endl;
+                rlutil::setColor(rlutil::CYAN);
                 cout << "Ingrese otro nombre: " << endl;
+                rlutil::setColor(rlutil::WHITE);
                 nom = cargarCadena();
+                cout << endl;
+                rlutil::setColor(rlutil::CYAN);
                 cout << "Ingrese otro apellido: " << endl;
+                rlutil::setColor(rlutil::WHITE);
                 ape = cargarCadena();
                 directorValido = false;
                 break;

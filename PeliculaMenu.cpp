@@ -1,5 +1,7 @@
 #include <iostream>
 #include "PeliculaMenu.h"
+#include "rlutil.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -25,6 +27,7 @@ void PeliculaMenu::mostrar()
 
 void PeliculaMenu::mostrarOpciones()
 {
+    rlutil::setColor(rlutil::LIGHTCYAN);
     cout << "--- MENU PELICULAS ---" << endl;
     cout << "1 - CARGAR PELICULA" << endl;
     cout << "2 - MODIFICAR PELICULA" << endl;
@@ -33,6 +36,7 @@ void PeliculaMenu::mostrarOpciones()
     cout << "-----------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "-----------------------" << endl;
+    rlutil::setColor(rlutil::WHITE);
 }
 
 void PeliculaMenu::ejecutarOpcion(int opcion)
@@ -43,50 +47,22 @@ void PeliculaMenu::ejecutarOpcion(int opcion)
     case 1:
         system("cls");
         resultado = _peliculaManager.cargarPelicula();
-        if(resultado)
-        {
-            cout << "Carga exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar la carga..." << endl;
-        }
+        validarCarga(resultado);
         break;
     case 2:
         system("cls");
         resultado = _peliculaManager.modificarPelicula();
-        if(resultado)
-        {
-            cout << "Modificacion exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar la modificacion..." << endl;
-        }
+        validarModificacion(resultado);
         break;
     case 3:
         system("cls");
         resultado = _peliculaManager.eliminarPelicula();
-        if(resultado)
-        {
-            cout << "Baja exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar la baja..." << endl;
-        }
+        validarBaja(resultado);
         break;
     case 4:
         system("cls");
         resultado = _peliculaManager.altaPelicula();
-        if(resultado)
-        {
-            cout << "Alta exitosa!" << endl;
-        }
-        else
-        {
-            cout << "No se pudo realizar el alta..." << endl;
-        }
+        validarModificacion(resultado);
         break;
     }
 }
@@ -96,15 +72,20 @@ int PeliculaMenu::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
+    rlutil::setColor(rlutil::YELLOW);
     cout << "--------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)
     {
+        rlutil::setColor(rlutil::RED);
         cout << "---------------" << endl;
         cout << "Opcion incorrecta... Vuelva a intentarlo por favor..." << endl;
         cout << "---------------" << endl;
+        rlutil::setColor(rlutil::YELLOW);
         cout << "SELECCIONE UNA OPCION: ";
+        rlutil::setColor(rlutil::WHITE);
         cin >> opcion;
     }
     return opcion;

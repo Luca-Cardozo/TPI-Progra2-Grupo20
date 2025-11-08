@@ -5,6 +5,9 @@
 #include "GeneroArchivo.h"
 #include "ClasificacionArchivo.h"
 #include "TipoSuscripcionArchivo.h"
+#include "SuscriptorArchivo.h"
+#include "PeliculaArchivo.h"
+#include "SerieArchivo.h"
 
 class ConsultasMenu
 {
@@ -16,6 +19,9 @@ private:
     GeneroArchivo _repoGenero;
     ClasificacionArchivo _repoClasificacion;
     TipoSuscripcionArchivo _repoTipoSuscripcion;
+    SuscriptorArchivo _repoSuscriptor;
+    PeliculaArchivo _repoPelicula;
+    SerieArchivo _repoSerie;
     void mostrarOpciones();
     int seleccionOpcion();
     void ejecutarOpcion(int opcion);

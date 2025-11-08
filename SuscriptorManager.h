@@ -11,8 +11,8 @@ private:
     ListadosManager _listados;
 
     int validarTipoSuscripcion(int id);
-    std::string validarEmail(Suscriptor* pSuscriptores, int cant, const char* e);
-    std::string validarTelefono(Suscriptor* pSuscriptores, int cant, const char* t);
+    std::string validarEmail(Suscriptor* pSuscriptores, int cant, const char* e, int idActual = -1);
+    std::string validarTelefono(Suscriptor* pSuscriptores, int cant, const char* t, int idActual = -1);
 public:
     bool cargarSuscriptor();
     bool modificarSuscriptor();

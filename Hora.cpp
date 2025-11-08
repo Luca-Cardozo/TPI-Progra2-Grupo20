@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Hora.h"
+#include "rlutil.h"
 
 using namespace std;
 
@@ -47,16 +48,25 @@ void Hora::setMinuto(int minuto)
 void Hora::cargar()
 {
     int h, m;
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "Ingrese hora (0-23): ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> h;
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "Ingrese minutos (0-59): ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> m;
     while (!validarHora(h, m))
     {
+        rlutil::setColor(rlutil::RED);
         cout << "Hora invalida... Intentelo nuevamente..." << endl;
+        rlutil::setColor(rlutil::LIGHTBLUE);
         cout << "Ingrese hora (0-23): ";
+        rlutil::setColor(rlutil::WHITE);
         cin >> h;
+        rlutil::setColor(rlutil::LIGHTBLUE);
         cout << "Ingrese minutos (0-59): ";
+        rlutil::setColor(rlutil::WHITE);
         cin >> m;
     }
     _hora = h;

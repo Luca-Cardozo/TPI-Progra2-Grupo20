@@ -1,5 +1,6 @@
 #include "Genero.h"
 #include "utils.h"
+#include "rlutil.h"
 #include <iostream>
 #include <cstring>
 
@@ -14,7 +15,10 @@ Genero::Genero()
 
 void Genero::cargar()
 {
+    cout << endl;
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "Descripcion del genero: ";
+    rlutil::setColor(rlutil::WHITE);
     string texto = cargarCadena();
     strncpy(_descripcion, texto.c_str(), sizeof(_descripcion) - 1);
     _descripcion[sizeof(_descripcion) - 1] = '\0';
@@ -23,9 +27,12 @@ void Genero::cargar()
 
 void Genero::mostrar()
 {
+    rlutil::setColor(rlutil::LIGHTCYAN);
+    cout << endl;
     cout << "ID Genero: " << _idGenero << endl;
     cout << "Descripcion: " << _descripcion << endl;
     cout << "Eliminado: " << (_eliminado ? "SI" : "NO") << endl;
+    rlutil::setColor(rlutil::WHITE);
 }
 
 int Genero::getIdGenero()

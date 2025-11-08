@@ -26,10 +26,10 @@ int TipoSuscripcionArchivo::getNuevoID()
 
 int TipoSuscripcionArchivo::buscar(int id)
 {
-    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr) return -1;
     TipoSuscripcion reg;
     int pos = 0;
+    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+    if(pArchivo == nullptr) return -1;
     while(fread(&reg, sizeof(TipoSuscripcion), 1, pArchivo))
     {
         if(reg.getIdTipoSuscripcion() == id)

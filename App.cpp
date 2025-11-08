@@ -1,5 +1,6 @@
 #include <iostream>
 #include "App.h"
+#include "rlutil.h"
 
 using namespace std;
 
@@ -16,13 +17,13 @@ void App::run()
         opcion = seleccionOpcion();
         system("cls");
         ejecutarOpcion(opcion);
-        system("pause");
     }
     while(opcion != 0);
 }
 
 void App::mostrarOpciones()
 {
+    rlutil::setColor(rlutil::LIGHTGREEN);
     cout << "--------- MENU PRINCIPAL ---------" << endl;
     cout << "1- SUSCRIPTORES" << endl;
     cout << "2- PELICULAS" << endl;
@@ -38,22 +39,28 @@ void App::mostrarOpciones()
     cout << "12- REPORTES" << endl;
     cout << "----------------------------------" << endl;
     cout << "0- SALIR" << endl;
+    rlutil::setColor(rlutil::WHITE);
 }
 
 int App::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
-    cout << "---------------" << endl;
+    rlutil::setColor(rlutil::YELLOW);
+    cout << "--------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)
     {
+        rlutil::setColor(rlutil::RED);
         cout << "---------------" << endl;
         cout << "Opcion incorrecta... Vuelva a intentarlo por favor..." << endl;
         cout << "---------------" << endl;
+        rlutil::setColor(rlutil::YELLOW);
         cout << "SELECCIONE UNA OPCION: ";
         cin >> opcion;
+        rlutil::setColor(rlutil::WHITE);
     }
     return opcion;
 }
@@ -99,7 +106,13 @@ void App::ejecutarOpcion(int opcion)
         _reportesMenu.mostrar();
         break;
     case 0:
-        cout << "Gracias por utilizar el programa!" << endl;
+        rlutil::setColor(rlutil::LIGHTRED);
+        cout << endl;
+        cout << endl;
+        cout << "GRACIAS POR UTILIZAR EL PROGRAMA!" << endl;
+        rlutil::setColor(rlutil::WHITE);
+        cout << endl;
+        cout << endl;
         break;
     }
 }

@@ -1,4 +1,5 @@
 #include "Fecha.h"
+#include "rlutil.h"
 #include <iostream>
 
 using namespace std;
@@ -65,13 +66,19 @@ void Fecha::cargar()
     bool fechaValida = false;
     do
     {
+        rlutil::setColor(rlutil::LIGHTBLUE);
         cout << "Dia: ";
+        rlutil::setColor(rlutil::WHITE);
         cin >> dia;
         setDia(dia);
+        rlutil::setColor(rlutil::LIGHTBLUE);
         cout << "Mes: ";
+        rlutil::setColor(rlutil::WHITE);
         cin >> mes;
         setMes(mes);
+        rlutil::setColor(rlutil::LIGHTBLUE);
         cout << "Anio: ";
+        rlutil::setColor(rlutil::WHITE);
         cin >> anio;
         setAnio(anio);
         if (validarFecha(dia, mes, anio))
@@ -80,7 +87,10 @@ void Fecha::cargar()
         }
         else
         {
+            rlutil::setColor(rlutil::RED);
             cout << "Fecha invalida... Intentelo nuevamente..." << endl;
+            cout << endl;
+            rlutil::setColor(rlutil::LIGHTBLUE);
         }
     }
     while(!fechaValida);
@@ -90,6 +100,7 @@ void Fecha::mostrar()
 {
     cout << _dia << "/" << _mes << "/" << _anio << endl;
 }
+
 
 int Fecha::getDia()
 {

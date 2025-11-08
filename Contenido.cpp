@@ -1,5 +1,6 @@
 #include "Contenido.h"
 #include "utils.h"
+#include "rlutil.h"
 #include <iostream>
 #include <cstring>
 
@@ -20,22 +21,35 @@ void Contenido::cargar()
 {
     int g, c, idD;
     Fecha fe, fa;
+    cout << endl;
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "Titulo: ";
+    rlutil::setColor(rlutil::WHITE);
     string texto = cargarCadena();
     strncpy(_titulo, texto.c_str(), sizeof(_titulo) - 1);
     _titulo[sizeof(_titulo) - 1] = '\0';
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "ID del director: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> idD;
     setIdDirector(idD);
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "ID del genero: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> g;
     setGenero(g);
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "ID de la clasificacion: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> c;
     setClasificacion(c);
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "Fecha de estreno: " << endl;
+    rlutil::setColor(rlutil::WHITE);
     fe.cargar();
+    rlutil::setColor(rlutil::LIGHTBLUE);
     cout << "Fecha de alta en el sistema: " << endl;
+    rlutil::setColor(rlutil::WHITE);
     fa.cargar();
     validarFechas(fe, fa);
     setFechaEstreno(fe);
@@ -45,6 +59,7 @@ void Contenido::cargar()
 
 void Contenido::mostrar()
 {
+    rlutil::setColor(rlutil::LIGHTCYAN);
     cout << "ID del tipo de contenido: " << _idTipoContenido << endl;
     cout << "Titulo: " << _titulo << endl;
     cout << "ID Director: " << _idDirector << endl;
@@ -54,6 +69,7 @@ void Contenido::mostrar()
     _fechaEstreno.mostrar();
     cout << "Fecha Alta: ";
     _fechaAlta.mostrar();
+    rlutil::setColor(rlutil::WHITE);
 }
 
 int Contenido::getId()
@@ -135,10 +151,15 @@ void Contenido::validarFechas(Fecha &fechaEstreno, Fecha &fechaAlta)
     while(fechaAlta < fechaEstreno)
     {
         cout << endl;
+        rlutil::setColor(rlutil::RED);
         cout << "La fecha de alta no puede ser anterior a la fecha de estreno... Intente cargar la informacion nuevamente..." << endl;
+        rlutil::setColor(rlutil::LIGHTBLUE);
         cout << "Ingrese nuevamente la fecha de estreno:" << endl;
+        rlutil::setColor(rlutil::WHITE);
         fechaEstreno.cargar();
+        rlutil::setColor(rlutil::LIGHTBLUE);
         cout << "Ingrese nuevamente la fecha de alta:" << endl;
+        rlutil::setColor(rlutil::WHITE);
         fechaAlta.cargar();
     }
 }

@@ -26,10 +26,10 @@ int GeneroArchivo::getNuevoID()
 
 int GeneroArchivo::buscar(int id)
 {
-    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr) return -1;
     Genero reg;
     int pos = 0;
+    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+    if(pArchivo == nullptr) return -1;
     while(fread(&reg, sizeof(Genero), 1, pArchivo))
     {
         if(reg.getIdGenero() == id)

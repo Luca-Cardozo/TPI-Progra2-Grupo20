@@ -17,7 +17,7 @@ private:
     int validarDirector(int id);
     int validarGenero(int id);
     int validarClasificacion(int id);
-    std::string validarTitulo(Serie* pSeries,  int cant, const char* t);
+    std::string validarTitulo(Serie* pSeries,  int cant, const char* t, int idActual = -1);
 public:
     bool cargarSerie();
     bool modificarSerie();

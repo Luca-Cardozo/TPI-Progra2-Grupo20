@@ -90,37 +90,41 @@
 1760382194 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\suscriptor.h
 	"Persona.h"
 
-1761674996 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacion.cpp
+1762474348 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacion.cpp
 	"Clasificacion.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
 1760389136 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacion.h
 
-1762006571 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumo.cpp
+1762474343 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumo.cpp
 	"Consumo.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 
-1762004765 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumo.h
+1762295954 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumo.h
 	"Fecha.h"
 	"Hora.h"
 
-1762005064 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\fecha.h
+1762310678 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\fecha.h
 
-1762217489 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\contenido.cpp
+1762474326 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\contenido.cpp
 	"Contenido.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
 1762216740 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\contenido.h
 	"Fecha.h"
 
-1761748358 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\director.cpp
+1762554803 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\director.cpp
 	"Director.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
@@ -130,136 +134,159 @@
 1761747554 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\persona.h
 	"Fecha.h"
 
-1762004160 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\fecha.cpp
+1762472651 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\fecha.cpp
 	"Fecha.h"
+	"rlutil.h"
 	<iostream>
 
-1761675032 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\genero.cpp
+1762474352 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\genero.cpp
 	"Genero.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
 1760386748 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\genero.h
 
-1762005678 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\pelicula.cpp
+1762554846 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\pelicula.cpp
 	"Pelicula.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 
 1761748184 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\pelicula.h
 	"Contenido.h"
 
-1761747546 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\persona.cpp
+1762474282 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\persona.cpp
 	"Persona.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
-1762005887 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\serie.cpp
+1762554841 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\serie.cpp
 	"Serie.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 
 1761748140 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\serie.h
 	"Contenido.h"
 
-1762217467 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptor.cpp
+1762554740 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptor.cpp
 	"Suscriptor.h"
 	<iostream>
 	<cstring>
+	"rlutil.h"
 
 1762217169 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptor.h
 	"Persona.h"
 
-1761675025 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenido.cpp
+1762474354 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenido.cpp
 	"TipoContenido.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
 1760389450 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenido.h
 
-1761675021 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcion.cpp
+1762474430 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcion.cpp
 	"TipoSuscripcion.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
 1760389296 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcion.h
 
-1762199381 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacionmanager.cpp
+1762626815 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacionmanager.cpp
 	"ClasificacionManager.h"
 	"Clasificacion.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
-1762199553 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\directormanager.cpp
+1762627111 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\directormanager.cpp
 	"DirectorManager.h"
 	"Director.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
-1762199399 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\generomanager.cpp
+1762626971 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\generomanager.cpp
 	"GeneroManager.h"
 	"Genero.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
-1762221162 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\peliculamanager.cpp
+1762627129 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\peliculamanager.cpp
 	"PeliculaManager.h"
 	"Pelicula.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
-1760580280 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\reportesmanager.cpp
+1762616975 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\reportesmanager.cpp
+	<iostream>
+	"ReportesManager.h"
+	"rlutil.h"
 
-1762221033 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\seriemanager.cpp
+1762627177 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\seriemanager.cpp
 	"SerieManager.h"
 	"Serie.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
-1762220929 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptormanager.cpp
+1762627203 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptormanager.cpp
 	"SuscriptorManager.h"
 	"Suscriptor.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 	<cctype>
 
-1762199417 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenidomanager.cpp
+1762627048 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenidomanager.cpp
 	"TipoContenidoManager.h"
 	"TipoContenido.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
-1762199429 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcionmanager.cpp
+1762627004 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcionmanager.cpp
 	"TipoSuscripcionManager.h"
 	"TipoSuscripcion.h"
 	"utils.h"
+	"rlutil.h"
 	<iostream>
 	<cstring>
 
-1762213976 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacionmenu.cpp
+1762479619 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacionmenu.cpp
 	<iostream>
 	"ClasificacionMenu.h"
+	"rlutil.h"
+	"utils.h"
 
 1760576260 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacionmenu.h
 	"ClasificacionManager.h"
 
-1761780743 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacionmanager.h
+1762482550 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacionmanager.h
 	"ClasificacionArchivo.h"
+	"ListadosManager.h"
 
-1762214195 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\app.cpp
+1762549829 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\app.cpp
 	<iostream>
 	"App.h"
+	"rlutil.h"
 
 1761788796 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\app.h
 	"SuscriptorMenu.h"
@@ -278,7 +305,7 @@
 1760571690 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptormenu.h
 	"SuscriptorManager.h"
 
-1762220339 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptormanager.h
+1762557981 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptormanager.h
 	"SuscriptorArchivo.h"
 	"TipoSuscripcionArchivo.h"
 	"ListadosManager.h"
@@ -286,7 +313,7 @@
 1760573605 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\seriemenu.h
 	"SerieManager.h"
 
-1762220795 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\seriemanager.h
+1762559521 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\seriemanager.h
 	"SerieArchivo.h"
 	"DirectorArchivo.h"
 	"GeneroArchivo.h"
@@ -296,7 +323,7 @@
 1760575697 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\peliculamenu.h
 	"PeliculaManager.h"
 
-1762221077 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\peliculamanager.h
+1762559531 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\peliculamanager.h
 	"PeliculaArchivo.h"
 	"DirectorArchivo.h"
 	"GeneroArchivo.h"
@@ -306,84 +333,111 @@
 1760575874 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\generomenu.h
 	"GeneroManager.h"
 
-1761784905 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\generomanager.h
+1762483062 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\generomanager.h
 	"GeneroArchivo.h"
+	"ListadosManager.h"
 
 1760576618 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcionmenu.h
 	"TipoSuscripcionManager.h"
 
-1761786572 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcionmanager.h
+1762550921 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcionmanager.h
 	"TipoSuscripcionArchivo.h"
+	"ListadosManager.h"
 
 1760576917 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenidomenu.h
 	"TipoContenidoManager.h"
 
-1761785618 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenidomanager.h
+1762550911 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenidomanager.h
 	"TipoContenidoArchivo.h"
+	"ListadosManager.h"
 
 1760577063 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\directormenu.h
 	"DirectorManager.h"
 
-1761776740 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\directormanager.h
+1762557549 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\directormanager.h
 	"DirectorArchivo.h"
+	"ListadosManager.h"
 
 1760580078 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\reportesmenu.h
 	"ReportesManager.h"
 
-1760581010 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\reportesmanager.h
+1762386042 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\reportesmanager.h
+	"SuscriptorArchivo.h"
+	"PeliculaArchivo.h"
+	"SerieArchivo.h"
+	"GeneroArchivo.h"
+	"ConsumoArchivo.h"
 
-1762214101 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\directormenu.cpp
+1762479814 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\directormenu.cpp
 	<iostream>
 	"DirectorMenu.h"
+	"rlutil.h"
+	"utils.h"
 
-1762213941 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\generomenu.cpp
+1762479686 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\generomenu.cpp
 	<iostream>
 	"GeneroMenu.h"
+	"rlutil.h"
+	"utils.h"
 
-1762197110 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\main.cpp
+1762616548 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\main.cpp
 	<iostream>
 	"App.h"
-	"rlutil.h"
+	"CargaDeDatos.h"
 
-1762214135 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\peliculamenu.cpp
+1762479864 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\peliculamenu.cpp
 	<iostream>
 	"PeliculaMenu.h"
+	"rlutil.h"
+	"utils.h"
 
-1762214122 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\reportesmenu.cpp
+1762611502 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\reportesmenu.cpp
 	<iostream>
 	"ReportesMenu.h"
+	"rlutil.h"
+	"utils.h"
 
-1762214165 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\seriemenu.cpp
+1762479835 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\seriemenu.cpp
 	<iostream>
 	"SerieMenu.h"
+	"rlutil.h"
+	"utils.h"
 
-1762214154 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptormenu.cpp
+1762479883 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptormenu.cpp
 	<iostream>
 	"SuscriptorMenu.h"
+	"rlutil.h"
+	"utils.h"
 
-1762214039 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenidomenu.cpp
+1762479699 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenidomenu.cpp
 	<iostream>
 	"TipoContenidoMenu.h"
+	"rlutil.h"
+	"utils.h"
 
-1762214012 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcionmenu.cpp
+1762479746 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcionmenu.cpp
 	<iostream>
 	"TipoSuscripcionMenu.h"
+	"rlutil.h"
+	"utils.h"
 
 1761264382 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumomenu.h
 	"ConsumoManager.h"
 
-1762221451 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumomanager.h
+1762610416 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumomanager.h
 	"ConsumoArchivo.h"
 	"SuscriptorArchivo.h"
 	"SerieArchivo.h"
 	"PeliculaArchivo.h"
 	"ListadosManager.h"
 
-1762214073 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumomenu.cpp
+1762479761 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumomenu.cpp
 	<iostream>
 	"ConsumoMenu.h"
+	"rlutil.h"
+	"utils.h"
 
-1761771660 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptorarchivo.cpp
+1762456885 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\suscriptorarchivo.cpp
 	<iostream>
 	"SuscriptorArchivo.h"
 
@@ -391,7 +445,7 @@
 	<string>
 	"Suscriptor.h"
 
-1761787557 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\peliculaarchivo.cpp
+1762608996 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\peliculaarchivo.cpp
 	<iostream>
 	"PeliculaArchivo.h"
 
@@ -399,7 +453,7 @@
 	<string>
 	"Pelicula.h"
 
-1761787541 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\seriearchivo.cpp
+1762608949 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\seriearchivo.cpp
 	<iostream>
 	"SerieArchivo.h"
 
@@ -407,7 +461,7 @@
 	<string>
 	"Serie.h"
 
-1761777064 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\directorarchivo.cpp
+1762456855 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\directorarchivo.cpp
 	<iostream>
 	"DirectorArchivo.h"
 
@@ -415,7 +469,7 @@
 	<string>
 	"Director.h"
 
-1761753067 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumoarchivo.cpp
+1762456846 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumoarchivo.cpp
 	<iostream>
 	"ConsumoArchivo.h"
 
@@ -423,7 +477,7 @@
 	<string>
 	"Consumo.h"
 
-1761780457 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacionarchivo.cpp
+1762456769 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\clasificacionarchivo.cpp
 	<iostream>
 	"ClasificacionArchivo.h"
 
@@ -431,7 +485,7 @@
 	<string>
 	"Clasificacion.h"
 
-1761784718 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\generoarchivo.cpp
+1762456797 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\generoarchivo.cpp
 	<iostream>
 	"GeneroArchivo.h"
 
@@ -439,7 +493,7 @@
 	<string>
 	"Genero.h"
 
-1761785455 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenidoarchivo.cpp
+1762456809 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tipocontenidoarchivo.cpp
 	<iostream>
 	"TipoContenidoArchivo.h"
 
@@ -447,7 +501,7 @@
 	<string>
 	"TipoContenido.h"
 
-1761786439 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcionarchivo.cpp
+1762456827 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\tiposuscripcionarchivo.cpp
 	<iostream>
 	"TipoSuscripcionArchivo.h"
 
@@ -455,23 +509,27 @@
 	<string>
 	"TipoSuscripcion.h"
 
-1762221770 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumomanager.cpp
+1762627081 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consumomanager.cpp
 	"ConsumoManager.h"
 	"Consumo.h"
+	"utils.h"
+	"rlutil.h"
 	<iostream>
 
-1762006654 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\utils.cpp
+1762626254 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\utils.cpp
 	<iostream>
+	"rlutil.h"
 	"utils.h"
 
-1762006634 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\utils.h
+1762625458 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\utils.h
 	"Fecha.h"
+	"Hora.h"
 	<string>
 
 1761789495 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\listadosmenu.h
 	"ListadosManager.h"
 
-1761874140 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\listadosmanager.h
+1762307469 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\listadosmanager.h
 	"SuscriptorArchivo.h"
 	"PeliculaArchivo.h"
 	"SerieArchivo.h"
@@ -480,16 +538,20 @@
 	"ClasificacionArchivo.h"
 	"TipoContenidoArchivo.h"
 	"TipoSuscripcionArchivo.h"
+	"ConsumoArchivo.h"
 
-1761961572 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consultasmenu.h
+1762300823 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consultasmenu.h
 	"ConsultasManager.h"
 	"ListadosManager.h"
 	"DirectorArchivo.h"
 	"GeneroArchivo.h"
 	"ClasificacionArchivo.h"
 	"TipoSuscripcionArchivo.h"
+	"SuscriptorArchivo.h"
+	"PeliculaArchivo.h"
+	"SerieArchivo.h"
 
-1761962021 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consultasmanager.h
+1762300871 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consultasmanager.h
 	"SuscriptorArchivo.h"
 	"PeliculaArchivo.h"
 	"SerieArchivo.h"
@@ -497,25 +559,28 @@
 	"GeneroArchivo.h"
 	"ClasificacionArchivo.h"
 	"TipoSuscripcionArchivo.h"
+	"ConsumoArchivo.h"
 
-1762199256 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consultasmanager.cpp
+1762617396 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consultasmanager.cpp
 	<iostream>
 	"ConsultasManager.h"
 	"rlutil.h"
 
-1762197721 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\listadosmanager.cpp
+1762616148 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\listadosmanager.cpp
 	<iostream>
 	"ListadosManager.h"
 	"rlutil.h"
 
-1762007847 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consultasmenu.cpp
+1762610745 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\consultasmenu.cpp
 	<iostream>
 	"ConsultasMenu.h"
+	"rlutil.h"
 	"utils.h"
 
-1762008001 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\listadosmenu.cpp
+1762457491 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\listadosmenu.cpp
 	<iostream>
 	"ListadosMenu.h"
+	"rlutil.h"
 	"utils.h"
 
 1571569938 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\rlutil.h
@@ -534,7 +599,18 @@
 
 1762005001 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\hora.h
 
-1762005031 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\hora.cpp
+1762479137 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\hora.cpp
 	<iostream>
 	"Hora.h"
+	"rlutil.h"
+
+1762615575 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\cargadedatos.cpp
+	"Suscriptor.h"
+	"Director.h"
+	"Pelicula.h"
+	"Serie.h"
+	"Consumo.h"
+	<iostream>
+
+1762614471 d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\cargadedatos.h
 

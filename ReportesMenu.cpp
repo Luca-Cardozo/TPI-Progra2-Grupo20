@@ -1,5 +1,7 @@
 #include <iostream>
 #include "ReportesMenu.h"
+#include "rlutil.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -25,6 +27,7 @@ void ReportesMenu::mostrar()
 
 void ReportesMenu::mostrarOpciones()
 {
+    rlutil::setColor(rlutil::BROWN);
     cout << "-------------------------------------- MENU REPORTES --------------------------------------" << endl;
     cout << "1 - CANTIDAD DE CONSUMOS POR SUSCRIPTOR EN UN RANGO DE FECHAS" << endl;
     cout << "2 - CANTIDAD DE CONSUMOS POR TITULO EN UN RANGO DE FECHAS" << endl;
@@ -39,41 +42,56 @@ void ReportesMenu::mostrarOpciones()
     cout << "-------------------------------------------------------------------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "-------------------------------------------------------------------------------------------" << endl;
+    rlutil::setColor(rlutil::WHITE);
 }
 
 void ReportesMenu::ejecutarOpcion(int opcion)
 {
+    Fecha f1, f2;
+    Hora h1, h2;
+    int anio, mes;
     switch(opcion)
     {
     case 1:
-
+        pedir2FechasValidas(f1, f2);
+        _reportesManager.cantConsumosPorSuscriptor(f1, f2);
         break;
     case 2:
-
+        pedir2FechasValidas(f1, f2);
+        _reportesManager.cantConsumosPorTitulo(f1, f2);
         break;
     case 3:
-
+        pedir2HorariosValidos(h1, h2);
+        _reportesManager.cantConsumosPorTipoContenido(h1, h2);
         break;
     case 4:
-
+        anio = pedirAnioValido();
+        _reportesManager.top5SuscriptoresMayorVisualizacion(anio);
         break;
     case 5:
-
+        anio = pedirAnioValido();
+        _reportesManager.top10ContenidoMasConsumido(anio);
         break;
     case 6:
-
+        anio = pedirAnioValido();
+        _reportesManager.consumosPorGenero(anio);
         break;
     case 7:
-
+        anio = pedirAnioValido();
+        _reportesManager.minutosConsumidosPorTipoContenido(anio);
         break;
     case 8:
-
+        anio = pedirAnioValido();
+        _reportesManager.promedioMensualMinutosConsumidosPorTipoSuscripcion(anio);
         break;
     case 9:
-
+        mes = pedirMesValido();
+        anio = pedirAnioValido();
+        _reportesManager.promedioDiarioMinutosConsumidosPorSuscriptor(mes, anio);
         break;
     case 10 :
-
+        anio = pedirAnioValido();
+        _reportesManager.porcentajeMensualTiempoConsumidoPorTipoContenido(anio);
         break;
     }
 }
@@ -83,16 +101,21 @@ int ReportesMenu::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
-    cout << "-----------------------------------------------------------------------------------------" << endl;
+    rlutil::setColor(rlutil::YELLOW);
+    cout << "--------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)
     {
+        rlutil::setColor(rlutil::RED);
         cout << "---------------" << endl;
         cout << "Opcion incorrecta... Vuelva a intentarlo por favor..." << endl;
         cout << "---------------" << endl;
+        rlutil::setColor(rlutil::YELLOW);
         cout << "SELECCIONE UNA OPCION: ";
         cin >> opcion;
+        rlutil::setColor(rlutil::WHITE);
     }
     return opcion;
 }

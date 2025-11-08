@@ -1,12 +1,13 @@
 #include <iostream>
 #include "ConsultasMenu.h"
+#include "rlutil.h"
 #include "utils.h"
 
 using namespace std;
 
 ConsultasMenu::ConsultasMenu()
 {
-    _cantidadOpciones = 14;
+    _cantidadOpciones = 15;
 }
 
 void ConsultasMenu::mostrar()
@@ -26,6 +27,7 @@ void ConsultasMenu::mostrar()
 
 void ConsultasMenu::mostrarOpciones()
 {
+    rlutil::setColor(rlutil::BROWN);
     cout << "------------------- MENU CONSULTAS -------------------" << endl;
     cout << "1 - CONSULTAR SUSCRIPTOR POR EMAIL" << endl;
     cout << "2 - CONSULTAR SUSCRIPTOR POR TELEFONO" << endl;
@@ -40,197 +42,100 @@ void ConsultasMenu::mostrarOpciones()
     cout << "11 - CONSULTAR SERIES POR CLASIFICACION" << endl;
     cout << "12 - CONSULTAR DIRECTOR POR NOMBRE Y APELLIDO" << endl;
     cout << "13 - CONSULTAR CONSUMOS POR SUSCRIPTOR" << endl;
-    cout << "14 - CONSULTAR CONSUMOS POR CONTENIDO" << endl;
+    cout << "14 - CONSULTAR CONSUMOS POR PELICULA" << endl;
+    cout << "15 - CONSULTAR CONSUMOS POR SERIE" << endl;
     cout << "------------------------------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "------------------------------------------------------" << endl;
+    rlutil::setColor(rlutil::WHITE);
 }
 
 void ConsultasMenu::ejecutarOpcion(int opcion)
 {
-    std::string email, tel, tit, nom, ape;
+    string email, tel, tit, nom, ape;
     int id;
     switch(opcion)
     {
     case 1:
-        cout << "Ingrese un email: " << endl;
-        cin >> email;
+        email = pedirCadena("email");
         _consultasManager.consultarSuscriptorEmail(email.c_str());
         break;
     case 2:
-        cout << "Ingrese un telefono: " << endl;
-        cin >> tel;
+        tel = pedirCadena("telefono");
         _consultasManager.consultarSuscriptorTelefono(tel.c_str());
         break;
     case 3:
-        do
-        {
-            system("cls");
-            _listadosManager.listarTiposSuscripcion();
-            cout << endl;
-            cout << "Ingrese un ID de la lista o 0 para salir: " << endl;
-            cin >> id;
-            if(id > _repoTipoSuscripcion.getCantidadRegistros() || id < 0)
-            {
-                cout << "No existe el ID ingresado..." << endl;
-                system("pause");
-            }
-            else if(id != 0)
-            {
-                _consultasManager.consultarSuscriptorTipoSuscripcion(id);
-                break;
-            }
-        }
-        while(id != 0);
+        system("cls");
+        _listadosManager.listarTiposSuscripcion();
+        id = pedirIdValido(_repoTipoSuscripcion.getCantidadRegistros());
+        if(id != 0) _consultasManager.consultarSuscriptorTipoSuscripcion(id);
         break;
     case 4:
-        cout << "Ingrese un titulo: " << endl;
-        tit = cargarCadena();
+        tit = pedirCadena("titulo");
         _consultasManager.consultarPeliculaTitulo(tit.c_str());
         break;
     case 5:
-        do
-        {
-            system("cls");
-            _listadosManager.listarDirectoresApellido();
-            cout << endl;
-            cout << "Ingrese un ID de la lista o 0 para salir: " << endl;
-            cin >> id;
-            if(id > _repoDirector.getCantidadRegistros() || id < 0)
-            {
-                cout << "No existe el ID ingresado..." << endl;
-                system("pause");
-            }
-            else if(id != 0)
-            {
-                _consultasManager.consultarPeliculaDirector(id);
-                break;
-            }
-        }
-        while(id != 0);
+        system("cls");
+        _listadosManager.listarDirectoresApellido();
+        id = pedirIdValido(_repoDirector.getCantidadRegistros());
+        if(id != 0) _consultasManager.consultarPeliculaDirector(id);
         break;
     case 6:
-        do
-        {
-            system("cls");
-            _listadosManager.listarGeneros();
-            cout << endl;
-            cout << "Ingrese un ID de la lista o 0 para salir: " << endl;
-            cin >> id;
-            if(id > _repoGenero.getCantidadRegistros() || id < 0)
-            {
-                cout << "No existe el ID ingresado..." << endl;
-                system("pause");
-            }
-            else if(id != 0)
-            {
-                _consultasManager.consultarPeliculaGenero(id);
-                break;
-            }
-        }
-        while(id != 0);
+        system("cls");
+        _listadosManager.listarGeneros();
+        id = pedirIdValido(_repoGenero.getCantidadRegistros());
+        if(id != 0) _consultasManager.consultarPeliculaGenero(id);
         break;
     case 7:
-        do
-        {
-            system("cls");
-            _listadosManager.listarClasificaciones();
-            cout << endl;
-            cout << "Ingrese un ID de la lista o 0 para salir: " << endl;
-            cin >> id;
-            if(id > _repoClasificacion.getCantidadRegistros() || id < 0)
-            {
-                cout << "No existe el ID ingresado..." << endl;
-                system("pause");
-            }
-            else if(id != 0)
-            {
-                _consultasManager.consultarPeliculaClasificacion(id);
-                break;
-            }
-        }
-        while(id != 0);
+        system("cls");
+        _listadosManager.listarClasificaciones();
+        id = pedirIdValido(_repoClasificacion.getCantidadRegistros());
+        if(id != 0) _consultasManager.consultarPeliculaClasificacion(id);
         break;
     case 8:
-        cout << "Ingrese un titulo: " << endl;
-        tit = cargarCadena();
+        tit = pedirCadena("titulo");
         _consultasManager.consultarSerieTitulo(tit.c_str());
         break;
     case 9:
-        do
-        {
-            system("cls");
-            _listadosManager.listarDirectoresApellido();
-            cout << endl;
-            cout << "Ingrese un ID de la lista o 0 para salir: " << endl;
-            cin >> id;
-            if(id > _repoDirector.getCantidadRegistros() || id < 0)
-            {
-                cout << "No existe el ID ingresado..." << endl;
-                system("pause");
-            }
-            else if(id != 0)
-            {
-                _consultasManager.consultarSerieDirector(id);
-                break;
-            }
-        }
-        while(id != 0);
+        system("cls");
+        _listadosManager.listarDirectoresApellido();
+        id = pedirIdValido(_repoDirector.getCantidadRegistros());
+        if(id != 0) _consultasManager.consultarSerieDirector(id);
         break;
     case 10 :
-        do
-        {
-            system("cls");
-            _listadosManager.listarGeneros();
-            cout << endl;
-            cout << "Ingrese un ID de la lista o 0 para salir: " << endl;
-            cin >> id;
-            if(id > _repoGenero.getCantidadRegistros() || id < 0)
-            {
-                cout << "No existe el ID ingresado..." << endl;
-                system("pause");
-            }
-            else if(id != 0)
-            {
-                _consultasManager.consultarSerieGenero(id);
-                break;
-            }
-        }
-        while(id != 0);
+        system("cls");
+        _listadosManager.listarGeneros();
+        id = pedirIdValido(_repoGenero.getCantidadRegistros());
+        if(id != 0) _consultasManager.consultarSerieGenero(id);
         break;
     case 11:
-        do
-        {
-            system("cls");
-            _listadosManager.listarClasificaciones();
-            cout << endl;
-            cout << "Ingrese un ID de la lista o 0 para salir: " << endl;
-            cin >> id;
-            if(id > _repoClasificacion.getCantidadRegistros() || id < 0)
-            {
-                cout << "No existe el ID ingresado..." << endl;
-                system("pause");
-            }
-            else if(id != 0)
-            {
-                _consultasManager.consultarSerieClasificacion(id);
-                break;
-            }
-        }
-        while(id != 0);
+        system("cls");
+        _listadosManager.listarClasificaciones();
+        id = pedirIdValido(_repoClasificacion.getCantidadRegistros());
+        if(id != 0) _consultasManager.consultarSerieClasificacion(id);
         break;
     case 12:
-        cout << "Ingrese un nombre: " << endl;
-        nom = cargarCadena();
-        cout << "Ingrese un apellido: " << endl;
-        ape = cargarCadena();
+        nom = pedirCadena();
+        ape = pedirCadena("apellido");
         _consultasManager.consultarDirectorNombreApellido(nom.c_str(), ape.c_str());
         break;
     case 13:
-
+        system("cls");
+        _listadosManager.listarSuscriptoresApellido();
+        id = pedirIdValido(_repoSuscriptor.getCantidadRegistros());
+        if(id != 0) _consultasManager.consultarConsumosPorSuscriptor(id);
         break;
     case 14:
-
+        system("cls");
+        _listadosManager.listarPeliculasTitulo();
+        id = pedirIdValido(_repoPelicula.getCantidadRegistros());
+        if(id != 0) _consultasManager.consultarConsumosPorPelicula(id);
+        break;
+    case 15:
+        system("cls");
+        _listadosManager.listarSeriesTitulo();
+        id = pedirIdValido(_repoSerie.getCantidadRegistros());
+        if(id != 0) _consultasManager.consultarConsumosPorSerie(id);
         break;
     }
 }
@@ -240,16 +145,21 @@ int ConsultasMenu::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
-    cout << "------------------------------------------------------" << endl;
+    rlutil::setColor(rlutil::YELLOW);
+    cout << "--------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)
     {
+        rlutil::setColor(rlutil::RED);
         cout << "---------------" << endl;
         cout << "Opcion incorrecta... Vuelva a intentarlo por favor..." << endl;
         cout << "---------------" << endl;
+        rlutil::setColor(rlutil::YELLOW);
         cout << "SELECCIONE UNA OPCION: ";
         cin >> opcion;
+        rlutil::setColor(rlutil::WHITE);
     }
     return opcion;
 }

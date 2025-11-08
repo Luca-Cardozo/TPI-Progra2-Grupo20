@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ListadosMenu.h"
+#include "rlutil.h"
 #include "utils.h"
 
 using namespace std;
@@ -26,6 +27,7 @@ void ListadosMenu::mostrar()
 
 void ListadosMenu::mostrarOpciones()
 {
+    rlutil::setColor(rlutil::BROWN);
     cout << "------------------ MENU LISTADOS ------------------" << endl;
     cout << "1 - SUSCRIPTORES ORDENADOS POR APELLIDO" << endl;
     cout << "2 - SUSCRIPTORES ORDENADOS POR FECHA DE ALTA" << endl;
@@ -45,6 +47,7 @@ void ListadosMenu::mostrarOpciones()
     cout << "-------------------------------------------------" << endl;
     cout << "0 - SALIR" << endl;
     cout << "-------------------------------------------------" << endl;
+    rlutil::setColor(rlutil::WHITE);
 }
 
 void ListadosMenu::ejecutarOpcion(int opcion)
@@ -56,18 +59,7 @@ void ListadosMenu::ejecutarOpcion(int opcion)
         _listadosManager.listarSuscriptoresApellido();
         break;
     case 2:
-        cout << "1- Orden creciente" << endl;
-        cout << "2- Orden decreciente" << endl;
-        cout << "Ingrese respuesta: " << endl;
-        cin >> respuesta;
-        while(respuesta != 1 && respuesta != 2)
-        {
-            cout << "Respuesta incorrecta... Vuelva a intentarlo..." << endl;
-            cout << "1- Orden creciente" << endl;
-            cout << "2- Orden decreciente" << endl;
-            cout << "Ingrese respuesta: " << endl;
-            cin >> respuesta;
-        }
+        respuesta = preguntarOrdenCrecienteDecreciente();
         system("cls");
         if(respuesta == 1) _listadosManager.listarSuscriptoresFechaAlta(fechaCreciente);
         else if(respuesta == 2) _listadosManager.listarSuscriptoresFechaAlta(fechaDecreciente);
@@ -76,35 +68,13 @@ void ListadosMenu::ejecutarOpcion(int opcion)
         _listadosManager.listarPeliculasTitulo();
         break;
     case 4:
-        cout << "1- Orden creciente" << endl;
-        cout << "2- Orden decreciente" << endl;
-        cout << "Ingrese respuesta: " << endl;
-        cin >> respuesta;
-        while(respuesta != 1 && respuesta != 2)
-        {
-            cout << "Respuesta incorrecta... Vuelva a intentarlo..." << endl;
-            cout << "1- Orden creciente" << endl;
-            cout << "2- Orden decreciente" << endl;
-            cout << "Ingrese respuesta: " << endl;
-            cin >> respuesta;
-        }
+        respuesta = preguntarOrdenCrecienteDecreciente();
         system("cls");
         if(respuesta == 1) _listadosManager.listarPeliculasFechaEstreno(fechaCreciente);
         else if(respuesta == 2) _listadosManager.listarPeliculasFechaEstreno(fechaDecreciente);
         break;
     case 5:
-        cout << "1- Orden creciente" << endl;
-        cout << "2- Orden decreciente" << endl;
-        cout << "Ingrese respuesta: " << endl;
-        cin >> respuesta;
-        while(respuesta != 1 && respuesta != 2)
-        {
-            cout << "Respuesta incorrecta... Vuelva a intentarlo..." << endl;
-            cout << "1- Orden creciente" << endl;
-            cout << "2- Orden decreciente" << endl;
-            cout << "Ingrese respuesta: " << endl;
-            cin >> respuesta;
-        }
+        respuesta = preguntarOrdenCrecienteDecreciente();
         system("cls");
         if(respuesta == 1) _listadosManager.listarPeliculasDuracion(intCreciente);
         else if(respuesta == 2) _listadosManager.listarPeliculasDuracion(intDecreciente);
@@ -113,35 +83,13 @@ void ListadosMenu::ejecutarOpcion(int opcion)
         _listadosManager.listarSeriesTitulo();
         break;
     case 7:
-        cout << "1- Orden creciente" << endl;
-        cout << "2- Orden decreciente" << endl;
-        cout << "Ingrese respuesta: " << endl;
-        cin >> respuesta;
-        while(respuesta != 1 && respuesta != 2)
-        {
-            cout << "Respuesta incorrecta... Vuelva a intentarlo..." << endl;
-            cout << "1- Orden creciente" << endl;
-            cout << "2- Orden decreciente" << endl;
-            cout << "Ingrese respuesta: " << endl;
-            cin >> respuesta;
-        }
+        respuesta = preguntarOrdenCrecienteDecreciente();
         system("cls");
         if(respuesta == 1) _listadosManager.listarSeriesFechaEstreno(fechaCreciente);
         else if(respuesta == 2) _listadosManager.listarSeriesFechaEstreno(fechaDecreciente);
         break;
     case 8:
-        cout << "1- Orden creciente" << endl;
-        cout << "2- Orden decreciente" << endl;
-        cout << "Ingrese respuesta: " << endl;
-        cin >> respuesta;
-        while(respuesta != 1 && respuesta != 2)
-        {
-            cout << "Respuesta incorrecta... Vuelva a intentarlo..." << endl;
-            cout << "1- Orden creciente" << endl;
-            cout << "2- Orden decreciente" << endl;
-            cout << "Ingrese respuesta: " << endl;
-            cin >> respuesta;
-        }
+        respuesta = preguntarOrdenCrecienteDecreciente();
         system("cls");
         if(respuesta == 1) _listadosManager.listarSeriesCapitulos(intCreciente);
         else if(respuesta == 2) _listadosManager.listarSeriesCapitulos(intDecreciente);
@@ -150,10 +98,13 @@ void ListadosMenu::ejecutarOpcion(int opcion)
         _listadosManager.listarDirectoresApellido();
         break;
     case 10 :
-
+        respuesta = preguntarOrdenCrecienteDecreciente();
+        system("cls");
+        if(respuesta == 1) _listadosManager.listarConsumosFechaAcceso(fechaHoraCreciente);
+        else if(respuesta == 2) _listadosManager.listarConsumosFechaAcceso(fechaHoraDecreciente);
         break;
     case 11:
-
+        _listadosManager.listarConsumosIdSuscriptor();
         break;
     case 12:
         _listadosManager.listarGeneros();
@@ -175,16 +126,21 @@ int ListadosMenu::seleccionOpcion()
 {
     int opcion;
     mostrarOpciones();
-    cout << "-------------------------------------------------" << endl;
+    rlutil::setColor(rlutil::YELLOW);
+    cout << "--------------------" << endl;
     cout << "SELECCIONE UNA OPCION: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> opcion;
     while(opcion < 0 || opcion > _cantidadOpciones)
     {
+        rlutil::setColor(rlutil::RED);
         cout << "---------------" << endl;
         cout << "Opcion incorrecta... Vuelva a intentarlo por favor..." << endl;
         cout << "---------------" << endl;
+        rlutil::setColor(rlutil::YELLOW);
         cout << "SELECCIONE UNA OPCION: ";
         cin >> opcion;
+        rlutil::setColor(rlutil::WHITE);
     }
     return opcion;
 }

@@ -15,10 +15,13 @@ private:
     ListadosManager _listados;
 
     int validarSuscriptor(int id);
-    int validarContenido(int id);
     int validarPelicula(int id);
     int validarSerie(int id);
     int validarDuracion(int id, int dv);
+    void validarFechaAltaConsumo(Fecha &fechaConsumo, int idSuscriptor, int idContenido, int idTipoContenido);
+    bool existeConsumoDuplicado(Consumo nuevo);
+    bool existeConsumoDuplicado(int pos, Consumo nuevo);
+
 public:
     bool cargarConsumo();
     bool modificarConsumo();

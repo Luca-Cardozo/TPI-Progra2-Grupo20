@@ -26,10 +26,10 @@ int DirectorArchivo::getNuevoID()
 
 int DirectorArchivo::buscar(int id)
 {
-    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr) return -1;
     Director reg;
     int pos = 0;
+    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+    if(pArchivo == nullptr) return -1;
     while(fread(&reg, sizeof(Director), 1, pArchivo))
     {
         if(reg.getId() == id)
