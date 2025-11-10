@@ -47,11 +47,7 @@ TipoContenido TipoContenidoArchivo::leer(int pos)
 {
     TipoContenido reg;
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr)
-    {
-        reg.setIdTipoContenido(-1);
-        return reg;
-    }
+    if(pArchivo == nullptr) return reg;
     fseek(pArchivo, sizeof(TipoContenido) * pos, SEEK_SET);
     fread(&reg, sizeof(TipoContenido), 1, pArchivo);
     fclose(pArchivo);
@@ -89,7 +85,7 @@ bool TipoContenidoArchivo::guardar(int pos, TipoContenido reg)
 bool TipoContenidoArchivo::eliminar(int pos)
 {
     TipoContenido reg = leer(pos);
-    if(reg.getIdTipoContenido() != -1)
+    if(reg.getIdTipoContenido() != 0)
     {
         reg.setEliminado(true);
         return guardar(pos, reg);
@@ -100,7 +96,7 @@ bool TipoContenidoArchivo::eliminar(int pos)
 bool TipoContenidoArchivo::alta(int pos)
 {
     TipoContenido reg = leer(pos);
-    if(reg.getIdTipoContenido() != -1)
+    if(reg.getIdTipoContenido() != 0)
     {
         reg.setEliminado(false);
         return guardar(pos, reg);

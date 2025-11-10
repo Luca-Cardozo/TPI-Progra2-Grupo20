@@ -24,9 +24,6 @@ bool PeliculaManager::cargarPelicula()
     cout << "ID: #" << id << endl;
 
     reg.cargar();
-    reg.setIdDirector(validarDirector(reg.getIdDirector()));
-    reg.setGenero(validarGenero(reg.getGenero()));
-    reg.setClasificacion(validarClasificacion(reg.getClasificacion()));
 
     cantRegistros = _repoPelicula.getCantidadRegistros();
     pPeliculas = new Pelicula[cantRegistros];
@@ -41,9 +38,12 @@ bool PeliculaManager::cargarPelicula()
     }
     _repoPelicula.leer(pPeliculas, cantRegistros);
 
-    reg.setTitulo(validarTitulo(pPeliculas, cantRegistros, reg.getTitulo()).c_str());
     reg.setId(id);
     reg.setIdTipoContenido(1);
+    reg.setTitulo(validarTitulo(pPeliculas, cantRegistros, reg.getTitulo()).c_str());
+    reg.setIdDirector(validarDirector(reg.getIdDirector()));
+    reg.setGenero(validarGenero(reg.getGenero()));
+    reg.setClasificacion(validarClasificacion(reg.getClasificacion()));
 
     delete [] pPeliculas;
     return _repoPelicula.guardar(reg);

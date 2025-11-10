@@ -47,11 +47,7 @@ Consumo ConsumoArchivo::leer(int pos)
 {
     Consumo reg;
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr)
-    {
-        reg.setIdAcceso(-1);
-        return reg;
-    }
+    if(pArchivo == nullptr) return reg;
     fseek(pArchivo, sizeof(Consumo) * pos, SEEK_SET);
     fread(&reg, sizeof(Consumo), 1, pArchivo);
     fclose(pArchivo);
@@ -89,7 +85,7 @@ bool ConsumoArchivo::guardar(int pos, Consumo reg)
 bool ConsumoArchivo::eliminar(int pos)
 {
     Consumo reg = leer(pos);
-    if(reg.getIdAcceso() != -1)
+    if(reg.getIdAcceso() != 0)
     {
         reg.setEliminado(true);
         return guardar(pos, reg);
@@ -100,7 +96,7 @@ bool ConsumoArchivo::eliminar(int pos)
 bool ConsumoArchivo::alta(int pos)
 {
     Consumo reg = leer(pos);
-    if(reg.getIdAcceso() != -1)
+    if(reg.getIdAcceso() != 0)
     {
         reg.setEliminado(false);
         return guardar(pos, reg);

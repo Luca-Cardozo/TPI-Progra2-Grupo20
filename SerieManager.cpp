@@ -24,9 +24,6 @@ bool SerieManager::cargarSerie()
     cout << "ID: #" << id << endl;
 
     reg.cargar();
-    reg.setIdDirector(validarDirector(reg.getIdDirector()));
-    reg.setGenero(validarGenero(reg.getGenero()));
-    reg.setClasificacion(validarClasificacion(reg.getClasificacion()));
 
     cantRegistros = _repoSerie.getCantidadRegistros();
     pSeries = new Serie[cantRegistros];
@@ -41,9 +38,12 @@ bool SerieManager::cargarSerie()
     }
     _repoSerie.leer(pSeries, cantRegistros);
 
-    reg.setTitulo(validarTitulo(pSeries, cantRegistros, reg.getTitulo()).c_str());
     reg.setId(id);
     reg.setIdTipoContenido(2);
+    reg.setTitulo(validarTitulo(pSeries, cantRegistros, reg.getTitulo()).c_str());
+    reg.setIdDirector(validarDirector(reg.getIdDirector()));
+    reg.setGenero(validarGenero(reg.getGenero()));
+    reg.setClasificacion(validarClasificacion(reg.getClasificacion()));
 
     delete [] pSeries;
     return _repoSerie.guardar(reg);

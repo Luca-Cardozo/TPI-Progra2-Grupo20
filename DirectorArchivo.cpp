@@ -47,11 +47,7 @@ Director DirectorArchivo::leer(int pos)
 {
     Director reg;
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr)
-    {
-        reg.setId(-1);
-        return reg;
-    }
+    if(pArchivo == nullptr) return reg;
     fseek(pArchivo, sizeof(Director) * pos, SEEK_SET);
     fread(&reg, sizeof(Director), 1, pArchivo);
     fclose(pArchivo);
@@ -89,7 +85,7 @@ bool DirectorArchivo::guardar(int pos, Director reg)
 bool DirectorArchivo::eliminar(int pos)
 {
     Director reg = leer(pos);
-    if(reg.getId() != -1)
+    if(reg.getId() != 0)
     {
         reg.setEliminado(true);
         return guardar(pos, reg);
@@ -100,7 +96,7 @@ bool DirectorArchivo::eliminar(int pos)
 bool DirectorArchivo::alta(int pos)
 {
     Director reg = leer(pos);
-    if(reg.getId() != -1)
+    if(reg.getId() != 0)
     {
         reg.setEliminado(false);
         return guardar(pos, reg);

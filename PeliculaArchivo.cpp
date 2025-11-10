@@ -47,11 +47,7 @@ Pelicula PeliculaArchivo::leer(int pos)
 {
     Pelicula reg;
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr)
-    {
-        reg.setId(-1);
-        return reg;
-    }
+    if(pArchivo == nullptr) return reg;
     fseek(pArchivo, sizeof(Pelicula) * pos, SEEK_SET);
     fread(&reg, sizeof(Pelicula), 1, pArchivo);
     fclose(pArchivo);
@@ -89,7 +85,7 @@ bool PeliculaArchivo::guardar(int pos, Pelicula reg)
 bool PeliculaArchivo::eliminar(int pos)
 {
     Pelicula reg = leer(pos);
-    if(reg.getId() != -1)
+    if(reg.getId() != 0)
     {
         reg.setEliminado(true);
         return guardar(pos, reg);
@@ -100,7 +96,7 @@ bool PeliculaArchivo::eliminar(int pos)
 bool PeliculaArchivo::alta(int pos)
 {
     Pelicula reg = leer(pos);
-    if(reg.getId() != -1)
+    if(reg.getId() != 0)
     {
         reg.setEliminado(false);
         return guardar(pos, reg);

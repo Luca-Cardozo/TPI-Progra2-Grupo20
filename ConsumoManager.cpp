@@ -157,7 +157,7 @@ bool ConsumoManager::eliminarConsumo()
         {
             rlutil::setColor(rlutil::RED);
             cout << endl;
-            cout << "No existe un consumo registrad con ese ID... Vuelva a intentarlo..." << endl;
+            cout << "No existe un consumo registrado con ese ID... Vuelva a intentarlo..." << endl;
             cout << endl;
             rlutil::setColor(rlutil::WHITE);
             system("pause");
@@ -443,7 +443,7 @@ int ConsumoManager::validarDuracion(int id, int dv)
             cout << "La duracion total de la pelicula es " << reg.getDuracion() << " minutos" << endl;
             rlutil::setColor(rlutil::WHITE);
         }
-        else if(dv < 0)
+        else if(dv <= 0)
         {
             cout << endl;
             rlutil::setColor(rlutil::RED);

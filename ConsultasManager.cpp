@@ -1195,6 +1195,13 @@ void ConsultasManager::consultarConsumosPorSuscriptor(int id)
         }
     }
 
+    if(fila == 0)
+    {
+        cout << endl;
+        rlutil::setColor(rlutil::RED);
+        cout << "No se encontraron consumos para el suscriptor especificado." << endl;
+    }
+
     rlutil::setColor(rlutil::WHITE);
     cout << endl;
     cout << endl;
@@ -1295,6 +1302,13 @@ void ConsultasManager::consultarConsumosPorPelicula(int id)
             rlutil::locate(100, 7 + fila);
             fila++;
         }
+    }
+
+    if(fila == 0)
+    {
+        cout << endl;
+        rlutil::setColor(rlutil::RED);
+        cout << "No se encontraron consumos para la pelicula especificada." << endl;
     }
 
     rlutil::setColor(rlutil::WHITE);
@@ -1398,6 +1412,13 @@ void ConsultasManager::consultarConsumosPorSerie(int id)
             rlutil::locate(100, 7 + fila);
             fila++;
         }
+    }
+
+    if(fila == 0)
+    {
+        cout << endl;
+        rlutil::setColor(rlutil::RED);
+        cout << "No se encontraron consumos para la serie especificada." << endl;
     }
 
     rlutil::setColor(rlutil::WHITE);

@@ -47,11 +47,7 @@ Suscriptor SuscriptorArchivo::leer(int pos)
 {
     Suscriptor reg;
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr)
-    {
-        reg.setId(-1);
-        return reg;
-    }
+    if(pArchivo == nullptr) return reg;
     fseek(pArchivo, sizeof(Suscriptor) * pos, SEEK_SET);
     fread(&reg, sizeof(Suscriptor), 1, pArchivo);
     fclose(pArchivo);
@@ -89,7 +85,7 @@ bool SuscriptorArchivo::guardar(int pos, Suscriptor reg)
 bool SuscriptorArchivo::eliminar(int pos)
 {
     Suscriptor reg = leer(pos);
-    if(reg.getId() != -1)
+    if(reg.getId() != 0)
     {
         reg.setEliminado(true);
         return guardar(pos, reg);
@@ -100,7 +96,7 @@ bool SuscriptorArchivo::eliminar(int pos)
 bool SuscriptorArchivo::alta(int pos)
 {
     Suscriptor reg = leer(pos);
-    if(reg.getId() != -1)
+    if(reg.getId() != 0)
     {
         reg.setEliminado(false);
         return guardar(pos, reg);

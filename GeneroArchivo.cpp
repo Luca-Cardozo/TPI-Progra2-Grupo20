@@ -47,11 +47,7 @@ Genero GeneroArchivo::leer(int pos)
 {
     Genero reg;
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr)
-    {
-        reg.setIdGenero(-1);
-        return reg;
-    }
+    if(pArchivo == nullptr) return reg;
     fseek(pArchivo, sizeof(Genero) * pos, SEEK_SET);
     fread(&reg, sizeof(Genero), 1, pArchivo);
     fclose(pArchivo);
@@ -89,7 +85,7 @@ bool GeneroArchivo::guardar(int pos, Genero reg)
 bool GeneroArchivo::eliminar(int pos)
 {
     Genero reg = leer(pos);
-    if(reg.getIdGenero() != -1)
+    if(reg.getIdGenero() != 0)
     {
         reg.setEliminado(true);
         return guardar(pos, reg);
@@ -100,7 +96,7 @@ bool GeneroArchivo::eliminar(int pos)
 bool GeneroArchivo::alta(int pos)
 {
     Genero reg = leer(pos);
-    if(reg.getIdGenero() != -1)
+    if(reg.getIdGenero() != 0)
     {
         reg.setEliminado(false);
         return guardar(pos, reg);

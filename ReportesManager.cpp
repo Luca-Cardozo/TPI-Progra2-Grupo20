@@ -830,13 +830,13 @@ void ReportesManager::consumosPorGenero(int anio)
 
     system("cls");
     rlutil::setColor(rlutil::YELLOW);
-    rlutil::locate(10, fila++);
+    rlutil::locate(5, fila++);
     cout << "================ CONSUMOS POR GENERO ================" << endl;
     fila += 2;
     rlutil::setColor(rlutil::CYAN);
     rlutil::locate(colGenero, fila);
     cout << "+++ " << anio << endl;
-    rlutil::locate(colPorcentaje, fila++);
+    rlutil::locate(colPorcentaje - 7, fila++);
     cout << "TOTAL CONSUMOS: " << totalConsumos;
     fila++;
     rlutil::setColor(rlutil::LIGHTMAGENTA);
@@ -985,9 +985,9 @@ void ReportesManager::promedioMensualMinutosConsumidosPorTipoSuscripcion(int ani
     int minutosConsumidosPremium[12] = {};
     int cantRegistrosConsumos = _repoConsumo.getCantidadRegistros();
     int cantRegistrosSuscriptores = _repoSuscriptor.getCantidadRegistros();
-    int totalMinutosPorMes[12] = {};
+    int cantSuscriptoresBasico = 0, cantSuscriptoresEstandar = 0, cantSuscriptoresPremium = 0;
     Consumo* pConsumos = new Consumo [cantRegistrosConsumos];
-    Suscriptor* pSuscriptores = new Suscriptor [cantRegistrosConsumos];
+    Suscriptor* pSuscriptores = new Suscriptor [cantRegistrosSuscriptores];
     int filaBase;
 
     if(cantRegistrosConsumos == 0)
@@ -1021,6 +1021,25 @@ void ReportesManager::promedioMensualMinutosConsumidosPorTipoSuscripcion(int ani
     _repoConsumo.leer(pConsumos, cantRegistrosConsumos);
     _repoSuscriptor.leer(pSuscriptores, cantRegistrosSuscriptores);
 
+    for (int i = 0; i < cantRegistrosSuscriptores; i++)
+    {
+        if (!pSuscriptores[i].getEliminado())
+        {
+            switch (pSuscriptores[i].getTipoSuscripcion())
+            {
+            case 1:
+                cantSuscriptoresBasico++;
+                break;
+            case 2:
+                cantSuscriptoresEstandar++;
+                break;
+            case 3:
+                cantSuscriptoresPremium++;
+                break;
+            }
+        }
+    }
+
     for(int i = 0; i < cantRegistrosConsumos; i++)
     {
         if(!pConsumos[i].getEliminado() && pConsumos[i].getFechaAcceso().getAnio() == anio)
@@ -1028,17 +1047,14 @@ void ReportesManager::promedioMensualMinutosConsumidosPorTipoSuscripcion(int ani
             if(pSuscriptores[pConsumos[i].getIdSuscriptor() - 1].getTipoSuscripcion() == 1 && !pSuscriptores[pConsumos[i].getIdSuscriptor() - 1].getEliminado())
             {
                 minutosConsumidosBasico[pConsumos[i].getFechaAcceso().getMes() - 1] += pConsumos[i].getDuracionVista();
-                totalMinutosPorMes[pConsumos[i].getFechaAcceso().getMes() - 1] += pConsumos[i].getDuracionVista();
             }
             else if(pSuscriptores[pConsumos[i].getIdSuscriptor() - 1].getTipoSuscripcion() == 2 && !pSuscriptores[pConsumos[i].getIdSuscriptor() - 1].getEliminado())
             {
                 minutosConsumidosEstandar[pConsumos[i].getFechaAcceso().getMes() - 1] += pConsumos[i].getDuracionVista();
-                totalMinutosPorMes[pConsumos[i].getFechaAcceso().getMes() - 1] += pConsumos[i].getDuracionVista();
             }
             else if(pSuscriptores[pConsumos[i].getIdSuscriptor() - 1].getTipoSuscripcion() == 3 && !pSuscriptores[pConsumos[i].getIdSuscriptor() - 1].getEliminado())
             {
                 minutosConsumidosPremium[pConsumos[i].getFechaAcceso().getMes() - 1] += pConsumos[i].getDuracionVista();
-                totalMinutosPorMes[pConsumos[i].getFechaAcceso().getMes() - 1] += pConsumos[i].getDuracionVista();
             }
         }
     }
@@ -1066,18 +1082,36 @@ void ReportesManager::promedioMensualMinutosConsumidosPorTipoSuscripcion(int ani
     {
         rlutil::locate(5, filaBase + i);
         cout << meses[i];
-        if (totalMinutosPorMes[i] == 0)
+        if(cantSuscriptoresBasico > 0)
         {
-            rlutil::locate(30, filaBase + i);
-            cout << "         SIN CONSUMOS";
-            continue;
+            rlutil::locate(25, filaBase + i);
+            cout << (float)minutosConsumidosBasico[i] / cantSuscriptoresBasico << " min";
         }
-        rlutil::locate(25, filaBase + i);
-        cout << (float)minutosConsumidosBasico[i] / totalMinutosPorMes[i] * 100;
-        rlutil::locate(40, filaBase + i);
-        cout << (float)minutosConsumidosEstandar[i] / totalMinutosPorMes[i] * 100;
-        rlutil::locate(55, filaBase + i);
-        cout << (float)minutosConsumidosPremium[i] / totalMinutosPorMes[i] * 100;
+        else
+        {
+            rlutil::locate(25, filaBase + i);
+            cout << "SIN SUSC.";
+        }
+        if(cantSuscriptoresEstandar > 0)
+        {
+            rlutil::locate(40, filaBase + i);
+            cout << (float)minutosConsumidosEstandar[i] / cantSuscriptoresEstandar << " min";
+        }
+        else
+        {
+            rlutil::locate(40, filaBase + i);
+            cout << "SIN SUSC.";
+        }
+        if(cantSuscriptoresPremium > 0)
+        {
+            rlutil::locate(55, filaBase + i);
+            cout << (float)minutosConsumidosPremium[i] / cantSuscriptoresPremium << " min";
+        }
+        else
+        {
+            rlutil::locate(55, filaBase + i);
+            cout << "SIN SUSC.";
+        }
     }
     rlutil::setColor(rlutil::WHITE);
     cout << endl;

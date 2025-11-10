@@ -47,11 +47,7 @@ Serie SerieArchivo::leer(int pos)
 {
     Serie reg;
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr)
-    {
-        reg.setId(-1);
-        return reg;
-    }
+    if(pArchivo == nullptr) return reg;
     fseek(pArchivo, sizeof(Serie) * pos, SEEK_SET);
     fread(&reg, sizeof(Serie), 1, pArchivo);
     fclose(pArchivo);
@@ -89,7 +85,7 @@ bool SerieArchivo::guardar(int pos, Serie reg)
 bool SerieArchivo::eliminar(int pos)
 {
     Serie reg = leer(pos);
-    if(reg.getId() != -1)
+    if(reg.getId() != 0)
     {
         reg.setEliminado(true);
         return guardar(pos, reg);
@@ -100,7 +96,7 @@ bool SerieArchivo::eliminar(int pos)
 bool SerieArchivo::alta(int pos)
 {
     Serie reg = leer(pos);
-    if(reg.getId() != -1)
+    if(reg.getId() != 0)
     {
         reg.setEliminado(false);
         return guardar(pos, reg);

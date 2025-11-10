@@ -47,11 +47,7 @@ TipoSuscripcion TipoSuscripcionArchivo::leer(int pos)
 {
     TipoSuscripcion reg;
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr)
-    {
-        reg.setIdTipoSuscripcion(-1);
-        return reg;
-    }
+    if(pArchivo == nullptr) return reg;
     fseek(pArchivo, sizeof(TipoSuscripcion) * pos, SEEK_SET);
     fread(&reg, sizeof(TipoSuscripcion), 1, pArchivo);
     fclose(pArchivo);
@@ -89,7 +85,7 @@ bool TipoSuscripcionArchivo::guardar(int pos, TipoSuscripcion reg)
 bool TipoSuscripcionArchivo::eliminar(int pos)
 {
     TipoSuscripcion reg = leer(pos);
-    if(reg.getIdTipoSuscripcion() != -1)
+    if(reg.getIdTipoSuscripcion() != 0)
     {
         reg.setEliminado(true);
         return guardar(pos, reg);
@@ -100,7 +96,7 @@ bool TipoSuscripcionArchivo::eliminar(int pos)
 bool TipoSuscripcionArchivo::alta(int pos)
 {
     TipoSuscripcion reg = leer(pos);
-    if(reg.getIdTipoSuscripcion() != -1)
+    if(reg.getIdTipoSuscripcion() != 0)
     {
         reg.setEliminado(false);
         return guardar(pos, reg);

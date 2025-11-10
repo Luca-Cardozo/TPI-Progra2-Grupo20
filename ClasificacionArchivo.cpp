@@ -47,11 +47,7 @@ Clasificacion ClasificacionArchivo::leer(int pos)
 {
     Clasificacion reg;
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == nullptr)
-    {
-        reg.setIdClasificacion(-1);
-        return reg;
-    }
+    if(pArchivo == nullptr) return reg;
     fseek(pArchivo, sizeof(Clasificacion) * pos, SEEK_SET);
     fread(&reg, sizeof(Clasificacion), 1, pArchivo);
     fclose(pArchivo);
@@ -89,7 +85,7 @@ bool ClasificacionArchivo::guardar(int pos, Clasificacion reg)
 bool ClasificacionArchivo::eliminar(int pos)
 {
     Clasificacion reg = leer(pos);
-    if(reg.getIdClasificacion() != -1)
+    if(reg.getIdClasificacion() != 0)
     {
         reg.setEliminado(true);
         return guardar(pos, reg);
@@ -100,7 +96,7 @@ bool ClasificacionArchivo::eliminar(int pos)
 bool ClasificacionArchivo::alta(int pos)
 {
     Clasificacion reg = leer(pos);
-    if(reg.getIdClasificacion() != -1)
+    if(reg.getIdClasificacion() != 0)
     {
         reg.setEliminado(false);
         return guardar(pos, reg);
