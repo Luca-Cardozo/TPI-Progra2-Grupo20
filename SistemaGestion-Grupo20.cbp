@@ -35,6 +35,8 @@
 		</Compiler>
 		<Unit filename="App.cpp" />
 		<Unit filename="App.h" />
+		<Unit filename="CargaDeDatos.cpp" />
+		<Unit filename="CargaDeDatos.h" />
 		<Unit filename="Clasificacion.cpp">
 			<Option virtualFolder="Auxiliares/" />
 		</Unit>

@@ -71,6 +71,7 @@ void cargarPeliculas()
     for (int i = 0; i < 30; i++)
     {
         reg.setId(i + 1);
+        reg.setIdTipoContenido(1);
         reg.cargar();
         fwrite(&reg, sizeof(Pelicula), 1, p);
     }
@@ -95,6 +96,7 @@ void cargarSeries()
     for (int i = 0; i < 30; i++)
     {
         reg.setId(i + 1);
+        reg.setIdTipoContenido(2);
         reg.cargar();
         fwrite(&reg, sizeof(Serie), 1, p);
     }

@@ -380,7 +380,7 @@
 	"rlutil.h"
 	"utils.h"
 
-1762616548 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\main.cpp
+1762826624 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\main.cpp
 	<iostream>
 	"App.h"
 	"CargaDeDatos.h"
@@ -604,7 +604,7 @@
 	"Hora.h"
 	"rlutil.h"
 
-1762615575 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\cargadedatos.cpp
+1762826078 source:d:\información de luca\información de luca\tup\programación ii\tp integrador\tpi - grupo 20\sistemagestion-grupo20\tpi-progra2-grupo20\cargadedatos.cpp
 	"Suscriptor.h"
 	"Director.h"
 	"Pelicula.h"
